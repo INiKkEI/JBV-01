@@ -1,0 +1,11 @@
+# Store one line ending in the repository, whatever each machine uses on disk.
+#
+# Why this is here: if our two machines have different git line-ending settings,
+# an editor that re-saves a file makes the whole file look rewritten. The real
+# change is then buried in a diff of every line. This one rule prevents that,
+# and it does not depend on either of us configuring anything locally.
+#
+# Nothing else belongs in this file. Git already detects .xlsx, .pdf, images and
+# other binary formats by itself and refuses to merge them.
+
+* text=auto

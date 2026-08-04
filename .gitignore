@@ -1,0 +1,19 @@
+# Files that must never enter the repository.
+# Kept short on purpose. Add a line when a tool joins the project, not before.
+
+# Lock files created while a spreadsheet or document is open.
+# These appear as soon as BOM.xlsx exists and someone opens it.
+~$*
+
+# Operating system junk.
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Video. Too large, and a large file cannot be removed from history later
+# without breaking the other person's copy. Keep flight video in cloud storage
+# and put the link in 06_flight/FLIGHT_LOG.md next to the flight.
+*.mp4
+*.mov
+*.avi
+*.mkv
