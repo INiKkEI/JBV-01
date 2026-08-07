@@ -16,6 +16,11 @@ checklist.
 | NASA | NASA Systems Engineering Handbook, NASA/SP-2016-6105 Rev 2 | https://explorers.larc.nasa.gov/2023ESE/pdf_files/NASA04.%20SysEng%20Handbook%20(NASA_SP-2016-6105%20Rev%202).pdf | Free PDF, 300+ pp. Also available section by section as HTML at nasa.gov/reference/ |
 | HYDRO | Sutherland, Kamiyama, Aoyama, Oizumi — "Systems Engineering and the V-Model: Lessons from an Autonomous Solar Powered Hydrofoil", IMDC 2015 | https://www.joshuasutherland.com/wp-content/uploads/2020/02/2015_Sutherland-et-al_IMDC2015-v1.7.pdf | Free PDF, ~12 pp |
 | GH | GitHub Docs | https://docs.github.com | Free. Changes without notice — check the page, do not quote from memory |
+| EAR | EASA Easy Access Rules for Unmanned Aircraft Systems — consolidated text of Regulations (EU) 2019/947 and (EU) 2019/945, **January 2021 edition**, 309 pp. | https://drones.gov.cy/wp-content/uploads/2021/02/Easy-Access_Rules_for_Unmanned_Aircraft_Systems_January_2021.pdf | Free PDF. **This is our working copy of the law.** Dated January 2021 — the regulation has been amended since, so re-check before the requirements freeze |
+| EASA | EASA — Open category FAQ | https://www.easa.europa.eu/en/the-agency/faqs/open-category | Free. **Built by JavaScript — a plain fetch returns an empty page.** Superseded for our purposes by EAR above, which is the actual text |
+| RDW | RDW — drone registration and pilot licence, Netherlands | https://www.rdw.nl/drone | Free, in Dutch. Readable. **Note: the correct path is `/drone`, not the longer `/particulier/voertuigen/drone/...` paths, which redirect** |
+| ILT | Human Environment and Transport Inspectorate — the Dutch aviation authority for drones | https://english.ilent.nl/topics/aviation/drones-and-model-aircraft | Free, has an English version. Where a Specific category authorisation would be applied for |
+| AP | ArduPilot Plane documentation (ArduPlane) | https://ardupilot.org/plane/ | Free. Versioned with the firmware — record which page and check it again when we pick a release |
 
 ---
 
@@ -35,10 +40,53 @@ checklist.
 
 | Source | Exact location | What we need it for |
 |--------|----------------|---------------------|
-| NASA | Section 4.1 "Stakeholder Expectations Definition" | How to collect and write down what the aircraft must do, before we write requirements |
-| NASA | Appendix S "Concept of Operations Annotated Outline" | A ConOps outline we can fill in directly. The most useful ready-made thing in the handbook for us |
-| MIT | Session 1 — the stakeholder analysis half of the deck | How to find stakeholders and map what they value |
-| HYDRO | Table 3, enabler 1.2 "Establish the Value of the End Product to the Customer" | Their team had two different ideas of value at the same time — win the race, or learn as much as possible — and never chose. We have the same problem between portfolio value and learning. We need to settle it early |
+| NASA | Section 4.1 "Stakeholder Expectations Definition" — 4.1.1.1 Inputs, the ten activities 4.1.1.2.1 to 4.1.1.2.10, and 4.1.1.3 Outputs. Figure 4.1-1 process flow, Table 4.1-1 stakeholder identification, Figure 4.1-2 information flow, Figure 4.1-3 example Lunar Sortie DRM | How to collect and write down what the aircraft must do, before we write requirements. Note the boxed comparison "Concept of Operations vs. Operations Concept" — we want the first one |
+| NASA | Section 4.1.1.2.3 "Identify Needs, Goals, and Objectives" | The definitions of need, goal and objective, the four criteria for an objective, and the two lines that matter most to us: the need statement is singular, and a TBD objective is allowed until the trade study happens |
+| NASA | Section 4.1.1.2.6 "Analyze Expectations Statements for Measures of Effectiveness" | What an MOE is, and the test for whether something is one. These are the validation criteria Stage 0 said we were missing |
+| NASA | Appendix S "Concept of Operations Annotated Outline" — sections 1.0 to 8.0 plus Appendix A Acronyms and Appendix B Glossary. Section 6.0 gives the [DRM-0100] scenario labelling advice | A ConOps outline we can fill in directly. The most useful ready-made thing in the handbook for us |
+| MIT | Session 1 — slides 30 to 54 (footer numbering). Slide 35 defines stakeholder, slide 36 is the table of stakeholder types against typical expectations, slides 37–38 ConOps and the Lunar DRM example, slide 41 benefits, slides 42–54 Stakeholder Value Network analysis | How to find stakeholders and map what they value. Slide 36 is the template we use for our own stakeholder list. Slides 42–54 read and skipped on purpose — too heavy for two people |
+| HYDRO | Table 3, enabler 1.2 "Establish the Value of the End Product or System to the Customer". Table 3 has one row only. Also the body paragraph beginning "Value:" in the section "Looking Beyond the V-Model for Development Improvements" | Their team had two different ideas of value at the same time — win the race, or learn as much as possible — and never chose. We have the same problem between portfolio value and learning. We need to settle it early. Warning: the "Flow:" paragraph in the same section misnames Table 3; the Flow enablers are in Table 5 |
+| HYDRO | Table 8, enabler 6.3 — the words "Survey team members to understand their skills and aspirations" | Same conversation as enabler 1.2. Defining value and mapping what each of us wants to learn is one conversation, not two |
+| — | Notes taken from all of the above: `00_management/STAGE_1_NOTES.md` | Stage 1 is read and written up, with the open items it leaves. Start there instead of reading the sources again |
+
+## Regulatory and technical sources — used across every stage
+
+These are not method sources. They are the rules we must obey and the hardware and software we
+will actually use. They are listed separately because they change on their own schedule, and a
+figure from one of them is only good on the day it was checked.
+
+| Source | Exact location | What we need it for | Checked? |
+|--------|----------------|---------------------|----------|
+| EAR | Regulation (EU) 2019/947, **Article 4(1)(a)–(f)** — the six conditions for the Open Category | Constraints C6, C8, C11, C12, C13, C14. This one article is the source of almost every rule that binds JBV-01 | **Yes.** Read in full from the consolidated text |
+| EAR | Regulation (EU) 2019/947, **Article 4(1)(d)** — "the remote pilot keeps the unmanned aircraft in VLOS at all times except when flying in follow-me mode or when using an unmanned aircraft observer" | Constraint C11. It is why "long range" was removed from the Need | **Yes** |
+| EAR | Regulation (EU) 2019/947, **Article 4(1)(e)** — "the unmanned aircraft is maintained within 120 metres from the closest point of the surface of the earth, except when overflying an obstacle" | Constraint C12. A height ceiling we did not previously have | **Yes** |
+| EAR | Regulation (EU) 2019/947, **Article 4(1)(b)** — MTOM below 25 kg | Constraint C6 | **Yes** |
+| EAR | Regulation (EU) 2019/947, **definition (16)** — "'privately built UAS' means a UAS assembled or manufactured for the builder's own use, not including UAS assembled from sets of parts placed on the market as a single ready-to-assemble kit", read with Article 4(1)(a) | Constraint C13. It is the route that lets a home-built aircraft fly in the Open Category at all, and buying a complete kit would close it | **Yes** |
+| EAR | Regulation (EU) 2019/947, **definitions (7) and (8)** — VLOS is "continuous unaided visual contact"; BVLOS is any operation not conducted in VLOS | Constraint C11. "Unaided" rules out using goggles or a screen to satisfy it | **Yes** |
+| EAR | Regulation (EU) 2019/947, **recital (15)** — aircraft of 250 g or more present risks to security, so their operators must register | Constraint C7 | **Partly.** The recital gives the threshold and the reason. Article 14, which is the operative rule, was beyond the part of the PDF we could extract |
+| EAR | **Annex, Part A — UAS.OPEN.020, .030, .040** (subcategories A1, A2, A3) | Constraint C6a and objective O1.4. Decides which subcategory a privately built aircraft above 250 g falls into, and therefore how far from people we must fly | **No.** Beyond the extracted portion of the PDF. **This is the biggest open regulatory question** |
+| RDW | "Exploitantnummer aanvragen (registreren)" — sections "Wanneer is registreren verplicht", "Exploitantnummer aanbrengen op de drone", "Kosten". https://www.rdw.nl/drone/exploitantnummer-aanvragen | Constraint C7. Who must register, the €23 fee, and the rule that only the part of the number before the dash goes on the airframe | **Yes.** Read 2026-08-04 |
+| RDW | "Vliegbewijs aanvragen" — sections "Alleen nodig vanaf 250 gram!", "Voorwaarden aanvraag vliegbewijs", "Kosten", "Soorten vliegbewijzen". https://www.rdw.nl/drone/vliegbewijs-aanvragen | Constraint C15. The A1/A3 licence, €10, valid 5 years, exam at a recognised Dutch flight school, carried on every flight, and that under 16 requires supervision | **Yes.** Read 2026-08-04 |
+| ILT | "Flying drones in the Netherlands" — opening paragraph, and the line "all drone flights in the Netherlands must comply with Regulation [EU]2019/947". https://english.ilent.nl/topics/aviation/drones-and-model-aircraft/drones-eu-residents | Confirms the EU rules apply here in full, that an Open Category flight needs no permission, and that GoDrone shows the closed areas | **Yes.** Read 2026-08-04 |
+| RDW | "Verzekeringen en vluchtvergunningen" | Whether insurance is compulsory for us | **No.** The page returned 503 on every attempt |
+| — | Consolidated rules file: `01_requirements/RULES.md` | Every rule that binds JBV-01, with its source and how well it is checked, in one place. **Start here instead of re-reading the sources** | — |
+| AP | "QuadPlane Frame setup" — sections "Plane VTOL Motor Configurations", "Frame Types and Classes" (the `Q_FRAME_CLASS` and `Q_FRAME_TYPE` value lists), and "VTOL Motor Ordering" (Quad-X default, outputs 5 to 8). https://ardupilot.org/plane/docs/quadplane-frame-setup.html | Decision D3. Proves a proven fallback exists in software and at configuration level, which is what the value rule's first question asks for | **Yes.** Page read directly. Note: the page calls Quad-X the *default* frame. It does not call it the easiest or the beginner option — that wording came from a search summary and was wrong |
+| AP | "Tilt Rotor Planes". https://ardupilot.org/plane/docs/guide-tilt-rotor.html | Stage 3, if the trade picks a tiltrotor | Linked from the frame setup page. Not yet read |
+| AP | "Tailsitter Planes". https://ardupilot.org/plane/docs/guide-tailsitter.html | Stage 3, if the trade picks a tailsitter | Linked from the frame setup page. Not yet read |
+
+**Standing rule for this table.** A regulatory figure is only as good as the day it was checked.
+Anything marked "No" above must not be written into a requirement, and must not be presented to a
+reader as a fact.
+
+**Two jobs left that need a browser, because a plain fetch cannot reach these pages:**
+
+1. Annex Part A of 2019/947 — the A1, A2, A3 subcategory conditions. Until we have these we do not
+   know how far from people we must fly, and we cannot settle whether the 900 g figure applies to
+   us at all.
+2. The RDW registration page — cost, duration, and where the operator number must be marked.
+
+**And one job that needs no browser:** the consolidated text we are working from is the January
+2021 edition. Check what has been amended since, before the requirements freeze.
 
 ## Stage 2 — System requirements → `01_requirements/`
 
