@@ -189,10 +189,9 @@ question makes the point directly: talk to stakeholders before designing anythin
 we need to understand their needs first.
 
 Our stakeholders are not obvious and we have not listed them. First attempt, to be discussed
-properly in Stage 1: the two of us; our supervisor and whoever grades this; the university, for
-lab access and liability; future employers reading the portfolio; RDW and EASA as the regulator;
-and anyone near a test site. The regulator is a stakeholder whose requirements cannot be
-negotiated and are already written down. That makes it the easiest one to satisfy and the most
+properly in Stage 1: the two of us; future employers reading the portfolio; RDW and EASA as the
+regulator; and anyone near a test site. The regulator is a stakeholder whose requirements cannot
+be negotiated and are already written down. That makes it the easiest one to satisfy and the most
 expensive one to ignore.
 
 **ConOps.** Named as one of the main outputs of capturing stakeholder expectations, and as an
