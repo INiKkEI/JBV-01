@@ -86,6 +86,11 @@ NASA's wording, as given in HYDRO Figure 5:
 Short version: verification asks "did we build it right", validation asks "did we build the right
 thing". Both use the same four methods — test, analysis, inspection, demonstration.
 
+> **Out of date since 2026-08-09.** The paragraph below was written when the record
+> was a goal of the project. It is not any more. Validation now checks the aircraft only. The text
+> is kept as written, because it is what we thought at Stage 0 and the reasoning still shows how we
+> got to the MOEs.
+
 For us: an aircraft that hovers for 120 s and transitions cleanly is **verified**. An aircraft
 that does all of that, but which we cannot photograph, explain, and show our reasoning for, has
 failed **validation**. The portfolio piece is our first goal, so this is a real pass/fail

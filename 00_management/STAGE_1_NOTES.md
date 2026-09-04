@@ -18,8 +18,8 @@ The process has three inputs (4.1.1.1):
 
 | Input | For us |
 |---|---|
-| Initial customer expectations | Ours only. We are the customer — decision D1. There is no supervisor setting acceptance criteria |
-| Other stakeholder expectations | Regulator, people near a test site, readers of the portfolio, suppliers. Full list in `01_requirements/STAKEHOLDERS.md` |
+| Initial customer expectations | Ours only. We are the customer. There is no supervisor setting acceptance criteria |
+| Other stakeholder expectations | Regulator, people near a test site, readers of the portfolio, suppliers. Full list in `01_requirements/STAKEHOLDERS.md`. **Revised** — readers of the portfolio removed, suppliers moved to dependencies, ILT added |
 | Customer flow-down requirements | None. There is no level above us. This input is empty, and we should say so rather than leave it blank |
 
 The process has ten activities (4.1.1.2.1 to 4.1.1.2.10):
@@ -111,7 +111,7 @@ The way the three items fit NASA's structure, as far as we can tell:
 This looks right to us, but it is our reading, not something the handbook says about student
 projects.
 
-**First settled as D2, then rewritten as D6 and fixed as D9a.** The reading above led us to a
+**First settled as, then rewritten as and fixed as.** The reading above led us to a
 need statement about *us* — "demonstrate that the two of us can take a V/STOL aircraft to
 verified flight". On re-reading it had four faults: the subject was us rather than the aircraft,
 it carried our own method inside it, it duplicated a constraint, and it named V/STOL as a given
@@ -149,6 +149,11 @@ criteria — portfolio value and hands-on breadth — had not been written down,
 professional growth was not going to be a validation criterion because we cannot fail it.
 NASA's test gives the same answer from the other direction. If we cannot fail it, it cannot
 make us call the system unacceptable, so it is not an MOE. Stage 0 and NASA 4.1 agree. Good.
+
+**Superseded on 2026-08-09.** Portfolio value and hands-on breadth were both written down as
+measures of effectiveness, and both have since been removed with the goals above them. The project
+is about designing and building the aircraft. The reasoning in this section still holds — it is how
+we test whether something is an MOE — but the two criteria it produced are gone.
 
 MOEs are written when the NGOs are written, not later. NASA points to Section 6.7.2.4 of the
 Expanded Guidance for more.
@@ -270,10 +275,10 @@ types against their typical expectations. Reproduced here, and then translated:
 | Customer | Product quality, delivered on time, affordable, life cycle support | Us. There is no external customer — see the settlement below |
 | Subcontractors / vendors | Well defined requirements | Hobby suppliers. We only need a correct part number and a delivery date |
 | Local, state, national public | Products must not contaminate the environment | People near the test site. For us this is noise and safety, not contamination |
-| Org management | Internal commitments met, compliance with policies | Nobody. There is no organisation above us — decision D5 |
+| Org management | Internal commitments met, compliance with policies | Nobody. There is no organisation above us — |
 | Project manager | Technical work products on time, usable for decisions | Us |
 | Technical team | Clear tasks, job security, rewards, teamwork | Us |
-| Functional organisations (e.g. test) | Test support products available, clear test requirements | Nobody. We have no laboratory. Every test rig is one we build — decision D5, constraint C5 |
+| Functional organisations (e.g. test) | Test support products available, clear test requirements | Nobody. We have no laboratory. Every test rig is one we build —, constraint C8 |
 
 Slide 41, benefits of the process: build a system that meets customer expectations; build a
 system that can be tested, operated and maintained; ensure stakeholder commitments are obtained
@@ -294,9 +299,9 @@ they lead to different projects:
 Reading 2 gives us an external check we would otherwise not have, and Stage 0's HYDRO lesson was
 about a team with no external check. Reading 1 is closer to the truth of who wants this aircraft.
 
-**Settled as reading 1 — decision D1.** We are the only customer. There is no supervisor setting
+**Settled as reading 1.** We are the only customer. There is no supervisor setting
 acceptance criteria. The cost is no external brake on requirements creep. Recorded in
-`01_requirements/NGO.md` section 7, and carried as a risk into the ConOps.
+`01_requirements/NGO.md`, and carried as a risk into the ConOps.
 
 **Stakeholder Value Network analysis, slides 42–54.** Stage 0 already recorded this as noted and
 skipped on purpose, and reading the slides has not changed that. The method has four steps —
@@ -406,16 +411,16 @@ Operations Concept as a separate document from the ConOps.
 
 | # | Item | Status |
 |---|---|---|
-| 1 | Who is the customer | **Closed.** D1 — we are the only customer, no supervisor. `NGO.md` §7 |
-| 2 | The single Need statement | **Closed.** D2, rewritten by D6, fixed by D9a — the aircraft must not force a choice between landing anywhere and flying as long as a plane. `NGO.md` §1 |
-| 3 | What value means | **Closed.** D3 — Stage 0 clause kept, level line added. `NGO.md` §7 |
-| 4 | The stakeholder list | **Closed.** `01_requirements/STAKEHOLDERS.md` |
-| 5 | The MOEs | **Closed.** Four, each failable. D4 made the transition a hard line; D9c revised it to demonstrated capability and made the performance benchmark hard instead. `NGO.md` §4 |
-| 6 | The ConOps itself | **Closed.** `01_requirements/CONOPS.md`, written to the Appendix S outline with the cuts listed in section 5 above |
+| 1 | Who is the customer | **Closed.** We are the only customer, no supervisor |
+| 2 | The single Need statement | **Closed.**, rewritten, fixed — the aircraft must not force a choice between landing anywhere and flying as long as a plane. `NGO.md` §1 |
+| 3 | What value means | **Closed.** The fallback rule, in `NGO.md` §4 |
+| 4 | The stakeholder list | **Closed.** `01_requirements/STAKEHOLDERS.md`. Restructured 2026-08-09 into three groups — who constrains us, who is affected by us, and dependencies |
+| 5 | The MOEs | **Closed.** Four at the time, each failable. **Two remain** since 2026-08-09 — the two about how we work went with their goals. `NGO.md` §4 |
+| 6 | The ConOps itself | **Closed.** `01_requirements/CONOPS.md`, written to the Appendix S outline with the cuts listed in section 5 above. Revised 2026-08-09: sections 7.1 and 7.3 had been left out and are now written, the cuts are now stated in the document itself, and the risk table moved from 7.0 to 8.0 |
 
 Items 1 to 5 were settled on 2026-08-04, item 6 on 2026-08-05. The decisions, and what was
-rejected in each case, are in `01_requirements/NGO.md` section 7. This file is the reading behind
-those decisions, not the record of them.
+rejected in each case, are tracked as GitHub issues. This file is the reading behind those
+decisions, not the record of them.
 
 **Stage 1 is complete.** All four outputs exist: the stakeholder expectations in `NGO.md`, the
 ConOps in `CONOPS.md`, the support strategies in ConOps section 5, and the measures of
@@ -427,12 +432,13 @@ this blocks nothing in Stage 2 but blocks flying. And 11 of the 21 objectives st
 which is allowed here and not allowed at the requirements freeze.
 
 **The process earned its keep, and it is worth recording where.** Walking through the off-nominal
-scenarios revealed three objectives we had missed entirely. [DRM-1000], a lift unit failing in
-hover, produced a maximum hover height and a minimum distance to any person — the only two
+scenarios revealed three objectives we had missed entirely. [DRM-0900], a lift unit failing in
+hover, produced a maximum hover height (**deleted 2026-08-09**) and a minimum distance to
+any person — the only two
 objectives in the project that exist to protect a person rather than the project. Thinking through
-a failed changeover produced the ability to abandon one and return to hover: we had written that
-the changeover must work, but never that it must be possible to stop trying. That one is verified
-in the [DRM-0400] test plan rather than as a scenario of its own, per decision D12.
+a failed transition produced the ability to abandon one and return to hover: we had written that
+the transition must work, but never that it must be possible to stop trying. That one is verified
+in the [DRM-0400] test plan rather than as a scenario of its own, per.
 
 None of the three is obvious from the need or the goals. We would have decided all of them at the
 field, on the day, if we had not walked through the failures first.
@@ -451,8 +457,15 @@ checked them in Stage 1, and nothing in this file should be read as having check
 
 **The row on slide 36 that turned out to be empty.** The slide lists "functional organisations,
 e.g. test" as a stakeholder whose expectation is that clear test requirements reach them. When we
-wrote this file we treated that row as a laboratory we would have access to. Decision D5 closed
+wrote this file we treated that row as a laboratory we would have access to. closed
 that row to nobody. We have no laboratory.
 
-The cost is recorded as constraint C5 in `01_requirements/NGO.md`: aerodynamic numbers are
+The cost is recorded as constraint C8 in `01_requirements/NGO.md`: aerodynamic numbers are
 estimates rather than measurements, and any test rig we want, we build ourselves.
+
+**Partly re-opened on 2026-08-09.** A makerspace gives us laser cutting, free to us
+as students. That is not a laboratory and it does not bring the university back stands — but
+the row is no longer completely empty. It also breaks the pattern established: this is the one
+capability in the project that depends on someone else's opening hours and someone else's machine.
+Recorded as assumption AS6. Whether the makerspace holds any measuring instrument is unchecked, so
+C8 itself has not moved.
