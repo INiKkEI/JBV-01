@@ -1,647 +1,360 @@
-# Needs, Goals, Objectives and Measures of Effectiveness
+# Requirements baseline
 
-**Second pass.** We wrote the needs and goals, then wrote `CONOPS.md`, then came back and
-corrected this file. Writing the ConOps revealed **three** objectives we had missed:
+Need, goals, objectives, measures of effectiveness, design rules, constraints and assumptions.
 
-- **O1.7** maximum hover height and **O1.8** minimum distance to any person, both from scenario
-  [DRM-1000], a lift unit failing in hover. That failure cannot be designed against, so the only
-  answer is to limit what it costs. Neither objective would have been written without walking
-  through it.
-- **O1.9** the ability to abandon a changeover and return to hover. Verified in the [DRM-0400]
-  flight test plan, since D12 decided a failed changeover is not written as its own scenario.
-
-Recorded as decision D13. That is the process working, not a mistake.
+**This file holds the baseline only.** Why a line reads the way it does, and what was rejected on
+the way, lives in the GitHub issue that changed it.
 
 These are **not requirements.** An objective is not a requirement. Requirements are written in
 `REQUIREMENTS.md`, after this file is settled.
+
+**Rewritten 2026-09-04.** The performance goal was removed. See §1.
 
 ---
 
 ## 1. Need
 
-> **We need an aircraft that does not force a choice between landing anywhere and flying as long
-> as a plane.**
+> **Hovering costs energy for nothing but staying up. A wing carries the aircraft for far less —
+> but a wing needs a runway. We need an aircraft with neither problem.**
 
-**The problem, stated plainly.** Today you have to choose. A rotorcraft lands anywhere but runs
-its battery down quickly. A fixed-wing aircraft flies far longer but needs a runway or launch
-equipment. Nothing at our price gives both. That forced choice is the problem, and not having to
-make it is the need.
+**The problem, stated plainly.** A rotorcraft spends its whole flight holding itself in the air.
+Every second of hovering is paid for out of the battery. A wing does the same job for much less,
+because the air moving over it does the work — but a wing only lifts once the aircraft is already
+moving, and getting it moving needs a runway or launch equipment.
 
-**Why this is one need and not two.** Landing anywhere and flying long can be traded against each
-other, so at first sight this looks like two needs. It is not, because trading either half away
-does not weaken the need — it destroys it. An aircraft that lands anywhere and flies for eight
-minutes is a rotorcraft. An aircraft that flies for an hour and needs a runway is a plane. Both
-already exist. The need is the combination.
+So today you take one problem or the other. Not having to take either is the need.
 
-**What this fixed.** An earlier version of this need was about us rather than about the aircraft,
-carried the method inside it, duplicated a constraint, and named V/STOL as a given without
-explaining it. Runway independence is now part of the problem statement, so **V/STOL follows from
-the need rather than being assumed.** Which V/STOL configuration is still open.
+**Why this is one need and not two.** The two halves can be traded against each other, so at first
+sight this looks like two needs. It is not. Trading either half away does not weaken the need — it
+destroys it. Drop the wing and the aircraft is a rotorcraft. Drop the hover and it is a plane. Both
+already exist.
+
+**What follows from it.** The aircraft must hover, so it can leave from and return to ordinary
+ground. It must fly on its wing, so the flight is not paid for entirely in hovering. And it must
+change between the two. That changeover — the **transition** — is the hard part, and it is the
+project.
+
+Runway independence sits inside the problem, so **V/STOL follows from the need rather than being
+assumed.** Which V/STOL configuration is still open.
+
+**How much less a wing costs is not a claim we make.** That a wing is cheaper than hovering is
+ordinary aerodynamics and we take it as given. The size of the gap depends on the wing, the
+propellers and the mass, and we have measured none of them. We state no figure for it anywhere.
+
+### What this need no longer claims
+
+**Changed 2026-09-04.** The earlier need said the aircraft must not force a choice between landing
+anywhere and *flying as long as a plane*, and a goal measured us against a fixed-wing benchmark at
+70% of its flight time and 70% of its cruise speed.
+
+**That is removed.** We make no claim about beating a multirotor or approaching a plane. Cruise
+speed, distance covered and any fraction of a benchmark are no longer goals, objectives or
+requirements. Flight time now has a floor only, in G1-O2.
+
+The reason is that those figures fixed details the project does not care about, and each one then
+had to be defended. What we care about is that the aircraft transitions, and that it does so under
+control.
+
+**Endurance is still measured.** It is reported from the flight log with the conditions next to it.
+It is not a pass mark.
 
 ## 2. Goals
 
-Goals elaborate the need. A goal does not have to carry a number, but it must let us judge
-whether the aircraft achieved it.
+Goals elaborate the need. A goal does not have to carry a number, but it must let us judge whether
+the aircraft achieved it.
 
 | ID | Goal | Descends from |
 |---|---|---|
-| **G1** | The aircraft operates from an unprepared site: vertical take-off, transition to wing-borne cruise, transition back, vertical landing | The need — "landing anywhere" |
-| **G2** | The aircraft beats a comparable multirotor on flight time and distance, and reaches at least **70%** of a comparable fixed-wing aircraft on both | The need — "flying as long as a plane" |
-| **G3** | The reasoning is visible. Requirements, trades, tests and flights are recorded so that a reader who was not there can follow them | Project goal. Does **not** descend from the aircraft need |
-| **G4** | Both of us do our own hands-on work across aero, structures, electronics and control | Project goal. Does **not** descend from the aircraft need |
+| **G1** | The aircraft completes the full profile from an unprepared site: vertical take-off, hover, transition to wing-borne cruise, sustained cruise, transition back to hover, vertical landing | The need — the combination |
+| **G2** | The aircraft is **controllable and stable** through every phase: the pilot can command it when he wants, and it returns to its trimmed state after a disturbance without pilot input | The need — the transition is the hard part |
 
-**G1 and G2 are not ranked against each other, and this is deliberate.** The need requires both.
-Ranking them would reintroduce the forced choice that the need exists to escape.
+**G1 and G2 are not ranked against each other.** G1 without G2 is one lucky flight we cannot repeat
+and cannot learn from.
 
-**G3 and G4 are honestly labelled as not descending from the need.** They are goals about us, and
-the need is about the aircraft. Rather than bend the need to cover them, we state that they sit
-alongside it. Between those two our original ranking holds: G3 before G4.
+**Two properties, named apart on purpose.** *Controllability* is the aircraft doing what the pilot
+commands. *Stability* is the aircraft returning to its trimmed state on its own, with no pilot
+input. They are separate. An aircraft can be stable and hard to command, or unstable and easy to
+command. Almost every multirotor is the second case: the airframe is unstable, and the flight
+controller holds it steady many times per second.
 
-**G2 is two-sided on purpose, and the two sides are the two halves of the need.**
-
-- **The floor — beat the multirotor.** A multirotor already lands anywhere. If we do not fly
-  longer and further than one, we have built a heavier multirotor and the need is not met. This
-  side must be beaten outright, not by a fraction.
-- **The target — approach the plane.** A plane already flies long. We will not match it, and the
-  reason is physical rather than a lack of skill: a V/STOL aircraft carries hover hardware that a
-  plane does not. Those motors, mounts and their share of the battery are dead weight and extra
-  drag in cruise. That gap is the price of landing anywhere, and it is the thing our report should
-  measure honestly.
-
-**Why 70% and not parity.** Parity with a plane would mean carrying the hover system for free,
-which is not possible. On top of the physical penalty, a bought aircraft has a moulded or
-composite airframe, a matched propeller, and years of iteration behind it, while we have hand
-tools, a 3D printer, no laboratory and one year. In the report, "we reached 74% of a comparable
-plane's flight time, and here is where the gap comes from" is a stronger result than a missed
-parity target. The fraction is fixed at 70% and can be revised only by a new dated entry in
-section 7.
-
-**Comparing against plain drones and plain planes, not against commercial V/STOL aircraft.**
-A commercial V/STOL comparison would tell us how good our engineering is against specialists.
-The drone-and-plane comparison tells us whether the aircraft solves the problem at all, which is
-the question the need actually asks. Published figures are also far easier to find for ordinary
-multirotors and ordinary fixed-wing models than for V/STOL products.
-
-**Professional growth is not a goal here.** It is a project goal and it stays in the project
-notes. It fails our own test for a goal: there is no state of the world in which we would judge
-that it had not been achieved. We reached the same conclusion earlier from the other direction.
-Carried here only so that its absence is visible and deliberate.
+**So most of the stability in G2 will come from the flight controller, not from the airframe
+shape.** We should expect to meet the stability half by tuning software, and we should say that
+when we report it rather than claiming the airframe did it.
 
 ## 3. Objectives
 
-Every objective must be four things: specific, measurable and verifiable, aggressive but
-attainable, and about the result rather than the method — what, not how.
+Every objective must be specific, measurable and verifiable, aggressive but attainable, and about
+the result rather than the method.
 
-TBD is allowed here. An objective may stay TBD until the trade study that fixes it has been done,
-or until the concept of operations settles. TBD is **not** allowed at the requirements freeze,
-because an objective has to be shown feasible before requirements are written and the system is
-designed.
+**An objective with no value is not an objective.** If we cannot say what the number is, the item
+is not necessary to us and it is not written down. Rule set 2026-09-04.
 
-### Under G1 — the aircraft flies
+**Objective IDs changed on 2026-09-04.** An ID now carries its parent goal, so it says what it
+descends from, and **a retired ID is never reused**. Anything written before that date — issues,
+commit messages, the ConOps — uses the old flat numbers, which meant different things:
 
-| ID | Objective | Status |
+| Old ID | What it meant | Now |
 |---|---|---|
-| O1.1 | At least one flight, before the end of the project, containing in sequence: vertical take-off, stable hover, transition to wing-borne cruise, sustained cruise, transition back to hover, vertical landing | Fixed. **Top goal, not a pass mark** — see MOE-1 and decision D9 |
-| O1.2 | Stable hover held for at least **TBD** s | TBD — closes at requirements freeze |
-| O1.3 | Wing-borne cruise sustained for at least **TBD** s | TBD — closes at requirements freeze |
-| O1.4 | Maximum take-off mass below **TBD** kg, and below the EASA Open Category subcategory boundary we choose to fly under | TBD — depends on scale, and on rules we have not yet checked |
-| O1.5 | The airframe can be repaired or rebuilt after one crash within **TBD** weeks, using parts we can obtain | TBD — depends on configuration |
-| O1.6 | Transition capability is demonstrated by at least one of: a tethered test, a bench test, or logged flight data showing a transition | Fixed. **This is the pass mark** — MOE-1 |
-| O1.7 | Maximum hover height **TBD** m, chosen so that a fall from it is survivable for the airframe and harmless to any person | TBD — closes with the configuration and scale. Revealed by writing the ConOps, scenario [DRM-1000] |
-| O1.8 | Minimum horizontal distance between the aircraft and any person, **TBD** m, held at all times in hover | TBD — closes with the configuration and scale, and depends on the subcategory conditions in C16. Revealed by writing the ConOps, scenario [DRM-1000] |
-| O1.9 | The aircraft can **abandon a changeover and return to hover** under control | Fixed. Verified in the [DRM-0400] flight test plan, per D12. Decision D13 |
+| O1.1 | The complete flight | **G1-O1.** Same meaning |
+| O1.2 | Move 5 m per axis in hover | Deleted. Folded into G2-O1, which has no distance figure |
+| O1.3 | Glide descent rate, TBD | Deleted. No value, so not an objective |
+| O1.4 | Transition proved on the tether or bench | **G2-O5** |
+| O1.5 | Abandon a transition and return to hover | **G2-O4** |
+| O2.1 to O2.5 | Flight time, cruise speed and distance against the benchmarks | Deleted with the performance goal. §1 |
 
-O1.2 to O1.5 all depend on scale or configuration, both of which are open. Both close when those
-two are chosen.
+### Under G1 — the aircraft flies the profile
 
-**O1.1 and O1.6 are deliberately different, and the difference is the whole of decision D9c.**
-O1.1 is the complete flight and it is what we design for. O1.6 is the weaker thing that has to be
-true for the project to count as acceptable. Without O1.6 written down separately, MOE-1 would
-claim to verify O1.1, which it does not — and a measure that does not verify what it points at is
-worse than no measure.
+| ID | Objective | Verification | Status |
+|---|---|---|---|
+| G1-O1 | At least one flight, before the end of the project, containing in sequence: vertical take-off, stable hover, transition to wing-borne cruise, sustained cruise, transition back to hover, vertical landing | The flight log for that flight. [DRM-0500] | Fixed. **The pass mark** — MOE-1 |
+| G1-O2 | Total flight time greater than **5 min**, measured from lift-off to landing and flown to the battery reserve in C11, of which **more than half** is wing-borne | The flight log. [DRM-0600] | Both figures **set 2026-09-04** |
 
-### Under G2 — the aircraft performs against its class
+**Why G1-O2 has two parts.** Total flight time alone can be passed by hovering, and an aircraft
+that hovers for five minutes is a rotorcraft. The wing-borne fraction is what makes the wing
+necessary, so it is the half of this objective that carries the need.
 
-Every performance figure is quoted **with the condition it applies to** and **to a stated battery
-reserve**, never to empty. A number without its condition is not testable.
+**Why a fraction and not a number of minutes.** A fixed figure stops meaning anything if the
+aircraft turns out to fly much longer than the floor — two minutes of wing-borne flight out of
+fifteen would still pass. A fraction holds at any flight time.
 
-| ID | Objective | Status |
-|---|---|---|
-| O2.1 | Identify two benchmarks at about **€350**, each with published flight time and distance and the conditions those were measured at: **(i)** an ordinary multirotor, **(ii)** an ordinary fixed-wing model | **Unblocked.** C3 is fixed and the aircraft-only figure is derived in section 5. Not yet done |
-| O2.2 | Flight time ≥ **TBD** min in still air, at a stated temperature, to a stated battery reserve | TBD — 70% of the fixed-wing benchmark |
-| O2.3 | Flight time ≥ **TBD** min in a steady wind of **TBD** m/s, same reserve | TBD. This is the figure that matters in the Netherlands, where calm days are rare |
-| O2.4 | Total distance covered ≥ **TBD** km in one flight, to the same reserve | TBD — 70% of the fixed-wing benchmark |
-| O2.5 | Battery reserve: **TBD** % remaining at landing | TBD. Needs checking against ordinary practice rather than guessed |
-| O2.6 | Flight time and distance both **exceed** the multirotor benchmark outright | TBD. This is a floor, not a fraction. Failing it means we built a heavy multirotor |
+**What this asks of the flight, on today's estimates.** Take-off, a hover check, both transitions,
+the descent and the landing come to roughly 1.5 to 2 minutes. So a 5 minute flight leaves about 3
+to 3.5 minutes for cruise, and half of 5 minutes is 2.5. It fits, but not by much. **These phase
+times are estimates from ordinary practice, not measurements**, and hovering costs far more power
+than cruising, so the overhead is the most expensive part of the flight. The first flight test is
+what checks this.
 
-**The trap in specifying both flight time and distance, and the guard against it.** Fixing O2.2
-and O2.4 fixes the average cruise speed, because distance ≈ flight time × cruise speed. Cruise
-speed stops being a free design variable and becomes a derived requirement the aerodynamics must
-hit.
+### Under G2 — the aircraft is under control
 
-That is workable, but only if the two numbers are consistent with each other. **The guard: O2.2
-and O2.4 must be taken from the same benchmark aircraft, not the best figure of each from
-different aircraft.** Then the implied cruise speed is one a real aircraft achieves. Before either
-number is frozen, compute
+Verified by **demonstration**, which NASA lists as a verification method alongside test, analysis
+and inspection. A demonstration is only worth something if its pass/fail sentence is **written and
+agreed before the flight**. We are both the pilot and the judge, so nothing else keeps us honest.
 
-    v_cruise = distance / flight time
+| ID | Objective | Verification | Status |
+|---|---|---|---|
+| G2-O1 | In hover, the pilot can hold the aircraft where he wants it, **with control margin left**. Criterion: *the pilot holds a hover for 60 s and never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0300] | **Set 2026-09-04.** Rests on the log recording stick positions, which is **unconfirmed** — see §8 |
+| G2-O2 | The aircraft passes through both transitions with **control margin left**. Criterion: *from the start of each transition until the new flight mode is steady, the pilot never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0400] | **Set 2026-09-04.** Same measure and same log source as G2-O1 |
+| G2-O3 | After a disturbance, the aircraft returns to its trimmed state **with no pilot input** — in hover and in wing-borne flight. Criterion: *after a short stick input is released, the oscillation gets smaller on each cycle and the aircraft settles back to trim* | Demonstration, read off the attitude trace in the flight log. [DRM-0300] and [DRM-0400] | **Set 2026-09-04** |
+| G2-O4 | The aircraft can abandon a transition and return to hover under control | Demonstration. [DRM-0400] | Fixed. Being able to stop trying is a capability, not an accident |
+| G2-O5 | Both transitions are proved on a tether or on the bench before any free-flight attempt | [DRM-0200] | Fixed. **The gate, not the pass mark** |
 
-in SI units and check it against the benchmark aircraft's published cruise speed. If the derived
-speed is far from anything real, the two targets are inconsistent and one of them is wrong. This
-check costs one division and it is the difference between a specification and a wish.
+**G2-O1 and G2-O2 are controllability. G2-O3 is stability.** The two halves of G2, kept as separate
+objectives so that passing one cannot be mistaken for passing both.
 
-The line-of-sight rule does not block O2.4. Total distance is accumulated flying circuits within
-sight. Distance *covered* is legal; distance *away* is not.
+**Both controllability criteria use the same measure — no full stick travel.** Full stick means the
+aircraft has no control margin left, so the next disturbance has nothing to answer it. One measure,
+one source, checked the same way in hover and in transition.
 
-### Under G3 — the reasoning is visible
+**No angle limit is written for the transition, and that is deliberate.** Pitch and roll through a
+transition depend entirely on the configuration — a tailsitter turns through about 90°, a lift+cruise
+barely changes attitude. Any angle written here would rule out layouts before the trade study runs.
 
-| ID | Objective | Status |
-|---|---|---|
-| O3.1 | 100% of frozen requirements carry a verification method and a pass/fail criterion | Fixed |
-| O3.2 | 100% of configuration, scale and component choices have a dated design log entry naming what was rejected and why | Fixed |
-| O3.3 | 100% of entries in `TEST_LOG.md` name the requirement under test | Fixed |
-| O3.4 | 100% of flights have a `FLIGHT_LOG.md` entry giving build state, conditions, objective, result, failures and next actions | Fixed |
-| O3.5 | The final report contains the trade study behind the configuration choice and behind the scale choice | Fixed |
-
-### Under G4 — hands-on breadth
-
-| ID | Objective | Status |
-|---|---|---|
-| O4.1 | Each of us makes at least one design decision, performs at least one build task, and runs at least one test, in each of the four areas: aero, structures, electronics, control | Fixed |
-
-O4.1 is written per person on purpose. A team of two can satisfy "the team covered all four areas"
-while each person only ever touched two. That is the failure this objective exists to catch.
+**G1-O1 and G2-O5 are different in kind.** G1-O1 is the complete flight, flown, and MOE-1 measures it.
+G2-O5 is the capability, proved cheaply before the aircraft is risked. Verify at the lower level
+before integrating — that is the V-model rule, and it is what keeps the first airframe in one
+piece.
 
 ## 4. Measures of Effectiveness
 
 A Measure of Effectiveness is a measure of success written from the stakeholder's point of view.
-The test for whether something belongs here: **failing it makes the stakeholder call the system
-unacceptable.** We are the stakeholder, so we are the ones who would have to say it.
+The test: **failing it makes the stakeholder call the system unacceptable.** We are the
+stakeholder, so we are the ones who would have to say it.
 
-Few on purpose.
+| ID | Measure | Verifies | Verification | Fails if |
+|---|---|---|---|---|
+| **MOE-1** | The aircraft flies **one complete flight** containing, in sequence: vertical take-off, hover, transition to wing-borne cruise, sustained cruise, transition back to hover, vertical landing | G1-O1, so G1 | The flight log for that flight | No such flight is ever flown |
+| **MOE-2** | That flight was flown **under control and stable** — the three criteria in §3 all passed | G2-O1 to G2-O4, so G2 | Demonstration, judged against the flight log | The pilot needed full stick travel in hover or in either transition, or the aircraft did not settle back to trim after a disturbance |
 
-| ID | Measure | Verifies | Fails if |
-|---|---|---|---|
-| **MOE-1** | Transition capability is demonstrated — by tethered test, by bench test, or by logged flight data showing a transition. One clean hover→cruise→hover flight is **not** required | O1.6, so G1 | Transition is never shown to work by any of those means |
-| **MOE-2** | A reader who was not present can follow any single result back through test, design choice, and requirement, without asking us | G3 | The chain is broken anywhere it is checked |
-| **MOE-3** | Each of us worked hands-on in all four areas | O4.1, so G4 | Either of us did not |
-| **MOE-4** | The performance objectives are met: at least 70% of the fixed-wing benchmark on flight time and distance, and the multirotor benchmark beaten outright | O2.2, O2.3, O2.4 and O2.6, so G2 | Either the fraction or the floor is missed |
+**MOE-2 is the weaker of the two, and we should say so.** We wrote the criteria, we fly against
+them, and we judge them. There is no outside check. Two things reduce the problem: all three were
+written on **2026-09-04, before any hardware exists**, and all three are read off the flight log
+rather than off our opinion on the day. What is left is that we chose the measure — and that is
+what a logged revision is for if we ever change it.
 
-**Why MOE-1 was softened at the same time as MOE-4 was made hard.** Decision D9 in section 7,
-which revises D4. G2 carries half the need, so leaving it without a pass mark would have made
-half the need decorative. But adding a second hard line while keeping the first one at "one clean
-flight on one day" would have given the project two separate ways to fail on weather. Softening
-MOE-1 to demonstrated capability keeps the total at one demanding pass mark per half of the need,
-and takes the weather lottery out of the one that was most exposed to it.
+**Nothing fails if the record drifts.** No measure covers the requirements list, the design log,
+the test log or the flight log. We keep them because we want them and because the V-model does not
+work without them.
 
-**What we gave up.** The report can now say "we showed the aircraft transitions" rather than "it
-transitioned in flight, here is the log". That is a weaker sentence, and it is the price of the
-change. The full transition flight is still the top goal and we still design for it — see G1 and
-O1.1. It is simply no longer the thing that decides whether the project failed.
+## 5. Design rules
 
-**Not an MOE: professional growth.** We cannot fail it, so it cannot make us call the system
-unacceptable. We reached the same conclusion earlier.
+How we decide when we have a choice. Not measures, and not constraints.
 
-### The transition still drives the design, even though it is no longer the pass mark
+### 5.1 The fallback rule
 
-MOE-1 was a hard line on one complete flight under decision D4. Decision D9 revised that: the
-pass mark is now demonstrated capability, and the complete flight is the top goal under O1.1.
+Where an ambitious choice has a proven off-the-shelf alternative, we may take the ambitious one
+**only if both of these have an answer at the moment we choose**:
 
-**The complete flight has no deadline problem either way.** O1.1 says *at least one flight, before
-the end of the project*. Not the first flight, and not a particular day. We get as many attempts
-as the schedule allows. A crash in March is a rebuild, which is already in the plan.
+1. Does a proven off-the-shelf fallback exist, and can we afford it inside C3?
+2. What is the date by which we switch to the fallback if ours is not working?
 
-**Three consequences of taking the transition seriously, which survive the revision unchanged.**
-These came from D4 and D9 explicitly keeps them:
+If either question has no answer, we take the proven option.
 
-1. The configuration trade study is no longer only a technical choice. Transition risk is
-   now project risk, and it must be weighted as such.
-2. The value rule below now bites hard. If we choose a configuration with a difficult transition,
-   the rule requires us to name lift+cruise as the fallback and to fix the switch date at the
-   same time as the choice, not later.
-3. The schedule must place the first transition attempt early enough that a failure leaves time
-   for a second aircraft or a fallback configuration. Leaving it to the last month means we never
-   find out whether O1.1 was reachable.
+**Where it applies:** configuration, avionics, propulsion, control software — anywhere a substitute
+product or method exists. **Where it does not:** airframe and aerodynamic design, because there is
+no off-the-shelf substitute for our own wing. There the rule is *prefer the simpler method*.
 
-## 5. Constraints
+**What C3 costs here.** €800 does not fund a fallback airframe built alongside the ambitious one.
+The fallback has to be reached by rebuilding the same aircraft. That makes the switch date in
+question 2 more important, not less.
 
-A constraint is a condition that has to be met.
+### 5.2 The transition drives the design
+
+The project fails outright if the G1-O1 flight is never flown, so three things bind hard:
+
+1. Transition risk is project risk, and the configuration trade study weights it as such.
+2. A configuration with a difficult transition needs its fallback and switch date named **at the
+   same time as the choice**, not later.
+3. The schedule places the first transition attempt early enough that a failure leaves time for a
+   rebuild or a fallback. Leaving it to the last month means we never find out whether G1-O1 was
+   reachable.
+
+## 6. Constraints
+
+A condition that has to be met and cannot be traded against cost, schedule or performance.
+
+**Constraint numbers are not reused and not renumbered.** `CONOPS.md`, `RULES.md` and
+`STAKEHOLDERS.md` all cite them by number.
 
 | ID | Constraint | Status |
 |---|---|---|
 | C1 | Two people | Fixed |
 | C2 | One academic year, roughly 6 to 12 months | Fixed |
-| C3 | Budget: **€800 total project spend, hard ceiling.** Not a target. Every purchase comes out of it, including the rebuild | Fixed. Decision D10 |
-| C10 | Vertical take-off and landing. The configuration — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan — is open | Follows from the need, not assumed. Closes with the configuration trade study |
-| C11 | The remote pilot keeps the aircraft in **visual line of sight at all times**, except in follow-me mode or when using an unmanned aircraft observer. VLOS means continuous **unaided** visual contact. Anything else is the Specific category and needs an authorisation | **Confirmed** — Article 4(1)(d), with VLOS and BVLOS defined in definitions (7) and (8) |
-| C4 | We can make: FDM 3D printing in PLA and PETG, soldering and basic electronics, hand tools for foam, balsa and depron. **This list is complete.** No CNC, no laser cutter, no composite layup, no machining | Fixed |
-| C5 | **No laboratory.** No wind tunnel, no thrust stand, no load cells, no lab instruments. Any measurement we want, we buy or build ourselves | Fixed. Decision D5 |
-| C6 | Maximum take-off mass **below 25 kg**. This is the top of the Open Category | **Confirmed** — Regulation (EU) 2019/947, Article 4(1)(b) |
-| C6a | The **900 g** boundary we had been carrying is **probably not ours**. It belongs to the C1 class marking under Delegated Regulation (EU) 2019/945, and a privately built aircraft cannot carry a class mark | **Unconfirmed.** Article 4 does not mention 900 g. We could not read Annex Part A, which holds the subcategory conditions. **Do not design to 900 g until this is settled** |
-| C7 | **Operator number** from the RDW. Required for any aircraft with a camera or of 250 g or more. €23. Expires yearly. The number must be **visible on the outside of the airframe** | **Confirmed** — RDW, read 2026-08-04. See `RULES.md` §B1 |
-| C15 | **Remote pilot licence** (*vliegbewijs*), subcategory A1/A3. Required from 250 g. €10, valid 5 years, online exam at a recognised Dutch flight school. Must be carried on every flight | **Confirmed** — RDW, read 2026-08-04. See `RULES.md` §B2 |
-| C16 | **Where we may fly** — the A1/A2/A3 subcategory conditions decide the distance we must keep from people and buildings | **Not checked.** Annex Part A of 2019/947 could not be opened. **The largest open item in the whole project.** See `RULES.md` §C |
-| C8 | Test site must be outside a no-fly zone. The aircraft must be kept at a safe distance from people and must never be flown over assemblies of people | **Confirmed** — Article 4(1)(c). Site not chosen |
-| C12 | **Maximum height 120 m** above the closest point of the surface of the earth, except when overflying an obstacle | **Confirmed** — Article 4(1)(e). **New. We did not have this constraint before** |
-| C13 | JBV-01 must qualify as a **privately built UAS**: "a UAS assembled or manufactured for the builder's own use, **not including UAS assembled from sets of parts placed on the market as a single ready-to-assemble kit**" | **Confirmed** — 2019/947, definition (16), and Article 4(1)(a) which admits privately built UAS to the Open Category. **Buying a complete ready-to-assemble kit would forfeit this route** and force us onto a class-marked aircraft we cannot obtain |
-| C14 | No dangerous goods carried, nothing dropped in flight | **Confirmed** — Article 4(1)(f) |
-| C9 | At least one crash and rebuild is planned, not a surprise | Fixed |
+| C3 | **€800 total project spend, hard ceiling.** Every purchase comes out of it, including the rebuild | Fixed. Apportioned below |
+| C4 | At least one crash and rebuild is planned, not a surprise | Fixed |
+| C5 | **What we make ourselves.** FDM printing in PLA and PETG; soldering and basic electronics; hand tools for foam, balsa and depron; laser cutting at the makerspace, free to us as students. No money per part, no lead time beyond our own hands | Fixed |
+| C6 | **What we order as a service.** Circuit boards, CNC parts, sheet metal, resin and powder printing, in single quantities from JLCPCB and its sister services. **€20–30 and 1 to 3 weeks per _parcel_**, not per part — orders across services combine into one parcel | Fixed. Prices below. No part of ours has been quoted |
+| C7 | **Excluded — factory grade only.** Any process needing production tooling, a minimum order quantity, or industrial plant we cannot buy in ones. **This is the only exclusion.** The test: if we can obtain one of the thing, inside C3 and inside the schedule, it is allowed | Fixed |
+| C8 | **No laboratory.** No wind tunnel, no thrust stand, no load cells, no lab instruments. Any measurement we want, we buy or build the rig ourselves, and check it against something known first | Fixed. What the makerspace holds has never been checked, AS6 |
+| C9 | **Simulation and published data are what we have instead.** Every number they produce is an **estimate, never a measurement**, and the first flight test of any decision resting on one is its real verification | Fixed. Tools not yet chosen |
+| C10 | Vertical take-off and landing. The configuration — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan — is open | Follows from the need. Closes with the configuration trade study |
+| C11 | **Battery reserve at landing: 20% of pack capacity.** G1-O2 is measured to this reserve, and the abort rule in [DRM-0800] triggers here | **Set 2026-08-09.** Below roughly 20% a LiPo degrades quickly |
+| C12 | Must qualify as a **privately built UAS** — assembled from parts or sub-assemblies sold separately, **not** from a single ready-to-assemble kit, and never placed on the market | **Confirmed.** `RULES.md` §A |
+| C13 | Maximum take-off mass **below 25 kg** | **Confirmed.** `RULES.md` §A, EU2 |
+| C14 | Kept a safe distance from people, and **never flown over assemblies of people** | **Confirmed.** `RULES.md` §A, EU3. The metres are in C19 |
+| C15 | **Visual line of sight at all times**, unaided | **Confirmed.** `RULES.md` §A, EU4 |
+| C16 | **Maximum height 120 m** above the closest point of the surface | **Confirmed.** `RULES.md` §A, EU5 |
+| C17 | No dangerous goods carried, nothing dropped in flight | **Confirmed.** `RULES.md` §A, EU6 |
+| C18 | **We fly in subcategory A3** — at least **150 m** horizontally from residential, commercial, industrial or recreational areas. A1 needs under 250 g and under 19 m/s; A2 needs a class mark we cannot carry | **Confirmed.** `RULES.md` §C, UAS.OPEN.040(2) and (4)(a) |
+| C19 | Keep at least **max(30 m, our flying height, 2 s × our maximum speed)** from any uninvolved person. If one enters the area, adjust the operation or stop it | **Confirmed.** `RULES.md` §C, AMC1 UAS.OPEN.040(1) |
+| C20 | **Everyone present must be told the risks and must explicitly agree to take part.** No bystanders, only participants | **Confirmed.** `RULES.md` §C, UAS.OPEN.050(7) |
+| C21 | The **900 g** boundary is not ours. It belongs to the C1 class marking, which a privately built aircraft cannot carry. Our mass limit is 25 kg | **Confirmed.** `RULES.md` §C |
+| C22 | **Operator number** from the RDW, €23, expires yearly, **visible on the outside of the airframe** | **Confirmed.** `RULES.md` §B1 |
+| C23 | **Remote pilot licence** A1/A3, €10, valid 5 years, carried on every flight. The pilot must also be familiar with our own build and setup notes | **Confirmed.** `RULES.md` §B2 |
 
-**Every rule that binds us, with its source and how well it is checked, is in
-`01_requirements/RULES.md`.** The rows above are the short form. If the two ever disagree,
-`RULES.md` is right, because that is where the source is recorded.
+**`RULES.md` is the authority on C12 to C23.** The rows above are the short form and carry no
+sources. If the two disagree, `RULES.md` is right.
 
-C6a and C16 have to be closed before the test site can be chosen or ConOps section 4.0 written.
+**How old the source is.** Confirmed against the EASA consolidated text, **July 2024 edition**,
+which carries all five amendments. Re-check before the requirements freeze and again before the
+first flight.
 
-**Three of these are new and one of them changes the design.** C12 caps us at 120 m above the
-surface. C13 means we must not buy a complete ready-to-assemble kit, because doing so would stop
-the aircraft being "privately built" and put us on a route we cannot take. C14 rules out dropping
-anything. None of these was in the project notes we started from.
+### What the ordered services cost
 
-**How old the source is.** All of the above is confirmed against the EASA consolidated text of
-Regulations (EU) 2019/947 and 2019/945, **January 2021 edition**. The regulation has been amended
-since. Before the requirements freeze, one of us checks for later amendments and re-confirms every
-row marked "Confirmed" above. A regulatory figure is only good on the day it was checked.
+Floor prices and build times from JLC3DP's own service list, read 2026-08-14. **Build time is
+manufacturing only** — shipping and EU customs are the 1 to 3 weeks in C6.
 
-**What €800 has to cover, and why the first aircraft is not allowed to cost €800.** A hard ceiling
-only works if the things that are not the aircraft are subtracted first. Rough allocation, to be
-replaced by the real figures in `04_build/BOM.xlsx` as parts are chosen:
+| Service | From | Build time |
+|---|---|---|
+| SLA, resin | $0.30 | 2 days |
+| FDM / SLS / MJF | $1.00 | 3 days |
+| CNC machining | $5.00 | 3 days |
+| SLM, metal printing | $8.00 | 3 days |
+| PCB | $2.00 / 5 pcs | 24 hours |
+| JLCMC mechatronic parts | $0.10 | same-day shipping |
+
+**Every "from" figure is a floor, not our price.** Nothing of ours has been quoted.
+
+**Orders combine into one parcel**, confirmed 2026-08-14 — 3D printing, CNC, PCB, PCBA and stencils
+share one cart, one payment and one parcel. So the €20–30 is paid once, not once per service.
+
+**What this means for the configuration trade.** C7 rules almost nothing out, so manufacturability
+is not a filter. What replaces it:
+
+    cost of a configuration ≈ parts + (number of parcels × €20–30)
+    time of a configuration ≈ longest build time + 1 to 3 weeks per parcel
+
+**The trade counts parcels and weeks, not machines.**
+
+### Derivation of C3 — what €800 covers
+
+Replaced by real figures in `04_build/BOM.xlsx` as parts are chosen.
 
 | Line | € | Note |
 |---|---|---|
 | Transmitter and receiver | 100 | Bought once. Survives every crash |
 | Charger, LiPo safe bag, fire precautions | 80 | Bought once |
-| Thrust stand — load cell, amplifier, microcontroller | 30 | Required by C5. Bought once |
-| **Registration and pilot licence** | **35** | €23 operator number + €10 licence, plus a small margin for the yearly renewal. Required by C7 and C15. See `RULES.md` section B |
-| **Rebuild allowance** | **200** | Required by C9. **Not available for the first aircraft** |
-| **First aircraft — airframe, propulsion, avionics, battery** | **355** | This is the number that matters below |
+| Thrust stand — load cell, amplifier, microcontroller | 30 | Required by C8 |
+| Registration and pilot licence | 35 | €23 + €10. A renewal costs €13, so crossing the yearly expiry needs €46 |
+| Printed circuit boards | 60 | One order plus one re-spin, roughly €20–30 each |
+| Rebuild allowance | 200 | Required by C4. **Not available for the first aircraft** |
+| **First aircraft — airframe, propulsion, avionics, battery** | **295** | The number that matters |
 | Total | 800 | |
 
-**The benchmark price is €355, not €800.** O2.1 compares our aircraft against commercial aircraft
-of comparable price, and a commercial ready-to-fly price does not include a transmitter, a
-charger, a rebuild fund or our pilot licence. Comparing our whole project spend against a
-commercial sticker price would handicap us by more than €400 before we started. **Round it to
-€350 for the benchmark search.**
+**Laser cutting costs nothing** — the makerspace is free to us. Sheet material is **not yet priced**
+and comes out of the first aircraft line.
 
-**A mass consequence, and it is less clear than we first thought.** Five motors and a battery
-large enough to hover will put this aircraft well above 250 g, so operator registration under C7
-applies. It will very likely be above 900 g too — but see C6a: that boundary belongs to a class
-marking a privately built aircraft cannot carry, so it may not apply to us at all. The boundary
-we know binds us is 25 kg, C6, and we are nowhere near it. **What actually decides where we may
-fly is the subcategory in Annex Part A, which we have not been able to read.**
+### What C8 costs us
 
-**C5 is the constraint that costs us the most, and it is worth being blunt about it.** MOE-2 asks
-that any result can be followed back to the requirement it verifies. A result we never measured
-cannot be followed anywhere. With no laboratory, every number we want on the right branch of the
-V has to come from equipment we own. Three consequences:
-
-1. **Thrust, current and RPM.** These have to be measured, because the whole propulsion sizing
-   rests on them. The ordinary hobby answer is a home-made thrust stand — a load cell, an
-   amplifier board, and a microcontroller. Cheap, and we can build it. It has to be priced,
-   built, and itself checked against a known mass before we trust it. That is now a piece of work
-   in its own right, not an assumption.
+1. **Thrust, current and RPM** must be measured, because propulsion sizing rests on them. The
+   ordinary answer is a home-made thrust stand. It has to be priced, built, and checked against a
+   known mass before we trust it. That is work, not an assumption.
 2. **Mass and centre of gravity.** A kitchen scale and a balance beam are enough. No problem here.
-3. **Aerodynamic coefficients.** There is no substitute we can build. Lift, drag and stall
-   behaviour will come from published aerofoil data and software, not from measurement. **Every
-   one of these must be written down as an estimate, never as a measurement.** Where a design
-   decision rests on an estimate, the first flight test of that decision becomes the real
-   verification, and the flight test plan has to say so.
+3. **Aerodynamic coefficients.** No substitute we can build. They come from published aerofoil data
+   and software, and **every one is written down as an estimate**. The first flight test of a
+   decision resting on one is its real verification.
 
-## 6. Assumptions
+**Simulation is analysis, and analysis verifies a requirement only when the model behind it is
+validated.** Ours will not be. **Whether any requirement may be verified by analysis alone is open,
+and until it is settled the answer is no.**
 
-Written down because an assumption that is never written is never checked.
+**SITL has a QuadPlane model**, checked 2026-08-14 on ArduPilot's own QuadPlane Simulation page. It
+starts with one command, defaults to a Separate Lift Thrust QuadPlane, takes a USB transmitter
+through the joystick module, and ships with a sample VTOL take-off and landing mission. Three
+things follow:
 
-Prefixed **AS** rather than A, because A1, A2 and A3 already mean the Open Category subcategories
-in the regulation, and we cannot rename those.
+1. It reduces transition risk in a way nothing else we have does. We can fly the mode logic, the
+   mixer and the failsafes before the aircraft exists.
+2. It validates no aerodynamics. The docs' own word is *simple*. Every number out of it is still an
+   estimate under C9.
+3. **The confirmed frame is lift+cruise.** Tiltrotor and tailsitter simulation is not mentioned on
+   that page. Under the fallback rule, lift+cruise currently has a proven fallback at simulation
+   level and the other layouts do not. That is an input to the configuration trade, not a decision.
+
+Nobody here has run SITL yet.
+
+## 7. Assumptions
+
+Written down because an assumption that is never written is never checked. Prefixed **AS**, because
+A1, A2 and A3 already mean the Open Category subcategories.
 
 | ID | Assumption | Checked? |
 |---|---|---|
 | AS1 | A legal test site exists within reasonable travel of us | **No** |
 | AS2 | We can build a thrust stand accurate enough to size the propulsion system, within budget | **No.** Needs pricing and a build |
 | AS3 | Off-the-shelf hobby parts adequate for our scale are available in the EU within our budget | **No** |
-| AS4 | A proven open-source flight controller stack supports whichever configuration we choose | Partly. ArduPilot's ArduPlane documents QuadPlane, tilt-rotor and tailsitter frame support. Not verified on hardware by us |
-| AS5 | An ordinary multirotor and an ordinary fixed-wing model exist at our price point with published flight time and distance figures, given with the conditions they were measured at | **No.** If the published figures turn out to be marketing numbers with no stated conditions, the benchmark is worthless and G2 needs a different anchor. More likely to hold now than when the comparison was against V/STOL products, because these figures are widely published |
+| AS4 | A proven open-source flight controller stack supports whichever configuration we choose | **Partly.** ArduPlane documents QuadPlane, tiltrotor and tailsitter frames, and SITL has a QuadPlane model — checked 2026-08-14. Tiltrotor and tailsitter simulation is unchecked, and nothing is verified on hardware by us |
+| AS6 | The makerspace laser cutter stays available to us, free, for the whole academic year | **No.** Free today is not free in March. The only capability that depends on somebody else's opening hours |
+| AS7 | Sheet material for laser cutting is affordable inside the first aircraft line | **No.** Unpriced. Price it before any design decision rests on a cut part |
+| AS8 | One PCB order plus one re-spin is enough for the whole project | **No.** A budget decision, not a measurement |
+| AS9 | We can learn the simulation tools well enough to trust their output inside this academic year, alongside building the aircraft | **No.** Free software is not free time |
 
-## 7. Decisions
+**AS5 and AS5a are deleted.** They existed to support the multirotor and fixed-wing benchmarks,
+which were removed on 2026-09-04. IDs are not reused.
 
-Dated, and not to be rewritten. A change goes in as a new dated entry below.
-
-These are decisions about the requirements baseline, and none of them yet traces to a
-requirement, because no requirement exists. They are recorded here rather than in
-`02_concept/DESIGN_LOG.md`, which starts when configuration trades start.
-
-### 2026-08-04 — D1: We are the only customer
-
-**Chosen:** the two of us are the customer. There is no supervisor and no examiner setting
-acceptance criteria.
-**Rejected:** a supervisor or grader as customer, which would have given an external check and a
-real sign-off on the expectations.
-**Why:** it is what is true. Inventing an external customer we do not have would produce criteria
-nobody enforces.
-**Cost accepted:** no external brake on requirements creep. Carried into ConOps section 7.0 as a
-risk.
-
-### 2026-08-04 — D2: The Need statement
-
-> **Superseded the same day by D6, and the final wording fixed by D9a.** The entry below is kept
-> as written. What changed: this need was about us rather than about the aircraft, it carried our
-> method inside it, it duplicated constraint C1, and it named V/STOL without deriving it.
-
-**Chosen:** "We need to demonstrate that the two of us can take a V/STOL aircraft from
-requirements through to verified flight."
-**Rejected:** an aircraft-first need statement. It is satisfied by an undocumented aircraft, and
-it biases trades towards performance.
-**Rejected:** a learning-first need statement. Nothing in it requires the aircraft to fly.
-**Why:** *demonstrate* requires the aircraft and the record together, in one singular statement,
-so neither can be traded away against the other.
-
-### 2026-08-04 — D3: The value rule, with a level line added
-
-**Chosen:** our original clause is kept. Learning wins where the thing is not too complicated for
-us, and "too complicated" is decided at the moment of the decision by two questions:
-
-1. Does a proven off-the-shelf fallback exist, and can we afford it?
-2. What is the date by which we switch to the fallback if ours is not working?
-
-If both have answers, take the ambitious path. If either does not, take the proven one.
-
-**Added later — the level line.** The two-question test applies where a substitute product
-or a substitute method exists: configuration, avionics, propulsion, control software. It does not
-apply to airframe and aerodynamic design, where no off-the-shelf substitute for our own wing
-exists. There the rule is simpler: prefer the simpler method.
-**Why the line was added:** a test that cannot be answered gets ignored, and a rule that is
-ignored is not a rule.
-**Checked against the page, not remembered:** the ArduPilot Plane wiki page "QuadPlane Frame
-setup" states that the QuadPlane code supports quad, hexa, octa and octaquad lifting arrangements,
-tilting motors for transition, and tailsitters, selected through `Q_FRAME_CLASS` and
-`Q_FRAME_TYPE`. So a proven fallback exists at configuration level and at software level. It does
-not exist at airframe level.
-
-**A correction to an earlier version of this entry.** We first wrote that the wiki "describes the
-Quad-X quadplane as the straightforward setup". It does not. The page calls Quad-X the *default*
-frame and gives its motor ordering on outputs 5 to 8. The word "straightforward" came from a
-search engine summary, not from the page. The conclusion is unchanged — Quad-X is the default and
-therefore the best-supported path — but the claim we wrote was not one the source makes.
-
-### 2026-08-04 — D4: The full transition is a hard MOE
-
-> **Revised the same day by D9c.** The entry below is kept as written. What changed: the full
-> transition is no longer the pass mark. It is the top goal. The three consequences at the end of
-> this entry still stand.
-
-**Chosen:** MOE-1. If JBV-01 never completes a full transition flight, the project has failed.
-**Rejected:** treating the transition as the top goal with a softer MOE built on hover, cruise and
-a diagnosed transition attempt.
-**Rejected:** an MOE on demonstrated transition capability by tethered or bench test rather than
-by flight.
-**Why:** we want the strongest claim, and a hard line forces every design choice towards making
-the transition work.
-**Cost accepted:** project success now rests on the hardest thing the aircraft does. The three
-consequences are listed in section 4 above and must be carried into the schedule and into the
-configuration trade study.
-
-### 2026-08-04 — D5: The university is out of the project
-
-**Chosen:** JBV-01 is built entirely with our own tools and our own money. No university lab, no
-university equipment, no university as a stakeholder. This completes D1 — there was already no
-supervisor and no examiner.
-**Rejected:** carrying the university as an interested party with unknown lab capability, which
-would have left an open question we were never going to close.
-**Why:** it is what is true, and an assumed capability is worse than a known absence. We were
-about to size a propulsion system against a thrust stand nobody had promised us.
-**Cost accepted:** constraint C5. No wind tunnel, no thrust stand, no load cells, no CNC, no
-laser cutter, no machining, no composite layup. Aerodynamic numbers become estimates rather than
-measurements, and we have to build our own thrust stand before we can size anything.
-**What this makes better:** every capability we now claim is one we actually control. Nothing in
-the plan waits on someone else's permission.
-
-### 2026-08-04 — D6: The Need is rewritten around the forced choice
-
-**Chosen:** the need is about the aircraft, and states a problem — that today you must choose
-between landing anywhere and flying long, and we want an aircraft that does not force that
-choice. Final wording fixed the same day, see D9.
-**Rejected:** the earlier "demonstrate that the two of us can take a V/STOL aircraft from
-requirements through to verified flight". Four faults: the subject was us rather than the
-aircraft, it contained our own method, it duplicated constraint C1, and it named V/STOL as a
-given without explaining it.
-**Rejected:** "a long-range aircraft capable of operating in almost any conditions". Range is
-capped by the visual line of sight rule, "almost any conditions" cannot be tested, and the
-sentence contained two capabilities that trade against each other.
-**Why:** runway independence is now inside the problem statement, so V/STOL follows from the need
-instead of being assumed. The fault we had recorded and dodged is now actually fixed.
-**Cost accepted:** goals G3 and G4 no longer descend from the need. They are labelled as project
-goals sitting alongside it rather than under it.
-
-### 2026-08-04 — D7: Performance is benchmarked at 70% of the commercial class
-
-> **Revised the same day by D9b.** The entry below is kept as written. The 70% figure stands.
-> What changed: the benchmark is no longer a commercial V/STOL aircraft. It is an ordinary
-> multirotor to beat outright, and an ordinary fixed-wing model to reach 70% of.
-
-**Chosen:** G2 targets at least 70% of the flight time and distance of a commercial aircraft of
-comparable price.
-**Rejected:** full parity. Commercial airframes use moulding and composites we cannot make, and
-parity on a first build in one year would add a second coin toss.
-**Rejected:** beating the class. Highest risk, and it would consume the time the transition work
-needs.
-**Rejected:** an absolute number chosen by us. It was our first answer, and we changed it once it
-was clear that a benchmark answers "why that number" and an invented figure does not.
-**Cost accepted:** the benchmark cannot be identified until the budget number C3 is written down.
-G2 is blocked until then. Assumption AS5 records the risk that published commercial figures come
-without stated conditions and turn out to be unusable.
-
-### 2026-08-04 — D8: Flight time and distance are both specified, cruise speed is derived
-
-**Chosen:** O2.2 and O2.4 both carry numbers. Cruise speed is whatever falls out of them.
-**Rejected:** specifying flight time alone and letting distance follow, which would have kept
-cruise speed as a free design variable for the aerodynamics.
-**Why:** total distance is part of what we want, and leaving it derived would have left it
-unstated and therefore untested.
-**Cost accepted:** cruise speed becomes a derived requirement the aerodynamic design must hit,
-not a variable it can choose. Guard written into section 3: both numbers must come from the same
-benchmark aircraft, and the implied cruise speed must be checked against that aircraft's
-published figure before either number is frozen.
-
-### 2026-08-04 — D9: The Need wording, and a revision of D4
-
-Three linked choices, recorded together because each depends on the others.
-
-**9a — The Need is fixed as:** *"We need an aircraft that does not force a choice between landing
-anywhere and flying as long as a plane."*
-**Rejected:** the alternative candidate, "an aircraft that can operate from an unprepared site
-without giving up the flight time of a fixed-wing aircraft of the same price". Same meaning, but
-it reads as a specification. The chosen wording names the problem — the forced choice — rather
-than the solution, which is what a need is for.
-
-**9b — The benchmark is an ordinary multirotor and an ordinary fixed-wing model, not a commercial
-V/STOL aircraft.**
-**Rejected:** benchmarking against commercial V/STOL products.
-**Why:** the need says "as long as a plane", so the plane is the benchmark the need itself names.
-A V/STOL comparison would have told us how we rank against specialists. This comparison tells us
-whether the aircraft solves the problem at all. It also makes G2 two-sided, which mirrors the two
-halves of the need: beat the multirotor outright, reach 70% of the plane.
-**Practical gain:** flight time and distance figures are widely published for ordinary multirotors
-and fixed-wing models, which lowers the risk recorded in assumption AS5.
-
-**9c — MOE-4 is a hard pass mark, and MOE-1 is softened. This revises decision D4.**
-D4 made one complete transition flight the pass mark for the whole project. That is no longer the
-case.
-**Chosen:** MOE-1 becomes demonstrated transition capability — tethered test, bench test, or
-logged flight data showing a transition. MOE-4 becomes a hard pass mark on the performance
-objectives.
-**Why the revision:** G2 now carries half the need. Leaving it without a pass mark would have made
-half the need decorative. But making it hard while MOE-1 still required one clean flight on one
-day would have given the project two separate ways to fail on weather. One demanding pass mark
-per half of the need, and the weather lottery removed from the half most exposed to it.
-**Cost accepted:** the report will say "we showed the aircraft transitions" rather than "it
-transitioned in flight, here is the log". A weaker sentence. The full transition flight remains
-the top goal under G1 and objective O1.1, and we still design for it — it simply no longer decides
-whether the project failed.
-**What D4 got right and we are keeping:** the first transition attempt still has to sit early
-enough in the schedule to leave room to recover from a failure, and the configuration
-trade still has to weight transition risk as project risk.
-
-### 2026-08-04 — D10: Budget is €800, as a hard ceiling
-
-**Chosen:** €800 total project spend for the year, as a ceiling we do not cross, not a target.
-The figure is the midpoint of the €700–900 range we agreed we could afford.
-**Rejected:** €400–550. It funds one small aircraft and no rebuild, so the first crash would end
-the project. It also forces a small airframe, which makes the endurance half of the need harder.
-**Rejected:** €1200–1500. It would have let us build the proven fallback airframe alongside the
-ambitious one, which is what the value rule in D3 asks for. We cannot afford it.
-**Rejected:** a target with a held-back reserve, and a per-person split. A single ceiling is the
-simplest thing that works, and the trade study can then reject any configuration we cannot buy.
-**Why a ceiling and not a target:** a target is something you go over. Against a ceiling, the BOM
-becomes a running total, and "we cannot afford this configuration" becomes a real answer in the
-trade study rather than an argument.
-**Cost accepted:** we cannot build the fallback airframe in parallel. If the trade study picks a
-hard-transition configuration, the value rule's fallback has to be reached by *rebuilding* the
-same aircraft, not by having a second one ready. That makes the switch date in D3 more important,
-not less — we will not be able to change our minds quickly.
-**Derived and recorded in section 5:** the first aircraft gets €355 of the €800. That is also the
-price we benchmark against in O2.1, rounded to €350. The figure moved from €390 once decision D11
-added the €35 line for registration and the pilot licence.
-
-### 2026-08-04 — D11: The Open Category rules are confirmed from the regulation, not from a FAQ
-
-**What we did:** read Article 4 of Regulation (EU) 2019/947 in the EASA consolidated text. We had
-been carrying rules from our own project notes and from a search summary. The EASA website FAQ
-could not be opened at all — it is built by JavaScript and returns an empty page — so we went to
-the law instead, which is a better source anyway.
-
-**What was confirmed:** the visual line of sight rule, C11. The 25 kg ceiling, C6. Safe distance
-from people and no flying over assemblies, C8. And that a **privately built** aircraft is admitted
-to the Open Category at all, C13, which is the route JBV-01 depends on.
-
-**Three things we did not know before:**
-
-1. **A 120 m height ceiling**, C12. Article 4(1)(e). It was in none of our notes.
-2. **"Privately built" excludes ready-to-assemble kits**, C13. If we buy a complete kit, JBV-01
-   stops being privately built and needs a class marking we cannot obtain. This is a purchasing
-   rule, not just a paperwork detail, and it belongs in the BOM.
-3. **Nothing may be dropped in flight**, C14.
-
-**One thing we got wrong and have corrected:** we had been carrying a 900 g boundary since the
-start. It does not appear in Article 4. It belongs to the C1 class marking under Delegated
-Regulation (EU) 2019/945, and a privately built aircraft cannot carry a class mark. It is
-therefore **probably not our boundary at all**, which would remove a constraint we had been
-treating as hard. Recorded as C6a and marked unconfirmed, because we could not read the Annex.
-
-**What is still not confirmed, and why it matters:** Annex Part A holds the A1, A2 and A3
-subcategory conditions. Those decide how far from people we must fly. The PDF extraction stopped
-before them. Until we have them, the test site cannot be chosen and O1.4 cannot be closed.
-
-**Age of the source:** January 2021 consolidation. Amendments since then are unchecked.
-
-### 2026-08-05 — D12: Mission, instruments, FPV, and one scenario we chose not to write
-
-**Mission chosen:** pure demonstrator. The aircraft carries nothing beyond what it needs to fly.
-The flight profile is the mission.
-**Rejected:** an observation mission carrying a camera, and a carry-a-load mission. Both take mass
-from the battery, and the battery is where the endurance in G2 comes from. Neither is required by
-the need, which is about capability rather than application.
-
-**Instruments chosen:** on-board flight data logging, and live telemetry to the ground.
-**Why logging:** MOE-1 accepts logged flight data as proof of changeover, and every endurance
-figure in G2 rests on it.
-**Why live telemetry:** without it the battery reserve is discovered after landing rather than
-during flight. Scenario DRM-0900 depends on it.
-**Rejected:** flying with nothing beyond the minimum. It would have put every endurance number on
-a stopwatch and made MOE-1 depend on a bench demonstration.
-
-**FPV chosen:** fitted **later**, as a piloting aid, not on the first aircraft.
-**Rejected:** fitting it from the start, and making the camera view the mission, and dropping it
-entirely.
-**Why later:** it lets us measure the G2 endurance figures clean, and then measure again with FPV
-fitted. The cost of FPV in minutes of flight is a number worth having, and this is the only order
-in which we can get it.
-**Legal consequence, confirmed:** a pilot wearing goggles does not satisfy the visual line of
-sight rule. Article 4(1)(d) permits it only with an unmanned aircraft observer. So once FPV is
-fitted, **both of us must be present at every flight**. The detailed conditions on the observer
-are in Annex Part A, which we still cannot read.
-**Budget consequence:** goggles are ground equipment and are not in the €800 allocation. Analog
-gear is the only affordable route; digital goggles alone cost more than our whole first aircraft.
-
-**One scenario we chose not to write: a failed or stalled changeover.**
-**Chosen:** handle it in the flight test plan for DRM-0400 rather than as a ConOps scenario.
-**Rejected:** writing it as a fourth off-nominal scenario.
-**Recorded honestly:** it is the failure most likely to happen to us, and it is the one MOE-1 is
-about. If the DRM-0400 test plan is thin, nothing else catches it. Carried into ConOps section 7.0
-as a risk so the gap stays visible.
-
-### 2026-08-07 — D13: What writing the ConOps changed
-
-The order was deliberate: needs and goals first, then `CONOPS.md`, then back to this file. Walking
-through the operational scenarios found things the goals alone had not.
-
-**Three new objectives.**
-
-- **O1.7 and O1.8** — maximum hover height, and minimum distance between the aircraft and any
-  person. Both came from scenario [DRM-1000], one lift unit failing during hover. On most V/STOL
-  layouts that failure is not recoverable and the aircraft falls. Since we cannot design against
-  it, the only honest answer is to limit the consequence: hover low, and keep people back. These
-  are the only two objectives in this file that exist to protect a person rather than the project.
-- **O1.9** — the ability to abandon a changeover and return to hover. We had written that the
-  changeover must work. We had never written that it must be possible to stop trying. Verified in
-  the [DRM-0400] flight test plan, not as its own scenario, per D12.
-
-**Two capabilities promoted, recorded in `CONOPS.md` §3.5.** Live telemetry to the ground became a
-required capability rather than a nice-to-have, because the abort rule in [DRM-0900] is impossible
-without it. And carrying the operator number became an interface requirement on the outside
-surface of the airframe, `CONOPS.md` §3.3 — a flat, reachable place that survives weather and a
-crash.
-
-**Reconciled with D12, which is older and which wins.** This entry originally added a scenario for
-a failed changeover and stated that no camera would ever be carried. D12 had already decided both
-questions the other way. What now stands:
-
-1. **A failed changeover is not a scenario.** It is handled in the [DRM-0400] flight test plan.
-   The risk D12 recorded stands with it — if that test plan is thin, nothing else catches the
-   failure we are most likely to meet. Written into `CONOPS.md` §6.2 so it stays visible.
-2. **First-person view is fitted later**, as a piloting aid, not on the first aircraft. Added to
-   `CONOPS.md` §3.5 as capability 13, with the consequence D12 established: goggles do not satisfy
-   the visual line of sight rule, so once it is fitted **both of us must be present at every
-   flight**, one flying and one watching the aircraft unaided. Goggles are ground equipment and
-   sit outside the €800.
-
-**One numbering conflict fixed.** Two objectives had both been numbered O1.7, and two decisions had
-both been numbered D12. The hover height objective keeps O1.7 and the changeover-abort objective
-became O1.9; the older decision keeps D12 and this entry became D13.
-
----
-
-## What is still open
+## 8. What is still open
 
 | Item | Closes at |
 |---|---|
-| The two benchmark aircraft at about €350, O2.1, and the figures in O2.2 to O2.6 | **Next.** Then check the derived cruise speed before freezing anything |
-| Battery reserve percentage, O2.5 | With the benchmark. To be checked against ordinary practice, not guessed |
-| **Annex Part A of 2019/947** — the A1/A2/A3 subcategory conditions, C6a | Needs a browser. Blocks the test site and O1.4 |
-| **RDW registration** — cost, duration, marking, C7 | Needs a browser |
-| Amendments to 2019/947 since January 2021 | Before the requirements freeze |
-| Configuration — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
-| Scale, and therefore O1.2 to O1.5 | The configuration trade study |
+| **Does the flight log record stick positions?** | Before the requirements freeze. G2-O1's criterion is checked against them, so if the log does not hold them the criterion has to change. Install the flight controller software, fly one throwaway case, and open the log |
+| **What G2-O3 can never prove** | Nothing to close. Recorded so we do not overclaim: a hovering V/STOL aircraft is unstable without its flight controller, in the same way a multirotor is. So the hover pulse test measures **the airframe and the controller together**, and we report it that way. Only a wing-borne pulse test flown in manual pass-through mode would test the airframe alone, and we are not doing that on the first aircraft |
+| **May a requirement be verified by analysis alone?** | Before `REQUIREMENTS.md`. Until settled the answer is no |
+| **Which simulation tools we use**, C9 | Before Stage 3. Install them, run one throwaway case each, record what each is good for. A tool we have not run is not a capability |
+| **Whether SITL simulates a tiltrotor or a tailsitter**, C9 | Before the configuration trade. It feeds the fallback rule's first question |
+| **A real quote for a part of ours**, C6 | Before any design depends on an ordered part |
+| **What the makerspace actually holds** — bed size, materials, any measuring instrument | Go and look. It may move C8. AS6 |
+| Sheet material price, AS7 | With the makerspace visit |
+| JLCPCB shipping cost and delivery time | Their table is an image. Needs a browser, or a real quote |
+| **Configuration** — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
+| **Scale** | The configuration trade study |
 | Thrust stand — price it, build it, check it against a known mass, AS2 | Before the propulsion system is sized |
-| Current EASA and RDW rules, C6 and C7 | Before ConOps section 2.1 is written |
-| Test site, C8 and AS1 | Before the first flight, and it constrains scale, so earlier is better |
-| The ConOps itself | Next |
+| **Test site**, C14, C18 and AS1 | Before the first flight. 150 m from every residential, commercial, industrial and recreational area, and outside the GoDrone zones |

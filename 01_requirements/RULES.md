@@ -1,13 +1,13 @@
 # Rules for flying JBV-01 in the Netherlands
 
 Every rule we must obey, with its source and how well we have checked it. This file feeds ConOps
-section 2.1 "Applicable Documents" and constraints C6, C6a, C7, C8 and C11 to C16 in `NGO.md`.
+section 2.1 "Applicable Documents" and constraints **C12 to C23** in `NGO.md`.
 
 Rules here are numbered **EU1–EU7** and **B1–B2**. Note that **A1, A2 and A3 always mean the Open
 Category subcategories** in this project, because that is what they mean in the regulation.
 
-**Checked on 2026-08-04.** Rules change. Check again before the requirements freeze, and again
-before the first flight.
+**First checked 2026-08-04. Re-checked against the July 2024 consolidated text on 2026-08-14.**
+Rules change. Check again before the requirements freeze, and again before the first flight.
 
 ## How to read the status column
 
@@ -22,10 +22,32 @@ before the first flight.
 ## A. EU rules — the Open Category
 
 Source: **Regulation (EU) 2019/947**, read in the EASA consolidated text *Easy Access Rules for
-Unmanned Aircraft Systems*, January 2021 edition.
+Unmanned Aircraft Systems*, January 2021 edition, and in the **Official Journal original text**
+(CELEX 32019R0947) for the Annex.
+
+> **Re-checked against the current law on 2026-08-14.** The regulation has been amended **five
+> times**, and we have now read the **July 2024 edition**, which incorporates all of them. Article 4,
+> UAS.OPEN.010, .020, .040 and .050(7) are **unchanged** from what this file already said. Two
+> things were added and both are recorded below: the distance formula in §C, and the
+> manufacturer's-instructions clause in UAS.OPEN.040(3). The amendment history, for the record:
+>
+> | Amending act | | Applicable from |
+> |---|---|---|
+> | 2019/947 | initial issue | 31/12/2020 |
+> | 2020/639 | Amendment 1 | 2/6/2020 |
+> | 2020/746 | Amendment 2 | 6/6/2020 |
+> | 2021/1166 | Amendment 3 | 5/8/2021 |
+> | 2022/425 | Amendment 4 | 4/4/2022 |
+> | **2024/1110** | **Amendment 5** | **1/5/2025** |
+>
+> Delegated Regulation 2019/945 has also been amended twice, most recently by **2024/1108**,
+> also applicable 1/5/2025.
+>
+> **"Confirmed" in this file now means confirmed against the July 2024 edition**, except the RDW
+> rows in §B, which are Dutch pages checked separately and carry their own dates.
 
 - The copy we actually read: [Easy Access Rules for UAS, January 2021 (PDF, 309 pp.)](https://drones.gov.cy/wp-content/uploads/2021/02/Easy-Access_Rules_for_Unmanned_Aircraft_Systems_January_2021.pdf)
-- The current edition, which we have **not** read: [EASA — Easy Access Rules for Unmanned Aircraft Systems](https://www.easa.europa.eu/document-library/easy-access-rules/easy-access-rules-unmanned-aircraft-systems-regulation-eu)
+- **The edition we now work from:** [Easy Access Rules for UAS, July 2024 (PDF, 468 pp.)](https://drones.gov.cy/wp-content/uploads/2025/08/EAR_UAS_Jul24.pdf) — incorporates all five amendments
 - The law itself: [Regulation (EU) 2019/947 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0947) and [Delegated Regulation (EU) 2019/945 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0945)
 
 The Dutch inspectorate ILT states plainly that all drone flights in the Netherlands must comply
@@ -51,9 +73,24 @@ kit**". Definition (16). **Confirmed.**
 This is the route that lets JBV-01 fly at all, because a home-built aircraft cannot carry a class
 marking. Buying one complete ready-to-assemble kit would close it.
 
+**Guidance that puts our route beyond doubt.** GM1 Article 2(16), ED Decision 2022/002/R, read
+2026-08-14 in the July 2024 edition. A UAS counts as privately built when it is made or assembled
+by the operator for their own use and **not placed on the market**, and "assembled or manufactured"
+means one of:
+
+- (a) the complete manufacturing of the UAS, or at least most of it;
+- **(b) the assembly of the UAS from parts or sub-assemblies sold separately;**
+- (c) the modification of a class C4 UAS (aeromodel).
+
+**(b) is exactly what we are doing**, and it is now written down rather than assumed. Two further
+lines from the same guidance: changing one or a few components of a class-marked UAS does **not**
+make it privately built unless the manufacturer's instructions describe the change; and a UAS
+assembled from a ready-to-assemble kit is **not** privately built. Route (c), modifying a C4
+aeromodel, is a third path we had not known about.
+
 **"Visual line of sight" (VLOS)** — an operation in which the remote pilot "is able to maintain
 continuous **unaided** visual contact with the unmanned aircraft, allowing the remote pilot to
-control the flight path ... for the purpose of avoiding collisions". Definition (7). Anything not
+control the flight path.. for the purpose of avoiding collisions". Definition (7). Anything not
 conducted in VLOS is BVLOS, definition (8). **Confirmed.**
 
 *Unaided* is the important word. Looking at a screen or through goggles does not satisfy EU4. If we
@@ -65,7 +102,7 @@ ever want to fly first-person view, we need a second person watching the aircraf
 
 Source: **RDW**, the Dutch registration authority. Pages read 2026-08-04.
 Hub page: [rdw.nl/drone](https://www.rdw.nl/drone). Note the short path — the longer
-`/particulier/voertuigen/drone/...` addresses redirect.
+`/particulier/voertuigen/drone/..` addresses redirect.
 
 ### B1. Operator number (*exploitantnummer*)
 
@@ -77,10 +114,13 @@ Renewal: [Exploitantnummer verlengen](https://www.rdw.nl/drone/exploitantnummer-
 | Who must have one | The owner of a drone or other unmanned aircraft **with a camera, or weighing 250 g or more**. Also anyone flying such an aircraft belonging to someone else | **Confirmed** |
 | Cost to apply | **€23.00** | **Confirmed** |
 | How many | **One number covers all your aircraft** | **Confirmed** |
-| Validity | Expires after **one year**, then must be renewed | **Confirmed** that it expires yearly. Renewal fee **not checked** |
+| Validity | Expires after **one year**. Renewable online from 6 weeks before it lapses. **If it lapses you cannot renew — you must apply again at €23** | **Confirmed.** Read 2026-08-14 |
+| Renewal cost | **€13.00** | **Confirmed.** Read 2026-08-14 |
 | Marking | The number looks like `NLD87astrdge12kc - xyz`. **Only the part before the dash goes on the aircraft**, clearly visible on the outside, for example as a sticker. The last three characters are left off so nobody can misuse the number. May also be programmed in if the aircraft supports it | **Confirmed** |
 | How to apply | Online with DigiD, or in person at an RDW station with a printed form and ID | **Confirmed** |
-| Insurance | If insurance is compulsory for us, it must be added to our operator record | **Confirmed that this is required if applicable.** Whether it applies to us is **not checked** |
+| Insurance | **Not compulsory for us.** RDW: for private users, insurance is compulsory under EU rules only **from 20 kg**. We will be far below that. If it were compulsory, the policy number would have to be added to the operator record | **Confirmed.** Read 2026-08-14 |
+| Insurance, what RDW advises anyway | RDW "strongly recommends" insuring against injury or property damage to third parties, and says to **check whether your existing liability insurance (*aansprakelijkheidsverzekering*) covers damage caused by drones** | **Confirmed.** Read 2026-08-14. Free to check, and worth doing |
+| Flight permit (*vluchtvergunning*) | **Not needed** in the Open Category. Only the Specific category needs one | **Confirmed.** Read 2026-08-14 |
 
 ### B2. Remote pilot licence (*vliegbewijs*)
 
@@ -105,29 +145,107 @@ List of approved exam providers: [Vliegbewijs drone — Rijksoverheid](https://w
 |---|---|
 | The Netherlands publishes geographical zones. The **GoDrone** app and map show them. Red areas are closed to Open Category flights | **Partly.** ILT names GoDrone and confirms red areas exist. We have not opened the map |
 | A flight in a red area needs a permit, applied for at ILT | **Partly.** ILT lists this as a question it answers |
-| **Subcategory conditions — how far we must stay from people and buildings** | **NOT CHECKED. This is the biggest gap in this file** |
+| **Subcategory conditions — how far we must stay from people and buildings** | **CONFIRMED 2026-08-14.** See below. We are in **A3** |
 
 Where to look: [GoDrone operator portal](https://operatorportal.godrone.nl/) ·
 [ILT — Flying drones in the Netherlands](https://english.ilent.nl/topics/aviation/drones-and-model-aircraft/drones-eu-residents) ·
 [ILT — Wegwijzer drones](https://www.ilent.nl/onderwerpen/luchtvaart/drones-en-modelvliegtuigen/wegwijzer-drones)
 
-### The subcategory gap, stated plainly
+### Which subcategory we are in — settled
 
-The Open Category is divided into A1, A2 and A3. Which one we fall into decides how far from
-people and buildings we must fly. Those conditions are in Annex Part A of 2019/947, points
-UAS.OPEN.020, .030 and .040. **We have not been able to read them.** The PDF we are working from
-was cut off before the Annex, and the EASA website returns an empty page without a browser.
+Read from the Annex to Regulation (EU) 2019/947 on **2026-08-14**, in the Official Journal text
+(CELEX 32019R0947). This closes what was the biggest gap in the project.
 
-What we expect, from search results only and **therefore not to be relied on**:
+**We are in A3.** The reasoning is short, and each step is a line in the Annex:
 
-- A privately built aircraft over 250 g most likely falls in **A3**.
-- A3 is expected to require at least **150 m horizontally from residential, commercial, industrial
-  and recreational areas**, and an area where no uninvolved person is endangered.
-- A2 requires a C2 class marking, which a privately built aircraft cannot have, so A2 is probably
-  closed to us.
+| Subcategory | The privately built route | Open to us? |
+|---|---|---|
+| **A1** | UAS.OPEN.020(5)(a) — privately built is allowed **only** under **250 g** *and* with a maximum operating speed under **19 m/s** | **No.** Five motors and a hover-sized battery put us well over 250 g |
+| **A2** | UAS.OPEN.030(3) — requires an aircraft **marked as class C2** | **No.** A privately built aircraft carries no class mark |
+| **A3** | UAS.OPEN.040(4)(a) — privately built, **under 25 kg** | **Yes.** This is our route |
 
-If A3 and the 150 m figure are right, the test site must be genuinely open country. That is a
-strong constraint on where we can fly and it should be settled before we choose a site.
+**The three A3 conditions, quoted:**
+
+| # | Rule | Where |
+|---|---|---|
+| A3-1 | "be conducted in an area where the remote pilot reasonably expects that **no uninvolved person will be endangered** within the range where the unmanned aircraft is flown during the entire time of the UAS operation" | UAS.OPEN.040(1) |
+| A3-2 | "be conducted at a **safe horizontal distance of at least 150 metres from residential, commercial, industrial or recreational areas**" | UAS.OPEN.040(2) |
+| A3-3 | Remote pilot has completed the online course and passed the online theoretical examination defined in UAS.OPEN.020(4)(b) — the **A1/A3** exam we already costed at €10 | UAS.OPEN.040(3) |
+
+**And one obligation we had not seen anywhere.** UAS.OPEN.050(7): the operator shall "ensure in the
+case of an UAS operation in subcategory A2 or A3, that **all involved persons present in the area
+of the operation have been informed of the risks and have explicitly agreed to participate**."
+
+In plain terms: at an A3 flight there are no bystanders. Anyone in the area is a participant who
+has been told what can go wrong and has said yes. That is the rule that replaces the distance-to-a-
+person figure we do not have.
+
+**There IS a minimum distance to a person, and it is a formula.** It lives in the guidance rather
+than in the rule, which is why every earlier extract we had missed it — they were all cut off
+before the AMC. **AMC1 UAS.OPEN.040(1)**, ED Decision 2019/021/R:
+
+> A minimum horizontal distance from the person that is passing the area could be estimated as
+> follows:
+> (1) no less than **30 m**;
+> (2) no less than **the height** ('1:1 rule', i.e. if the UA is flying at a height of 30 m, the
+> distance of the UA from the uninvolved person should be at least 30 m), and
+> (3) no less than the distance that the UA would cover in **2 seconds at the maximum speed** (this
+> assumes a reaction time of 2 seconds).
+
+So the rule is **max(30 m, our height, 2 s × our maximum speed)**, and the same AMC adds that if an
+uninvolved person enters the range we adjust the operation, or stop it if safety is not assured.
+
+**Two things this gives us that we did not have.** A real distance we can hold and check. And the
+**1:1 rule ties distance to height** — the coupling we lost when the hover-height objective was
+deleted comes back through the law instead.
+
+**Which of the three terms is the largest depends on our maximum speed.** The 2-second term passes
+30 m at a speed of 15 m/s. Below that speed the 30 m floor decides the distance; above it, our own
+speed does. **We hold no speed figure** — the performance objectives that carried one were removed
+on 2026-09-04 — so which term binds us is not known until the aircraft is flown and measured. A
+faster aircraft needs people standing further back, and that is a design consequence, not a
+paperwork one.
+
+**Two more figures from the same Annex, both confirming what we had:**
+
+- **UAS.OPEN.010(2)** — the 120 m is measured "from the closest point of the surface of the earth",
+  and over hilly ground the measurement adapts to the terrain.
+- **UAS.OPEN.010(3)** — within 50 m horizontally of an artificial obstacle taller than 105 m, the
+  ceiling may rise to 15 m above that obstacle, but only at the request of whoever is responsible
+  for the obstacle. Not a route we will use.
+
+**Registration threshold, from Article 14(5)(a).** An operator must register when flying an
+aircraft "with a MTOM of 250 g or more, **or, which in the case of an impact can transfer to a
+human kinetic energy above 80 Joules**", or one carrying a sensor able to capture personal data.
+The 80 J alternative is new to us and it can catch a light, fast aircraft that is under 250 g.
+
+### When we may fly — daylight only
+
+Read from ILT, the Dutch aviation authority, on 2026-08-14. Their page was last modified
+2026-07-15, so it is current.
+
+> "U mag met uw drone niet op zicht in het donker vliegen." — *You may not fly your drone on sight
+> in the dark.* "Volgens de Visual Flight Rules (VFR) mag u niet met uw drone op zicht in het donker
+> vliegen."
+
+Flying outside the **Uniforme Daglicht Periode (UDP)** needs an **ontheffing** from the
+ILT aviation authority, **and** the flight must be in the **Specific category**, **and** the
+operator needs an *exploitatievergunning*. All three are closed to us.
+
+**So: daylight only, with no route around it.** This is now a rule we can cite rather than caution
+we chose. It also settles the FPV question from the other direction — night flying was never
+available to us at any price.
+
+**What the page does not give is the exact boundary of the UDP.** Search results say a quarter of
+an hour either side of sunrise and sunset. **Not verified**, and we should not put a time in a
+flight plan until it is.
+
+Source: [Vliegen buiten de Uniforme Daglicht Periode — ILT](https://www.ilent.nl/onderwerpen/luchtvaart/drones-en-modelvliegtuigen/regels-voor-drones/specifiek-dronecategorie/buiten-udp)
+
+**What this means for the test site.** 150 m from any residential, commercial, industrial or
+recreational area is a hard filter. In a country as built-up as the Netherlands that rules out most
+of the map, and it has to be checked against the GoDrone zones as well. The site search should
+start from this figure, not end at it.
 
 ---
 
@@ -135,36 +253,35 @@ strong constraint on where we can fly and it should be settled before we choose 
 
 | Gap | How to close it |
 |---|---|
-| Annex Part A — the A1/A2/A3 conditions | [EASA Easy Access Rules, online edition](https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-unmanned-aircraft-systems) — needs a browser |
-| Whether insurance is compulsory for us | [Verzekeringen en vluchtvergunningen — RDW](https://www.rdw.nl/drone/verzekeringen-en-vluchtvergunningen) |
-| Renewal fee for the operator number | [Exploitantnummer verlengen — RDW](https://www.rdw.nl/drone/exploitantnummer-verlengen) |
-| Whether the Netherlands restricts flying to daylight | Seen in search results as 15 minutes before sunrise to 15 minutes after sunset. **Unverified.** Try [Rijksoverheid — drone](https://www.rijksoverheid.nl/onderwerpen/drone) |
-| Whether JBV-01 counts as a **model aircraft**, which has its own route under Article 16 | [Regels voor modelvliegen — Rijksoverheid](https://www.rijksoverheid.nl/onderwerpen/drone/regels-voor-modelvliegen). RDW's own licence page links model aircraft here, so this may be a second legal route worth understanding |
-| Amendments to 2019/947 since January 2021 | [EUR-Lex record for 2019/947](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0947) lists the amending acts. Our copy of the law is five years old |
+| ~~Annex Part A — the A1/A2/A3 conditions~~ | **Closed 2026-08-14.** Read from the Official Journal text, CELEX 32019R0947. See §C |
+| ~~Whether insurance is compulsory for us~~ | **Closed 2026-08-14.** Not compulsory below 20 kg. See §B1 |
+| ~~Renewal fee for the operator number~~ | **Closed 2026-08-14.** €13.00. See §B1 |
+| ~~Whether the Netherlands restricts flying to daylight~~ | **Closed 2026-08-14.** Daylight only in the Open Category. See §C. **The exact UDP boundaries are still unverified** — search results say 15 minutes either side of sunrise and sunset, and the ILT page does not state them |
+| Whether JBV-01 counts as a **model aircraft** under Article 16 | **Partly closed 2026-08-14.** Article 16 is a route for a **club or association**, not for an individual: the competent authority may issue an authorisation *upon request by a model aircraft club or association*, limited to that Member State. So it is only open to us by joining a Dutch club that already holds one, and flying under its conditions. Whether any Dutch club does, and on what terms, is unchecked | [Regels voor modelvliegen — Rijksoverheid](https://www.rijksoverheid.nl/onderwerpen/drone/regels-voor-modelvliegen). RDW's own licence page links model aircraft here, so this may be a second legal route worth understanding |
+| ~~Re-check the A3 conditions against the current edition~~ | **Closed 2026-08-14.** Read in the [Easy Access Rules, July 2024 edition](https://drones.gov.cy/wp-content/uploads/2025/08/EAR_UAS_Jul24.pdf), which carries all five amendments. UAS.OPEN.040 is unchanged — the 150 m and the privately built route both still read as §C says. The block at the head of §A records this |
 
 ---
 
-## E. What these rules change about JBV-01
+## E. Where each rule is carried in the rest of the folder
 
-**Money.** Registration and licence together cost at least **€23 + €10 = €33**, plus a yearly
-renewal of the operator number. The €800 allocation in `NGO.md` had no line for this. It does now.
+This file is the **source**. Nothing below is repeated here in full, so that the two cannot drift
+apart. Section E used to hold the consequences in prose; on 2026-09-04 it became this table.
 
-**The airframe.** The operator number must be visible on the outside. A sticker on foam is
-enough, but it has to survive weather and a crash, and it must be planned rather than added at
-the last minute.
+| Rule here | Where it binds the project |
+|---|---|
+| EU1 and definition (16) — privately built | **C12.** A purchasing rule in `04_build/BOM.xlsx`: buy parts, never a complete ready-to-assemble kit |
+| EU2 — below 25 kg | **C13** |
+| EU3 — safe distance, never over assemblies | **C14**, with the metres in **C19** |
+| EU4 — unaided visual line of sight | **C15.** Also why no camera view can be our primary method |
+| EU5 — 120 m ceiling | **C16.** A hard limit on every flight test we plan |
+| EU6 — nothing dropped, no dangerous goods | **C17** |
+| §C — A3, 150 m from built-up areas | **C18.** It decides the test site, `CONOPS.md` §4.0 |
+| §C — max(30 m, height, 2 s × max speed) | **C19.** It ties how high we hover to how far back people stand, [DRM-0900] |
+| §C — everyone present has agreed to take part | **C20** |
+| §C — daylight only | `CONOPS.md` §4.0 |
+| §B1 — operator number, €23, yearly | **C22**, the budget line in `NGO.md` §6, and the airframe surface interface in `CONOPS.md` §3.3. A sticker on foam is enough, but it must survive weather and a crash |
+| §B2 — remote pilot licence, €10 | **C23**, and the budget line |
 
-**Flight testing.** The 120 m ceiling, EU5, is a hard limit on every test we plan. Nothing in our
-flight test plan may exceed it.
-
-**No first-person view as our primary method.** EU4 requires unaided visual contact. If we want a
-camera view for telemetry, one of us must still be watching the aircraft directly.
-
-**Purchasing.** Rule EU1 with definition (16): **do not buy a complete ready-to-assemble kit.**
-Buying individual parts is fine. This belongs in `04_build/BOM.xlsx` as a rule, not just here.
-
-**The test site.** Depends entirely on the subcategory gap in section C. Until that is closed we
-cannot say whether a field at the edge of a village is legal or not.
-
-**Timing.** The online exam and the RDW applications take real days. Neither of us can legally
-fly JBV-01 without both. This belongs on the schedule now, not in the week before the first
-flight.
+**One consequence has no home yet: timing.** The online exam and the RDW applications take real
+days, and neither of us may legally fly JBV-01 without both. That belongs on the schedule in
+`00_management/`, not in the week before the first flight.
