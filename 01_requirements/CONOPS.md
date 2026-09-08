@@ -6,7 +6,7 @@ lift+cruise, tilt-wing, ducted fan — is decided later, in the configuration tr
 document must stay true whichever one wins. If a sentence here only makes sense for one
 configuration, that sentence is wrong.
 
-**Rewritten 2026-09-04**, against the new goals in `NGO.md` §1 and §2.
+**Rewritten 2026-09-08**, against the new goals in `NGO.md` §1 and §2.
 
 **What we cut from the NASA Appendix S outline.** Appendix S says its content and sequence "will be
 a function of the type, size, and complexity of the project", so a cut is allowed if we say what we
@@ -169,11 +169,11 @@ something breaks if it is removed**, and the thing it would break is named.
 | 11 | Be repaired or rebuilt after a crash, using parts we can obtain | C4 |
 | 12 | Carry the operator number visibly on its outside surface | C22, and it is law |
 
-**Capability 6 grew on 2026-09-04.** The log now has to hold transmitter stick positions, because
+**Capability 6 grew on 2026-09-08.** The log now has to hold transmitter stick positions, because
 G2-O1 and G2-O2 are decided by whether the pilot ever needed full stick. That is the only way those
 criteria are checked, so it is no longer a nice thing to have.
 
-**Two capabilities were removed on 2026-09-04.** What each removal costs is written here, so that
+**Two capabilities were removed on 2026-09-08.** What each removal costs is written here, so that
 it is a decision on the record and not something discovered later.
 
 - **Descend under control with no propulsive thrust**, the wing carrying its weight. It belonged to
@@ -205,7 +205,7 @@ Outdoors, in the Netherlands, over one academic year. That means a lot of wind a
 
 **Why no wind or temperature figure here.** Earlier versions set 6 m/s steady wind, 10 m/s gusts
 and 0 to 25 °C. The Dutch climate means behind them were sourced; the multipliers were ours, and
-they fixed detail about an aircraft that does not exist. Removed 2026-09-04.
+they fixed detail about an aircraft that does not exist. Removed 2026-09-08.
 
 **One wind figure will still be needed, and it is not this document's job.** Propulsion cannot be
 sized without a design wind speed, because the aircraft has to hold a hover against it. That figure

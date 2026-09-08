@@ -202,7 +202,7 @@ deleted comes back through the law instead.
 **Which of the three terms is the largest depends on our maximum speed.** The 2-second term passes
 30 m at a speed of 15 m/s. Below that speed the 30 m floor decides the distance; above it, our own
 speed does. **We hold no speed figure** — the performance objectives that carried one were removed
-on 2026-09-04 — so which term binds us is not known until the aircraft is flown and measured. A
+on 2026-09-08 — so which term binds us is not known until the aircraft is flown and measured. A
 faster aircraft needs people standing further back, and that is a design consequence, not a
 paperwork one.
 
@@ -265,7 +265,7 @@ start from this figure, not end at it.
 ## E. Where each rule is carried in the rest of the folder
 
 This file is the **source**. Nothing below is repeated here in full, so that the two cannot drift
-apart. Section E used to hold the consequences in prose; on 2026-09-04 it became this table.
+apart. Section E used to hold the consequences in prose; on 2026-09-08 it became this table.
 
 | Rule here | Where it binds the project |
 |---|---|

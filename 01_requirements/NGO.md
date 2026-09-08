@@ -8,7 +8,7 @@ the way, lives in the GitHub issue that changed it.
 These are **not requirements.** An objective is not a requirement. Requirements are written in
 `REQUIREMENTS.md`, after this file is settled.
 
-**Rewritten 2026-09-04.** The performance goal was removed. See §1.
+**Rewritten 2026-09-08.** The performance goal was removed. See §1.
 
 ---
 
@@ -43,7 +43,7 @@ propellers and the mass, and we have measured none of them. We state no figure f
 
 ### What this need no longer claims
 
-**Changed 2026-09-04.** The earlier need said the aircraft must not force a choice between landing
+**Changed 2026-09-08.** The earlier need said the aircraft must not force a choice between landing
 anywhere and *flying as long as a plane*, and a goal measured us against a fixed-wing benchmark at
 70% of its flight time and 70% of its cruise speed.
 
@@ -87,9 +87,9 @@ Every objective must be specific, measurable and verifiable, aggressive but atta
 the result rather than the method.
 
 **An objective with no value is not an objective.** If we cannot say what the number is, the item
-is not necessary to us and it is not written down. Rule set 2026-09-04.
+is not necessary to us and it is not written down. Rule set 2026-09-08.
 
-**Objective IDs changed on 2026-09-04.** An ID now carries its parent goal, so it says what it
+**Objective IDs changed on 2026-09-08.** An ID now carries its parent goal, so it says what it
 descends from, and **a retired ID is never reused**. Anything written before that date — issues,
 commit messages, the ConOps — uses the old flat numbers, which meant different things:
 
@@ -107,7 +107,7 @@ commit messages, the ConOps — uses the old flat numbers, which meant different
 | ID | Objective | Verification | Status |
 |---|---|---|---|
 | G1-O1 | At least one flight, before the end of the project, containing in sequence: vertical take-off, stable hover, transition to wing-borne cruise, sustained cruise, transition back to hover, vertical landing | The flight log for that flight. [DRM-0500] | Fixed. **The pass mark** — MOE-1 |
-| G1-O2 | Total flight time greater than **5 min**, measured from lift-off to landing and flown to the battery reserve in C11, of which **more than half** is wing-borne | The flight log. [DRM-0600] | Both figures **set 2026-09-04** |
+| G1-O2 | Total flight time greater than **5 min**, measured from lift-off to landing and flown to the battery reserve in C11, of which **more than half** is wing-borne | The flight log. [DRM-0600] | Both figures **set 2026-09-08** |
 
 **Why G1-O2 has two parts.** Total flight time alone can be passed by hovering, and an aircraft
 that hovers for five minutes is a rotorcraft. The wing-borne fraction is what makes the wing
@@ -132,9 +132,9 @@ agreed before the flight**. We are both the pilot and the judge, so nothing else
 
 | ID | Objective | Verification | Status |
 |---|---|---|---|
-| G2-O1 | In hover, the pilot can hold the aircraft where he wants it, **with control margin left**. Criterion: *the pilot holds a hover for 60 s and never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0300] | **Set 2026-09-04.** Rests on the log recording stick positions, which is **unconfirmed** — see §8 |
-| G2-O2 | The aircraft passes through both transitions with **control margin left**. Criterion: *from the start of each transition until the new flight mode is steady, the pilot never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0400] | **Set 2026-09-04.** Same measure and same log source as G2-O1 |
-| G2-O3 | After a disturbance, the aircraft returns to its trimmed state **with no pilot input** — in hover and in wing-borne flight. Criterion: *after a short stick input is released, the oscillation gets smaller on each cycle and the aircraft settles back to trim* | Demonstration, read off the attitude trace in the flight log. [DRM-0300] and [DRM-0400] | **Set 2026-09-04** |
+| G2-O1 | In hover, the pilot can hold the aircraft where he wants it, **with control margin left**. Criterion: *the pilot holds a hover for 60 s and never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0300] | **Set 2026-09-08.** Rests on the log recording stick positions, which is **unconfirmed** — see §8 |
+| G2-O2 | The aircraft passes through both transitions with **control margin left**. Criterion: *from the start of each transition until the new flight mode is steady, the pilot never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0400] | **Set 2026-09-08.** Same measure and same log source as G2-O1 |
+| G2-O3 | After a disturbance, the aircraft returns to its trimmed state **with no pilot input** — in hover and in wing-borne flight. Criterion: *after a short stick input is released, the oscillation gets smaller on each cycle and the aircraft settles back to trim* | Demonstration, read off the attitude trace in the flight log. [DRM-0300] and [DRM-0400] | **Set 2026-09-08** |
 | G2-O4 | The aircraft can abandon a transition and return to hover under control | Demonstration. [DRM-0400] | Fixed. Being able to stop trying is a capability, not an accident |
 | G2-O5 | Both transitions are proved on a tether or on the bench before any free-flight attempt | [DRM-0200] | Fixed. **The gate, not the pass mark** |
 
@@ -167,7 +167,7 @@ stakeholder, so we are the ones who would have to say it.
 
 **MOE-2 is the weaker of the two, and we should say so.** We wrote the criteria, we fly against
 them, and we judge them. There is no outside check. Two things reduce the problem: all three were
-written on **2026-09-04, before any hardware exists**, and all three are read off the flight log
+written on **2026-09-08, before any hardware exists**, and all three are read off the flight log
 rather than off our opinion on the day. What is left is that we chose the measure — and that is
 what a logged revision is for if we ever change it.
 
@@ -339,7 +339,7 @@ A1, A2 and A3 already mean the Open Category subcategories.
 | AS9 | We can learn the simulation tools well enough to trust their output inside this academic year, alongside building the aircraft | **No.** Free software is not free time |
 
 **AS5 and AS5a are deleted.** They existed to support the multirotor and fixed-wing benchmarks,
-which were removed on 2026-09-04. IDs are not reused.
+which were removed on 2026-09-08. IDs are not reused.
 
 ## 8. What is still open
 
