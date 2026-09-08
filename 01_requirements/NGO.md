@@ -41,23 +41,6 @@ assumed.** Which V/STOL configuration is still open.
 ordinary aerodynamics and we take it as given. The size of the gap depends on the wing, the
 propellers and the mass, and we have measured none of them. We state no figure for it anywhere.
 
-### What this need no longer claims
-
-**Changed 2026-09-08.** The earlier need said the aircraft must not force a choice between landing
-anywhere and *flying as long as a plane*, and a goal measured us against a fixed-wing benchmark at
-70% of its flight time and 70% of its cruise speed.
-
-**That is removed.** We make no claim about beating a multirotor or approaching a plane. Cruise
-speed, distance covered and any fraction of a benchmark are no longer goals, objectives or
-requirements. Flight time now has a floor only, in G1-O2.
-
-The reason is that those figures fixed details the project does not care about, and each one then
-had to be defended. What we care about is that the aircraft transitions, and that it does so under
-control.
-
-**Endurance is still measured.** It is reported from the flight log with the conditions next to it.
-It is not a pass mark.
-
 ## 2. Goals
 
 Goals elaborate the need. A goal does not have to carry a number, but it must let us judge whether
@@ -86,21 +69,6 @@ when we report it rather than claiming the airframe did it.
 Every objective must be specific, measurable and verifiable, aggressive but attainable, and about
 the result rather than the method.
 
-**An objective with no value is not an objective.** If we cannot say what the number is, the item
-is not necessary to us and it is not written down. Rule set 2026-09-08.
-
-**Objective IDs changed on 2026-09-08.** An ID now carries its parent goal, so it says what it
-descends from, and **a retired ID is never reused**. Anything written before that date — issues,
-commit messages, the ConOps — uses the old flat numbers, which meant different things:
-
-| Old ID | What it meant | Now |
-|---|---|---|
-| O1.1 | The complete flight | **G1-O1.** Same meaning |
-| O1.2 | Move 5 m per axis in hover | Deleted. Folded into G2-O1, which has no distance figure |
-| O1.3 | Glide descent rate, TBD | Deleted. No value, so not an objective |
-| O1.4 | Transition proved on the tether or bench | **G2-O5** |
-| O1.5 | Abandon a transition and return to hover | **G2-O4** |
-| O2.1 to O2.5 | Flight time, cruise speed and distance against the benchmarks | Deleted with the performance goal. §1 |
 
 ### Under G1 — the aircraft flies the profile
 

@@ -40,6 +40,13 @@ one observer, both of us.
 | 4.2.1.2.6 | Establish the technical requirement baseline | The freeze. NASA holds an SRR here |
 | 4.2.1.2.7 | Capture work products | We already do this |
 
+> **Counts out of date since 2026-09-08.** The two tables above were written on 2026-09-04,
+> against the requirements baseline as it stood that day. The rewrite of 2026-09-08 removed the
+> performance goal and every objective under it. Counted from `NGO.md` today: **7 objectives** —
+> G1-O1, G1-O2 and G2-O1 to G2-O5 — and **no objective carries a TBD**. Section 6 holds **23
+> constraints**, C1 to C23; the "22" above was a miscount as well as out of date. The two MOEs are
+> unchanged. Only the counts are wrong. Nothing in the reading below depends on them.
+
 **The three outputs (4.2.1.3):** validated technical requirements, Measures of Performance, and
 Technical Performance Measures.
 
@@ -236,9 +243,10 @@ The items that will cost us the most work:
   required, appropriate, fast, portable, light-weight, small, large, maximize, minimize,
   sufficient, robust, quickly, easily, clearly, other "ly" words, other "ize" words.*
 
-**That list already catches wording we have written.** *(O1.5 was deleted on 2026-08-09.
-The example below is kept, because it is the clearest one we have of the C.4 check finding a real
-fault in our own writing. The same problem now sits in O1.4's "under control".)* O1.5 set a maximum
+**That list already catches wording we have written.** *(The maximum hover height objective was
+deleted on 2026-08-09. The example below is kept, because it is the clearest one we have of the C.4
+check finding a real fault in our own writing. The same problem now sits in **G2-O4**'s "under
+control".)* That objective set a maximum
 hover height "chosen
 so that a fall from it is survivable for the airframe and harmless to any person". "Survivable"
 and "harmless" are exactly the kind of word C.4 bans, because no test can be written for them.
@@ -401,6 +409,14 @@ C21 says that boundary belongs to a class marking a privately built aircraft can
 C18 is still unread. Second, mass growth of 10 to 60% is for professional vehicle programmes.
 Two people building a first aircraft from foam and printed parts should expect the top of that
 range, not the bottom.
+
+> **Corrected 2026-09-08.** C18 is not unread. Annex Part A was read on 2026-08-14 from the
+> Official Journal text, CELEX 32019R0947, and `RULES.md` §C settles it: we fly in subcategory A3.
+> So the **900 g columns above describe a limit that does not bind us.** C21 records why — the
+> boundary belongs to the C1 class marking, which a privately built aircraft cannot carry — and
+> C13 puts our ceiling at 25 kg. The 250 g columns still mean something, because 250 g is the
+> registration threshold behind C22. The margin schedule itself, 30% at SRR down to 5%, is not
+> affected by any of this.
 
 ### Slide 27 — do we need a requirements tool?
 
@@ -618,6 +634,13 @@ moved from a job we can do later to a job that must be done first.
    needs a browser. Not blocking — we can write a column set of our own and label it as ours —
    but we should see NASA's before the freeze rather than after.
 
+> **Job 1 was already closed when this file was written.** Annex Part A was read on 2026-08-14 from
+> the Official Journal text, CELEX 32019R0947. The answer is subcategory A3 — 150 m from
+> residential, commercial, industrial and recreational areas — and it is carried in `RULES.md` §C
+> and in constraints C18, C19, C20 and C21, all of which now read **Confirmed** in `NGO.md` §6. The
+> paragraph and the list above were written on 2026-09-04 and missed it. **Annex Part A does not
+> block the requirements freeze.** Job 2 is still open, and still not blocking.
+
 **Still open, and Stage 2 does not close either of them:** configuration and scale. Slide 32
 explains why, and it is the same answer as Stage 1: aircraft-level requirements do not need a
 configuration, and subsystem-level requirements cannot be written without one.
@@ -633,7 +656,228 @@ These are open. None of them should be settled quietly while writing `REQUIREMEN
 | 3 | How many requirements is "a few"? A cap per level, or no cap? | Section 9, disagreement 4. HYDRO's team died of a wish list, not of a short list |
 | 4 | What does a logged revision to a frozen requirement look like, in practice? | NASA 4.2.1.2.4 step 5 of the "be prepared to demonstrate" list. We have the rule and not the procedure |
 | 5 | Do we use "should" statements at all, or only "shall"? | Slide 9 gives "should" a real meaning. It also gives us a way to smuggle in wants |
-| 6 | Which requirement numbering scheme? | Slide 29 uses R1.0 / R1.1. Our objectives already use O1.1 and constraints C1. Whatever we pick has to survive being renumbered |
+| 6 | Which requirement numbering scheme? | Slide 29 uses R1.0 / R1.1. Our objectives use G1-O1 and our constraints C1. Whatever we pick has to survive being renumbered |
+
+### Settled
+
+Answered one at a time, in the chat, with the options and the evidence laid out before each answer.
+A question is only written here after we have agreed it.
+
+**1. Two freezes, aircraft level first. Settled 2026-09-08.**
+
+Freeze **L1**, the aircraft level, now — before the configuration trade study. Write **L2**, the
+subsystem level, after the trade, review it against the same six validation questions, and freeze it
+then.
+
+*Why.* A trade study judged against requirements we can still edit is not a trade study. If a
+configuration scores badly, nothing stops us softening the requirement that made it score badly.
+Freezing L1 first removes that. And L2 cannot be written yet in any case: allocation needs an
+architecture (slide 31, step 2), and a tailsitter, a lift+cruise and a tilt-wing do not have the same
+parts. Writing "the tilt mechanism shall…" today would choose the configuration through the wording
+of a requirement instead of through the trade.
+
+*The condition that makes this safe.* At freeze 1 we also write down **which L1 requirement numbers
+we expect the trade to re-open**. Only the numbers, not new values. That turns a later L1 change from
+a surprise into a planned check, and it gives the second review its agenda.
+
+*Rejected.* One freeze after the trade — nothing would be frozen during the largest decision in the
+project, which is HYDRO's wish-list failure exactly. Freeze L1 with no second review — the L2 set
+would never be checked as a set for conflicts and completeness (slide 20), and slide 31's closure
+step would never be asked.
+
+*What breaks if we delete this item.* We drift into the no-second-review option without choosing it:
+`REQUIREMENTS.md` gets written, and subsystem requirements get added during design, one at a time,
+unreviewed, because no review was ever planned.
+
+*Knock-on.* Question 6 — the numbering scheme has to survive a second level being added underneath.
+
+**2. No mass requirement at L1. Mass is a TPM. Settled 2026-09-08.**
+
+*The question dissolved.* It asked which mass-margin reading to use and against which limit. There is
+no binding limit to apply either reading to. **25 kg is our ceiling (C13, law)** and a foam-and-print
+V/STOL aircraft will not approach it. **250 g is a registration threshold, not a limit (C22, law)** —
+we are above it, the €23 is already budgeted, and crossing it costs nothing more. **900 g was never
+ours (C21).** So reading A versus reading B was arithmetic about a ceiling that is not there, and the
+62 g gap between them decides nothing. Section 7 of this file keeps the working, with its correction
+block.
+
+*What we do instead.* Mass is tracked as a **Technical Performance Measure** from now on — the
+estimate plotted against the calendar in `MASS_BUDGET.xlsx`, as already adopted in item 8 of "What
+Stage 2 changes for us". No mass figure is written as a requirement at the L1 freeze.
+
+*This is written as a planned gap, not an omission.* `REQUIREMENTS.md` states that aircraft mass is
+deliberately unconstrained at L1, and that **a derived mass target is the first thing the
+configuration trade study must produce.** So the gap has a closing date and a closing
+condition, in the same way a TBR does.
+
+*Why mass still drives everything, even with no legal limit.* Hover thrust must exceed weight. Mass
+sets the thrust needed, which sets motor and propeller size, which sets current, which sets battery
+size — which is itself mass. The loop closes on itself, and on a hovering aircraft it closes hard.
+G1-O2 asks for over 5 minutes with more than half wing-borne, and hovering costs far more power than
+cruising, so every gram is paid for out of that 5 minutes. Mass is constrained by physics, not by law,
+and the physics cannot be evaluated until configuration and scale are chosen.
+
+*No number is chosen by this decision.* The margin schedule quoted on MIT slide 23 — 30% at SRR down
+to 5% — stays in section 7 as a quotation from professional vehicle programmes. It is not adopted, and
+it is not applied to anything.
+
+*What breaks if we delete this item.* Mass drifts with nothing watching it, and the first time anyone
+asks "how heavy is this allowed to be" is when the aircraft will not hover.
+
+**3. One requirement per named area, not a number cap. Settled 2026-09-08.**
+
+Walk the **twelve areas from MIT slide 45** — functional, performance, interface, environment,
+facility, transportation, training, personnel, reliability, maintainability, operability, safety. At
+most **one requirement per area**. For every area we skip, **one written line saying why**. A second
+requirement in an area is allowed only when covering it in one sentence would force two "shall" verbs
+into it, and the reason is written next to it. The same twelve headings are walked again at L2.
+
+*Why areas and not a count.* A count cap is arbitrary and easy to cheat without meaning to: at the
+cap, the next requirement gets merged into an existing sentence, which breaks NASA C.1 and C.2 —
+one "shall" per statement — and hides a requirement where verification will not find it. The areas
+are named in advance, so they cannot be invented to make room, and a merge across two areas is
+obvious. The "why not" line for a skipped area is what makes a short list defensible instead of
+careless: **HYDRO's list did not fail for being long, it failed because nothing in it could be
+checked and nothing recorded what they had decided not to do.**
+
+*This is what settles disagreement 4 in section 9.* HYDRO says "a few". NASA C.4 asks about twenty
+areas. Counting areas instead of requirements makes both true at once. The walk produces roughly
+**ten to twelve requirements at L1** plus two or three skip lines — a few by HYDRO's standard,
+complete by NASA's.
+
+*Three areas the walk found that we would have missed.* **Transportation** — C18 puts the test site
+150 m from every residential, commercial, industrial and recreational area, so the aircraft has to
+travel out of town; if it does not come apart, span decides the test site as firmly as the law does.
+**Training** — C23 buys the licence for €10, and a licence is not skill; neither of us has much RC
+experience. **Maintainability** — C4 plans a crash and the rebuild allowance assumes the aircraft can
+be rebuilt, which is only true if damaged sections and propulsion units can be replaced.
+
+*Not a tooling question.* Slide 27 puts the ceiling for a plain document at roughly 125 to 729
+requirements. At ten to twelve on L1 we are far below it. The cap exists so that the list gets
+reread, not so that it fits in a file.
+
+*What breaks if we delete this item.* Either the list grows until nobody rereads it, or it stays short
+by accident with no record of what was left out — and we cannot tell those two apart afterwards.
+
+**4. A logged revision is a pull request with six fields, in three tiers. Settled 2026-09-08.**
+
+This closes the gap recorded in section 2: NASA 4.2.1.2.4 asks that the process for managing change
+in requirements be established, documented and communicated, and we had the rule without the
+procedure.
+
+*The six fields.* Every revision to a frozen requirement records: **(1)** the requirement ID;
+**(2)** the old text and the new text, both; **(3)** why now — what we learned since the freeze that
+we did not know at it, not "we changed our minds"; **(4)** what else moves — the other requirements,
+objectives and ConOps scenarios affected; **(5)** whether the verification method or the pass/fail
+criterion changes; **(6)** the date.
+
+**Field 4 is the one that gets skipped and the one that matters most.** A requirement almost never
+moves alone, and our own rule already makes every requirement name its parent. Without field 4 the
+set stays consistent on the day of the change and quietly stops being consistent a month later.
+Field 3 is what makes requirements volatility (slide 51) visible: several revisions in a row reading
+"we could not meet it" is a signal about the design, not about the requirement.
+
+*Three tiers, because a process that costs the same for a typo as for a number gets routed around.*
+**Editorial** — a typo, or wording that does not change the meaning: no approval, commit straight to
+`main`. The C.4 banned-word search will produce a batch of these before the freeze. **Modification** —
+the number or the meaning changes: full six-field revision through the mechanism below.
+**Addition or deletion** — full revision, plus one extra check that the twelve-area walk in decision 3
+still holds, because adding a requirement can put an area over one without anyone noticing.
+
+*The mechanism: a pull request.* Changes to `01_requirements/` after the freeze go on a branch and
+open a pull request carrying the six fields, and the other person approves before it merges.
+
+*Why this and not an issue plus a direct commit.* The issue route fits what we already do and it never
+stalls, but nothing enforces it — a commit with no issue is accepted and nobody finds out unless they
+read the log. The pull request is the only option where **the tool enforces the rule instead of our
+discipline**, and Stage 1 recorded exactly why we need that: we chose reading 1, we are the only
+customer, and there is no external brake on requirements creep. This is the one place we can buy a
+brake for free. The cost is that a modification stalls if one of us is away; the editorial tier takes
+most of that away, because most changes are editorial.
+
+*Rejected.* A revision table inside `REQUIREMENTS.md` — it duplicates what git already stores, makes
+the file long, and contradicts our rule that rationale lives in the issue and not in the baseline file.
+
+*Two conditions before we rely on this, neither yet done.*
+
+1. **Check the current GitHub docs** for how to require a review on `main`, and whether a repository
+   owner can bypass it. Unchecked. The standing rule in `REFERENCES.md` forbids quoting GitHub docs
+   from memory, and that rule applies here.
+2. **Agree now what happens if one of us is unreachable for more than a few days.** A rule written
+   today is worth more than one invented in March under deadline pressure.
+
+*What breaks if we delete this item.* A quiet edit to a frozen requirement — the exact failure the
+freeze exists to prevent, and the one nothing else in the project would catch.
+
+**5. "Shall" only. No "should", no "will". Settled 2026-09-08.**
+
+`REQUIREMENTS.md` contains exactly one verb. Preferences and tie-breakers go to `NGO.md` §5 as
+design rules. A line saying this goes at the top of `REQUIREMENTS.md`, because the reason is not
+obvious to a reader six months later, and because it explains why the file is shorter than expected.
+
+*The argument that decides it.* NASA Appendix D: **only "shall" requirements go in the verification
+matrix.** So a "should" is never verified — no test, no pass mark, no failure mode. Put that next to
+our own rule 3: *before writing any item, answer what breaks if we delete it; if the answer is
+"nothing", it does not go in.* **A "should" breaks nothing when deleted, by construction.** Every
+"should" we could write fails rule 3 on the day it is written. And it is HYDRO's failure in
+miniature: their document was "more of a 'wish list' than a rigorously analyzed and generated
+document", and a "should" is a wish with formatting.
+
+*The second cost.* With both verbs in one file, a reader must check the verb on every line to know
+what is binding. We write in a second language, under time pressure, and reread months later. That
+is a reliable way to eventually read a "should" as a "shall".
+
+*What we give up, and where it goes instead.* When two configurations both pass every "shall",
+something has to break the tie, and a tie-breaker written in advance is engineering while one
+invented on the day is preference. That job is real — and `NGO.md` §5 already exists to do it: *"How
+we decide when we have a choice. Not measures, and not constraints."* It is a better home than a
+"should" for two reasons: it sits outside `REQUIREMENTS.md` so it can never be misread as binding,
+and a design rule can carry its reasoning while a bare "should" cannot.
+
+*"Will" is banned there too.* C.1 gives "will" to facts and declarations of purpose. "The aircraft
+will be flown by one of the two of us" is a fact and belongs in the rationale or the ConOps, not as a
+numbered line. With one verb in the file, two checks become one text search each: every numbered item
+contains "shall", and no numbered item contains anything else — the same trick as the C.4 banned-word
+search in item 5 of "What Stage 2 changes for us".
+
+*What breaks if we delete this item.* Unverifiable wishes end up sitting next to verifiable
+requirements, and the document stops being checkable as a whole.
+
+**6. Flat IDs — R1, R2, R3. Settled 2026-09-08.**
+
+Requirements are numbered flat, exactly like constraints. The ID encodes nothing. The parent is a
+field in the rationale, where NASA 4.2.1.2.3 already requires it.
+
+*The evidence is our own repository, and it is close to a controlled experiment.* **Constraints
+C1–C23** are flat and encode nothing; our rule says they are not reused and not renumbered. The
+2026-09-08 rewrite deleted a goal, five objectives and two assumptions, and rewrote the need — **not
+one constraint number moved.** **Objectives O1.x and O2.x** encoded the goal grouping. The
+performance goal was deleted, every O2.x died with it, every survivor was renumbered, and a mapping
+table had to be written so that older issues, commits and the ConOps could still be read.
+
+*The rule that follows.* **The more an ID encodes, the more ways it can become wrong — and our own
+rule says IDs are never renumbered, so a wrong ID is permanent.** The right question is not which
+scheme reads best but **which part of a requirement is least likely to change.** A goal can change;
+we deleted one. An area can change; a requirement filed under operability may be reclassified as
+safety. A number that means nothing cannot change at all.
+
+*Rejected.* A level prefix, L1-01 / L2-01 — the level is stable, but L1 and L2 will live in separate
+files, so it is redundant. An area prefix, R-SAF-01 — attractive because it makes the one-per-area cap
+of decision 3 visible in the ID, but a later reclassification leaves the ID permanently wrong. A goal
+prefix, R-G1-01 — this is the scheme that just failed for objectives, and it is worse for
+requirements, because many of ours descend from constraints or the ConOps rather than from a goal:
+transportation from C18, environment from ConOps §4.0, safety from the off-nominal scenarios. Filing
+those under G1 or G2 would be false.
+
+*Old objective IDs are not being mapped; the citations are being removed instead.* Settled the same
+day. The four places that cited retired flat IDs now describe the objective instead, or name the
+current ID where it is unambiguous. **This was the safer choice, because the old IDs are genuinely
+ambiguous:** O1.5 named the maximum hover height objective when it was deleted on 2026-08-09, and
+later named "abandon a transition and return to hover". The ID was reused before the
+never-reuse rule existed, so a mapping table would have had to record one ID meaning two things.
+
+*What breaks if we delete this item.* Nothing forces a scheme, so one gets chosen while writing
+`REQUIREMENTS.md` — which is exactly the "settled quietly" failure this section exists to prevent.
 
 **A safety note that belongs in the requirement set, not in the design.** The completeness lists
 in both NASA C.4 and MIT slide 45 name safety as its own area. Ours will come from the

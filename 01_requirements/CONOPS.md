@@ -177,7 +177,7 @@ criteria are checked, so it is no longer a nice thing to have.
 it is a decision on the record and not something discovered later.
 
 - **Descend under control with no propulsive thrust**, the wing carrying its weight. It belonged to
-  objective O1.3, which was deleted for having no value. **What it costs: a propulsion failure in
+  the glide descent rate objective, deleted on 2026-09-08 for having no value. **What it costs: a propulsion failure in
   wing-borne flight now has no planned answer anywhere in this folder.** The aircraft falls. This is
   accepted, not overlooked.
 - **Accept a first-person view camera later.** It constrained the design for a flight that may never
