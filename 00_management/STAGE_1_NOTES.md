@@ -431,6 +431,12 @@ seen. The Open Category subcategory conditions are still unread, so no test site
 this blocks nothing in Stage 2 but blocks flying. And 11 of the 21 objectives still carry a TBD,
 which is allowed here and not allowed at the requirements freeze.
 
+> **Both carried-forward items are now closed, and this paragraph is out of date.** The Open
+> Category subcategory conditions were read on 2026-08-14 from the Official Journal text — we are
+> in subcategory A3, `RULES.md` §C, constraints C18 to C21. The TBD count went to zero on
+> 2026-09-08, by a different route than expected: the rewrite deleted every objective that had no
+> value rather than filling one in. `NGO.md` now holds 7 objectives and no TBD.
+
 **The process earned its keep, and it is worth recording where.** Walking through the off-nominal
 scenarios revealed three objectives we had missed entirely. [DRM-0900], a lift unit failing in
 hover, produced a maximum hover height (**deleted 2026-08-09**) and a minimum distance to
