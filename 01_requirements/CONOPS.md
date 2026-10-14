@@ -25,7 +25,7 @@ own numbers.
 Hovering costs energy for nothing but staying up. A wing carries the aircraft for far less, but a
 wing needs a runway. JBV-01 exists to have neither problem.
 
-Two students, one academic year, our own tools and our own money. The need, the goals and the
+Two students, until 12 June 2027, our own tools and our own money. The need, the goals and the
 measures of success are in `NGO.md` and are not repeated here.
 
 #### 1.1.2 Assumptions and constraints
@@ -65,8 +65,8 @@ data to the ground, the ground equipment we operate, and the test rigs we build 
 **Outside the project:** the airspace and its rules, the weather, the ground we land on, the supply
 of parts, and any equipment we do not own.
 
-**Size: TBD.** Mass and span depend on scale, which is not decided. What is fixed is the ceiling —
-below 25 kg, C13 — and we expect to be far below it.
+**Size is not decided.** Mass and span follow from the scale, which closes with the configuration
+trade study, `NGO.md` §8. The only fixed limit is below 25 kg, C13.
 
 ---
 
@@ -79,7 +79,7 @@ These bind us. Every rule, its source and how well we have checked it is in `RUL
 - Regulation (EU) 2019/947 — the Open Category, Article 4 and UAS.OPEN.040
 - Delegated Regulation (EU) 2019/945 — class markings. Relevant because we **cannot** carry one
 - RDW — operator number and remote pilot licence, Netherlands
-- Dutch geographical zones, shown in the GoDrone map
+- Dutch geographical zones, `RULES.md` NL1 to NL4 — shown in Aeret Kaartviewer first, GoDrone second
 
 **`RULES.md` is the authority. If this document and `RULES.md` disagree, `RULES.md` is right.**
 
@@ -169,10 +169,6 @@ something breaks if it is removed**, and the thing it would break is named.
 | 11 | Be repaired or rebuilt after a crash, using parts we can obtain | C4 |
 | 12 | Carry the operator number visibly on its outside surface | C22, and it is law |
 
-**Capability 6 grew on 2026-09-08.** The log now has to hold transmitter stick positions, because
-G2-O1 and G2-O2 are decided by whether the pilot ever needed full stick. That is the only way those
-criteria are checked, so it is no longer a nice thing to have.
-
 **Two capabilities were removed on 2026-09-08.** What each removal costs is written here, so that
 it is a decision on the record and not something discovered later.
 
@@ -202,10 +198,6 @@ Outdoors, in the Netherlands, over one academic year. That means a lot of wind a
 | Rain | **No flight in rain.** The aircraft must tolerate light damp on the ground while being set up | Our rule |
 | Landing surface | Unprepared. Grass, soil, gravel, uneven, possibly soft or wet | Fixed |
 | Wind and temperature | **No figure is set in this document.** The limits for a given flight are stated in that flight's test plan, before the flight | See below |
-
-**Why no wind or temperature figure here.** Earlier versions set 6 m/s steady wind, 10 m/s gusts
-and 0 to 25 °C. The Dutch climate means behind them were sourced; the multipliers were ours, and
-they fixed detail about an aircraft that does not exist. Removed 2026-09-08.
 
 **One wind figure will still be needed, and it is not this document's job.** Propulsion cannot be
 sized without a design wind speed, because the aircraft has to hold a hover against it. That figure
@@ -375,7 +367,7 @@ with the conditions next to them. None of them is compared against another aircr
 
 | # | Risk | Why it matters | What we do now |
 |---|---|---|---|
-| R1 | **No legal test site is found**, AS1 | A3 needs 150 m from every residential, commercial, industrial and recreational area. In the Netherlands that rules out most of the map | Start the site search now, against the 150 m figure and the GoDrone zones. It blocks every flight scenario above |
+| R1 | **No legal test site is found**, AS1 | A3 needs 150 m from every residential, commercial, industrial and recreational area. In the Netherlands that rules out most of the map | Start the site search now, against the 150 m figure and the zones in `RULES.md` NL1 to NL4. It blocks every flight scenario above |
 | R2 | **Requirements creep** | We are our own customer. There is no external check and nothing stops the aircraft growing except our own discipline | Freeze the requirements and log every change after that |
 | R3 | **Transition is never achieved** | It is the project. G1-O1 and both halves of G2 | First attempt early in the schedule, not in the last month. Fallback named with a switch date |
 | R4 | **Lift function fails in hover**, [DRM-0900] | Usually not recoverable. The only failure here that can hurt someone | Hold the C19 distance. Everyone present is a participant who has been told the risks, C20. Never stand underneath. First hover is tethered, [DRM-0200]. **We set no maximum hover height of our own**, but C19 makes height expensive: hovering higher pushes everybody further back |

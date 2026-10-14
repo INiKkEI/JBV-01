@@ -3,7 +3,7 @@
 Every rule we must obey, with its source and how well we have checked it. This file feeds ConOps
 section 2.1 "Applicable Documents" and constraints **C12 to C23** in `NGO.md`.
 
-Rules here are numbered **EU1–EU7** and **B1–B2**. Note that **A1, A2 and A3 always mean the Open
+Rules here are numbered **EU1–EU7**, **B1–B2**, **A3-1–A3-3** and **NL1–NL4**. Note that **A1, A2 and A3 always mean the Open
 Category subcategories** in this project, because that is what they mean in the regulation.
 
 **First checked 2026-08-04. Re-checked against the July 2024 consolidated text on 2026-08-14.**
@@ -22,8 +22,9 @@ Rules change. Check again before the requirements freeze, and again before the f
 ## A. EU rules — the Open Category
 
 Source: **Regulation (EU) 2019/947**, read in the EASA consolidated text *Easy Access Rules for
-Unmanned Aircraft Systems*, January 2021 edition, and in the **Official Journal original text**
-(CELEX 32019R0947) for the Annex.
+Unmanned Aircraft Systems*, **July 2024 edition**, which carries all five amendments. The January
+2021 edition and the Official Journal original (CELEX 32019R0947) were read first and are kept below
+as history.
 
 > **Re-checked against the current law on 2026-08-14.** The regulation has been amended **five
 > times**, and we have now read the **July 2024 edition**, which incorporates all of them. Article 4,
@@ -46,7 +47,7 @@ Unmanned Aircraft Systems*, January 2021 edition, and in the **Official Journal 
 > **"Confirmed" in this file now means confirmed against the July 2024 edition**, except the RDW
 > rows in §B, which are Dutch pages checked separately and carry their own dates.
 
-- The copy we actually read: [Easy Access Rules for UAS, January 2021 (PDF, 309 pp.)](https://drones.gov.cy/wp-content/uploads/2021/02/Easy-Access_Rules_for_Unmanned_Aircraft_Systems_January_2021.pdf)
+- Read first, now history: [Easy Access Rules for UAS, January 2021 (PDF, 309 pp.)](https://drones.gov.cy/wp-content/uploads/2021/02/Easy-Access_Rules_for_Unmanned_Aircraft_Systems_January_2021.pdf)
 - **The edition we now work from:** [Easy Access Rules for UAS, July 2024 (PDF, 468 pp.)](https://drones.gov.cy/wp-content/uploads/2025/08/EAR_UAS_Jul24.pdf) — incorporates all five amendments
 - The law itself: [Regulation (EU) 2019/947 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0947) and [Delegated Regulation (EU) 2019/945 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019R0945)
 
@@ -117,6 +118,7 @@ Renewal: [Exploitantnummer verlengen](https://www.rdw.nl/drone/exploitantnummer-
 | Validity | Expires after **one year**. Renewable online from 6 weeks before it lapses. **If it lapses you cannot renew — you must apply again at €23** | **Confirmed.** Read 2026-08-14 |
 | Renewal cost | **€13.00** | **Confirmed.** Read 2026-08-14 |
 | Marking | The number looks like `NLD87astrdge12kc - xyz`. **Only the part before the dash goes on the aircraft**, clearly visible on the outside, for example as a sticker. The last three characters are left off so nobody can misuse the number. May also be programmed in if the aircraft supports it | **Confirmed** |
+| Who registers for JBV-01 | **The pilot, who is also the operator.** One number. RDW lists flying someone else's drone as a separate case that needs its own number, so splitting owner and pilot would probably cost a second €23 | **Chosen 2026-10-14.** RDW page read 2026-10-14; whether a pilot may use the owner's number is not stated there |
 | How to apply | Online with DigiD, or in person at an RDW station with a printed form and ID | **Confirmed** |
 | Insurance | **Not compulsory for us.** RDW: for private users, insurance is compulsory under EU rules only **from 20 kg**. We will be far below that. If it were compulsory, the policy number would have to be added to the operator record | **Confirmed.** Read 2026-08-14 |
 | Insurance, what RDW advises anyway | RDW "strongly recommends" insuring against injury or property damage to third parties, and says to **check whether your existing liability insurance (*aansprakelijkheidsverzekering*) covers damage caused by drones** | **Confirmed.** Read 2026-08-14. Free to check, and worth doing |
@@ -135,7 +137,6 @@ List of approved exam providers: [Vliegbewijs drone — Rijksoverheid](https://w
 | How to get it | Pass an **online exam at a recognised Dutch flight school**, then apply to RDW with DigiD | **Confirmed** |
 | Which one we need | **A1/A3** — "Bewijs van voltooiing theorie-examen". Valid across the EU. A2 is a separate, higher licence and requires A1/A3 first | **Confirmed** |
 | Carrying it | Must be **with the pilot during every flight** — printed, on a phone, or in the RDW app | **Confirmed** |
-| Minimum age | Under 16 may only fly **under the supervision of someone over 16 who holds a licence** | **Confirmed** |
 
 ---
 
@@ -143,11 +144,11 @@ List of approved exam providers: [Vliegbewijs drone — Rijksoverheid](https://w
 
 | Rule | Status |
 |---|---|
-| The Netherlands publishes geographical zones. The **GoDrone** app and map show them. Red areas are closed to Open Category flights | **Partly.** ILT names GoDrone and confirms red areas exist. We have not opened the map |
+| The Netherlands publishes geographical zones, listed as NL1 to NL4 below. **Aeret Kaartviewer** shows them first, **GoDrone** second. Red areas are closed to Open Category flights | **Partly.** ILT names GoDrone and confirms red areas exist. We have not opened the map |
 | A flight in a red area needs a permit, applied for at ILT | **Partly.** ILT lists this as a question it answers |
 | **Subcategory conditions — how far we must stay from people and buildings** | **CONFIRMED 2026-08-14.** See below. We are in **A3** |
 
-Where to look: [GoDrone operator portal](https://operatorportal.godrone.nl/) ·
+Where to look: [Aeret Kaartviewer](https://aeret.kaartviewer.nl/?@dpf_basic) · [GoDrone operator portal](https://operatorportal.godrone.nl/) ·
 [ILT — Flying drones in the Netherlands](https://english.ilent.nl/topics/aviation/drones-and-model-aircraft/drones-eu-residents) ·
 [ILT — Wegwijzer drones](https://www.ilent.nl/onderwerpen/luchtvaart/drones-en-modelvliegtuigen/wegwijzer-drones)
 
@@ -160,7 +161,7 @@ Read from the Annex to Regulation (EU) 2019/947 on **2026-08-14**, in the Offici
 
 | Subcategory | The privately built route | Open to us? |
 |---|---|---|
-| **A1** | UAS.OPEN.020(5)(a) — privately built is allowed **only** under **250 g** *and* with a maximum operating speed under **19 m/s** | **No.** Five motors and a hover-sized battery put us well over 250 g |
+| **A1** | UAS.OPEN.020(5)(a) — privately built is allowed **only** under **250 g** *and* with a maximum operating speed under **19 m/s** | **No.** Any aircraft that can hover on a battery and also carry a wing will be well over 250 g — an estimate, not measured |
 | **A2** | UAS.OPEN.030(3) — requires an aircraft **marked as class C2** | **No.** A privately built aircraft carries no class mark |
 | **A3** | UAS.OPEN.040(4)(a) — privately built, **under 25 kg** | **Yes.** This is our route |
 
@@ -219,6 +220,38 @@ aircraft "with a MTOM of 250 g or more, **or, which in the case of an impact can
 human kinetic energy above 80 Joules**", or one carrying a sensor able to capture personal data.
 The 80 J alternative is new to us and it can catch a light, fast aircraft that is under 250 g.
 
+### Where we may not fly — the Dutch geographic layer
+
+**Added 2026-09-08.** Everything above this point comes from EU Regulation 2019/947. It is not the
+whole rule set for choosing a site. The Netherlands adds a geographic layer on top, and until today
+this file did not mention it.
+
+**Why it matters more than the 150 m.** Section §C's 150 m from residential, commercial, industrial
+and recreational areas points us at open farmland. The Dutch layer then removes the parts of that
+farmland crossed by main roads and railway lines. Those are exactly the features that run through
+open land. **The binding constraint on our test site is probably this layer, not the 150 m.**
+
+Source for the whole list: [Rijksoverheid, "Waar mag ik vliegen met een
+drone?"](https://www.rijksoverheid.nl/vraag-en-antwoord/drone/waar-mag-ik-vliegen-met-een-drone),
+read 2026-09-08.
+
+| ID | Rule | Status |
+|---|---|---|
+| NL1 | **Forbidden everywhere, all categories:** royal palaces and buildings of the Dutch Royal House, and the protected nature areas above the **Wadden Sea** | **Partly.** Government summary page, not the underlying order |
+| NL2 | **Restricted for Open Category flights**, quoted from the page: *"overheidsgebouwen; militaire (oefen)terreinen; evenementen of andere tijdelijk afgezette gebieden; wegen met een snelheidslimiet van 80 kilometer per uur of hoger; spoorlijnen; gebieden rond luchthavens"* — government buildings, military and military training areas, events and temporarily closed areas, **roads with a speed limit of 80 km/h or higher**, **railway lines**, and areas around airports | **Partly.** Quoted from the government page. **Each item still needs tracing to the instrument that imposes it** |
+| NL3 | **Natura 2000 areas** where the province or the site manager has imposed a drone ban. Which areas these are is decided per province and per site, not nationally | **Partly.** Named on the government page. **We have checked no province and no site** |
+| NL4 | Also listed as restricted: hospital helipads, power lines, drinking-water protection areas, major seaports, hazardous-material sites, secured areas, emergency-response zones, and low-flying routes (*laagvliegroutes*) | **Partly.** Same page, same caveat |
+
+**Which map to use.** The government page names **Aeret Kaartviewer**,
+`https://aeret.kaartviewer.nl/?@dpf_basic`, for viewing Open Category A1/A2/A3 no-fly zones, and
+mentions **GoDrone**, `map.godrone.nl`, as a second resource. **Use Aeret first.**
+
+**A third map exists and is not a source.** `vliegjedroneveilig.nl/kaart` shows CTR no-fly zones,
+uncontrolled airfields that need the manager's permission, low-flight zones and Natura 2000 areas
+with drone bans. Its own disclaimer says the maker *"kan geen enkele aansprakelijkheid aanvaarden"* —
+accepts no liability — and tells the reader to check ICAO charts, AIS Netherlands and IL&T. **Useful
+for looking. Never quote it.**
+
 ### When we may fly — daylight only
 
 Read from ILT, the Dutch aviation authority, on 2026-08-14. Their page was last modified
@@ -244,7 +277,7 @@ Source: [Vliegen buiten de Uniforme Daglicht Periode — ILT](https://www.ilent.
 
 **What this means for the test site.** 150 m from any residential, commercial, industrial or
 recreational area is a hard filter. In a country as built-up as the Netherlands that rules out most
-of the map, and it has to be checked against the GoDrone zones as well. The site search should
+of the map, and it has to be checked against NL1 to NL4 as well — Aeret first, GoDrone second. The site search should
 start from this figure, not end at it.
 
 ---
@@ -257,7 +290,9 @@ start from this figure, not end at it.
 | ~~Whether insurance is compulsory for us~~ | **Closed 2026-08-14.** Not compulsory below 20 kg. See §B1 |
 | ~~Renewal fee for the operator number~~ | **Closed 2026-08-14.** €13.00. See §B1 |
 | ~~Whether the Netherlands restricts flying to daylight~~ | **Closed 2026-08-14.** Daylight only in the Open Category. See §C. **The exact UDP boundaries are still unverified** — search results say 15 minutes either side of sunrise and sunset, and the ILT page does not state them |
-| Whether JBV-01 counts as a **model aircraft** under Article 16 | **Partly closed 2026-08-14.** Article 16 is a route for a **club or association**, not for an individual: the competent authority may issue an authorisation *upon request by a model aircraft club or association*, limited to that Member State. So it is only open to us by joining a Dutch club that already holds one, and flying under its conditions. Whether any Dutch club does, and on what terms, is unchecked | [Regels voor modelvliegen — Rijksoverheid](https://www.rijksoverheid.nl/onderwerpen/drone/regels-voor-modelvliegen). RDW's own licence page links model aircraft here, so this may be a second legal route worth understanding |
+| **Every item in NL1 to NL4** — the Dutch geographic layer | Trace each one to the instrument that imposes it, not to the government summary page. Railways and the 80 km/h road rule matter most, because they are what will decide the test site. Until then the rows read **Partly** and no site may be declared legal on the strength of them |
+| **Which Natura 2000 areas near us carry a drone ban**, NL3 | Decided per province and per site manager. Check the province and the specific area, on the Aeret map and with the site manager. Nothing national to read |
+| Whether JBV-01 counts as a **model aircraft** under Article 16 | **Partly closed 2026-08-14.** Article 16 is a route for a **club or association**, not for an individual: the competent authority may issue an authorisation *upon request by a model aircraft club or association*, limited to that Member State. So it is only open to us by joining a Dutch club that already holds one, and flying under its conditions. Whether any Dutch club does, and on what terms, is unchecked. Source: [Regels voor modelvliegen — Rijksoverheid](https://www.rijksoverheid.nl/onderwerpen/drone/regels-voor-modelvliegen). RDW's own licence page links model aircraft here, so this may be a second legal route worth understanding |
 | ~~Re-check the A3 conditions against the current edition~~ | **Closed 2026-08-14.** Read in the [Easy Access Rules, July 2024 edition](https://drones.gov.cy/wp-content/uploads/2025/08/EAR_UAS_Jul24.pdf), which carries all five amendments. UAS.OPEN.040 is unchanged — the 150 m and the privately built route both still read as §C says. The block at the head of §A records this |
 
 ---
@@ -279,9 +314,11 @@ apart. Section E used to hold the consequences in prose; on 2026-09-08 it became
 | §C — max(30 m, height, 2 s × max speed) | **C19.** It ties how high we hover to how far back people stand, [DRM-0900] |
 | §C — everyone present has agreed to take part | **C20** |
 | §C — daylight only | `CONOPS.md` §4.0 |
+| §C, NL1 to NL4 — the Dutch geographic layer | **AS1**, the test site. It is the layer that decides which open ground is usable, and it is why AS1 cannot be closed from a map of built-up areas alone |
 | §B1 — operator number, €23, yearly | **C22**, the budget line in `NGO.md` §6, and the airframe surface interface in `CONOPS.md` §3.3. A sticker on foam is enough, but it must survive weather and a crash |
 | §B2 — remote pilot licence, €10 | **C23**, and the budget line |
 
 **One consequence has no home yet: timing.** The online exam and the RDW applications take real
-days, and neither of us may legally fly JBV-01 without both. That belongs on the schedule in
-`00_management/`, not in the week before the first flight.
+days. The pilot, who is also the operator, may not legally fly JBV-01 until he holds both the
+licence and the operator number. That belongs on the schedule in `00_management/`, not in the week
+before the first flight.

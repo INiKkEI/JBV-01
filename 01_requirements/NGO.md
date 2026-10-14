@@ -186,16 +186,16 @@ A condition that has to be met and cannot be traded against cost, schedule or pe
 | ID | Constraint | Status |
 |---|---|---|
 | C1 | Two people | Fixed |
-| C2 | One academic year, roughly 6 to 12 months | Fixed |
+| C2 | **The project ends 12 June 2027** — last flight and write-up done | **Chosen 2026-10-14.** If it is wrong, every date in the plan moves |
 | C3 | **€800 total project spend, hard ceiling.** Every purchase comes out of it, including the rebuild | Fixed. Apportioned below |
 | C4 | At least one crash and rebuild is planned, not a surprise | Fixed |
 | C5 | **What we make ourselves.** FDM printing in PLA and PETG; soldering and basic electronics; hand tools for foam, balsa and depron; laser cutting at the makerspace, free to us as students. No money per part, no lead time beyond our own hands | Fixed |
 | C6 | **What we order as a service.** Circuit boards, CNC parts, sheet metal, resin and powder printing, in single quantities from JLCPCB and its sister services. **€20–30 and 1 to 3 weeks per _parcel_**, not per part — orders across services combine into one parcel | Fixed. Prices below. No part of ours has been quoted |
 | C7 | **Excluded — factory grade only.** Any process needing production tooling, a minimum order quantity, or industrial plant we cannot buy in ones. **This is the only exclusion.** The test: if we can obtain one of the thing, inside C3 and inside the schedule, it is allowed | Fixed |
 | C8 | **No laboratory.** No wind tunnel, no thrust stand, no load cells, no lab instruments. Any measurement we want, we buy or build the rig ourselves, and check it against something known first | Fixed. What the makerspace holds has never been checked, AS6 |
-| C9 | **Simulation and published data are what we have instead.** Every number they produce is an **estimate, never a measurement**, and the first flight test of any decision resting on one is its real verification | Fixed. Tools not yet chosen |
+| C9 | **Simulation and published data are what we have instead.** Every number they produce is an **estimate, never a measurement**, and the first flight test of any decision resting on one is its real verification | Fixed. Tools chosen 2026-09-08, see §8. None has been run yet |
 | C10 | Vertical take-off and landing. The configuration — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan — is open | Follows from the need. Closes with the configuration trade study |
-| C11 | **Battery reserve at landing: 20% of pack capacity.** G1-O2 is measured to this reserve, and the abort rule in [DRM-0800] triggers here | **Set 2026-08-09.** Below roughly 20% a LiPo degrades quickly |
+| C11 | **Battery reserve at landing: 20% of pack capacity.** G1-O2 is measured to this reserve, and the abort rule in [DRM-0800] triggers here | **Set 2026-08-09.** Below roughly 20% a LiPo degrades quickly — rule of thumb from hobby practice, not measured and not sourced |
 | C12 | Must qualify as a **privately built UAS** — assembled from parts or sub-assemblies sold separately, **not** from a single ready-to-assemble kit, and never placed on the market | **Confirmed.** `RULES.md` §A |
 | C13 | Maximum take-off mass **below 25 kg** | **Confirmed.** `RULES.md` §A, EU2 |
 | C14 | Kept a safe distance from people, and **never flown over assemblies of people** | **Confirmed.** `RULES.md` §A, EU3. The metres are in C19 |
@@ -252,7 +252,7 @@ Replaced by real figures in `04_build/BOM.xlsx` as parts are chosen.
 | Transmitter and receiver | 100 | Bought once. Survives every crash |
 | Charger, LiPo safe bag, fire precautions | 80 | Bought once |
 | Thrust stand — load cell, amplifier, microcontroller | 30 | Required by C8 |
-| Registration and pilot licence | 35 | €23 + €10. A renewal costs €13, so crossing the yearly expiry needs €46 |
+| Registration and pilot licence | 35 | €23 operator number + €10 licence for **one pilot, who is also the operator**, chosen 2026-10-14 — see `RULES.md` §B1. The operator number lasts one year, so registering from now on covers the project to 12 June 2027 with no renewal |
 | Printed circuit boards | 60 | One order plus one re-spin, roughly €20–30 each |
 | Rebuild allowance | 200 | Required by C4. **Not available for the first aircraft** |
 | **First aircraft — airframe, propulsion, avionics, battery** | **295** | The number that matters |
@@ -275,18 +275,24 @@ and comes out of the first aircraft line.
 validated.** Ours will not be. **Whether any requirement may be verified by analysis alone is open,
 and until it is settled the answer is no.**
 
-**SITL has a QuadPlane model**, checked 2026-08-14 on ArduPilot's own QuadPlane Simulation page. It
-starts with one command, defaults to a Separate Lift Thrust QuadPlane, takes a USB transmitter
-through the joystick module, and ships with a sample VTOL take-off and landing mission. Three
-things follow:
+**SITL simulates every layout we are considering except the tilt-wing**, checked 2026-09-08 against
+ArduPilot's Using SITL page and its own source. It starts with one command, takes a USB transmitter
+through the joystick module, and ships with a sample VTOL take-off and landing mission. The named
+Plane frames are `quadplane` for separate lift and thrust, `quadplane-tilt`, `quadplane-tilttri`,
+`quadplane-tilttrivec` and `quadplane-tilthvec` for tilt-rotors, and `plane-tailsitter` and
+`quadplane-copter_tailsitter` for tailsitters. Four things follow:
 
 1. It reduces transition risk in a way nothing else we have does. We can fly the mode logic, the
    mixer and the failsafes before the aircraft exists.
 2. It validates no aerodynamics. The docs' own word is *simple*. Every number out of it is still an
    estimate under C9.
-3. **The confirmed frame is lift+cruise.** Tiltrotor and tailsitter simulation is not mentioned on
-   that page. Under the fallback rule, lift+cruise currently has a proven fallback at simulation
-   level and the other layouts do not. That is an input to the configuration trade, not a decision.
+3. **The frame type is not only a parameter set.** ArduPilot's own words: choosing it *"selects the
+   correct physics model"*, and a QuadPlane cannot be simulated correctly without picking its exact
+   frame. So the frame list above is a list of physics models, not of preset files.
+4. **The tilt-wing is the layout with no simulation fallback.** The `quadplane-cl84` frame is named
+   after a tilt-wing aircraft, but the source maps it to the tilt-tricopter model with a binary tilt
+   servo, and the wing is not rotated. Under the fallback rule that asymmetry is an input to the
+   configuration trade, not a decision — and it is the opposite of what we recorded on 2026-08-14.
 
 Nobody here has run SITL yet.
 
@@ -300,7 +306,7 @@ A1, A2 and A3 already mean the Open Category subcategories.
 | AS1 | A legal test site exists within reasonable travel of us | **No** |
 | AS2 | We can build a thrust stand accurate enough to size the propulsion system, within budget | **No.** Needs pricing and a build |
 | AS3 | Off-the-shelf hobby parts adequate for our scale are available in the EU within our budget | **No** |
-| AS4 | A proven open-source flight controller stack supports whichever configuration we choose | **Partly.** ArduPlane documents QuadPlane, tiltrotor and tailsitter frames, and SITL has a QuadPlane model — checked 2026-08-14. Tiltrotor and tailsitter simulation is unchecked, and nothing is verified on hardware by us |
+| AS4 | A proven open-source flight controller stack supports whichever configuration we choose | **Mostly.** ArduPlane documents QuadPlane, tilt-rotor, tilt-wing and tailsitter frames, and SITL carries physics models for separate lift and thrust, tilt-rotors and tailsitters — checked 2026-09-08 from the docs and the source. **The tilt-wing has firmware support but no SITL physics model.** The source was read from the master branch, so re-check against the firmware version we install. Nothing is verified on hardware by us |
 | AS6 | The makerspace laser cutter stays available to us, free, for the whole academic year | **No.** Free today is not free in March. The only capability that depends on somebody else's opening hours |
 | AS7 | Sheet material for laser cutting is affordable inside the first aircraft line | **No.** Unpriced. Price it before any design decision rests on a cut part |
 | AS8 | One PCB order plus one re-spin is enough for the whole project | **No.** A budget decision, not a measurement |
@@ -315,9 +321,10 @@ which were removed on 2026-09-08. IDs are not reused.
 |---|---|
 | **Does the flight log record stick positions?** | Before the requirements freeze. G2-O1's criterion is checked against them, so if the log does not hold them the criterion has to change. Install the flight controller software, fly one throwaway case, and open the log |
 | **What G2-O3 can never prove** | Nothing to close. Recorded so we do not overclaim: a hovering V/STOL aircraft is unstable without its flight controller, in the same way a multirotor is. So the hover pulse test measures **the airframe and the controller together**, and we report it that way. Only a wing-borne pulse test flown in manual pass-through mode would test the airframe alone, and we are not doing that on the first aircraft |
+| **The G2 criteria cannot be tested as written** — G2-O1 and G2-O2 have no threshold for "full stick travel"; G2-O3 has no pulse size, pulse duration or settling limit; G2-O4 has no criterion, and MOE-2's "Fails if" leaves it out; G2-O5 has no verification method and no pass mark. **On a layout where the autopilot flies the transition, G2-O2's criterion passes by default** — `FUNCTIONS.md` F6 note. The fix must work for every candidate configuration | Before the requirements freeze, and before any flight, because a demonstration criterion is never edited after the flight. Decide after the SITL log check shows what the log records |
 | **May a requirement be verified by analysis alone?** | Before `REQUIREMENTS.md`. Until settled the answer is no |
-| **Which simulation tools we use**, C9 | Before Stage 3. Install them, run one throwaway case each, record what each is good for. A tool we have not run is not a capability |
-| **Whether SITL simulates a tiltrotor or a tailsitter**, C9 | Before the configuration trade. It feeds the fallback rule's first question |
+| **Which simulation tools we use**, C9 | **Chosen 2026-09-08: built-in ArduPilot SITL, XFLR5 and AVL.** All three are free and all three run on Windows, so no Linux or WSL2 install is needed. An external flight simulator — Gazebo or RealFlight — is deferred until after the configuration trade. **Still open until each has been installed and run once**, because a tool we have not run is not a capability. See `00_management/STAGE_3_NOTES.md` §7 |
+| ~~**Whether SITL simulates a tiltrotor or a tailsitter**, C9~~ | **Closed 2026-09-08.** Yes to both, with named frames and their own physics models. The tilt-wing is the exception. See §6 and AS4 |
 | **A real quote for a part of ours**, C6 | Before any design depends on an ordered part |
 | **What the makerspace actually holds** — bed size, materials, any measuring instrument | Go and look. It may move C8. AS6 |
 | Sheet material price, AS7 | With the makerspace visit |
@@ -325,4 +332,5 @@ which were removed on 2026-09-08. IDs are not reused.
 | **Configuration** — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
 | **Scale** | The configuration trade study |
 | Thrust stand — price it, build it, check it against a known mass, AS2 | Before the propulsion system is sized |
-| **Test site**, C14, C18 and AS1 | Before the first flight. 150 m from every residential, commercial, industrial and recreational area, and outside the GoDrone zones |
+| **Design wind speed** — the steady wind the aircraft must hold a hover against. `CONOPS.md` §4.0 | Before the propulsion system is sized, with the thrust stand |
+| **Test site**, C14, C18 and AS1 | Before the first flight. 150 m from every residential, commercial, industrial and recreational area, and outside the zones in `RULES.md` NL1 to NL4 — check Aeret Kaartviewer first, GoDrone second |

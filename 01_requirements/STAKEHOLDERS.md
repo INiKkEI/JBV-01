@@ -14,7 +14,7 @@ it. Two kinds:
 
 | Stakeholder | Expectation |
 |---|---|
-| The two of us | An aircraft that takes off vertically, transitions to wing-borne flight, transitions back, and lands vertically |
+| The two of us | An aircraft that takes off vertically, transitions to wing-borne flight, transitions back, and lands vertically — **under control and stable through every phase**. G1 and G2 in `NGO.md` §2 |
 
 **We are the only customer.** Nobody outside the two of us sets acceptance criteria.
 
@@ -30,7 +30,7 @@ Their conditions are published, and we cannot negotiate them.
 |---|---|---|
 | **EASA** | Open Category compliance: below 25 kg, unaided visual line of sight, 120 m ceiling, subcategory A3 conditions | No money. `RULES.md` §A and §C |
 | **RDW** | A registered operator, the operator number visible on the airframe, a licensed pilot on every flight | €23 + €10, and days on the schedule for the exam and the applications. `RULES.md` §B |
-| **ILT** | No flight in a closed geographical zone. Daylight only | No money. The site must be checked on the GoDrone map. `RULES.md` §C |
+| **ILT** | No flight in a closed geographical zone. Daylight only | No money. The site must be checked against `RULES.md` NL1 to NL4 — Aeret Kaartviewer first, GoDrone second. `RULES.md` §C |
 
 ## 3. Those exposed to what we do
 
