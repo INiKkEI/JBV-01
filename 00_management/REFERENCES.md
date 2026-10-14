@@ -34,6 +34,29 @@ checklist.
 
 ---
 
+## How the stage notes are written
+
+We read the notes, not the sources. So each notes file has to be short enough to read in one go and
+correct enough to trust.
+
+- **One file per stage:** `00_management/STAGE_N_NOTES.md`.
+- **At most 480 lines.** Chosen: about one solo work block of reading. If it is wrong, a file either
+  gets skimmed (too long) or drops things the next phase needs (too short) — the talk-through below
+  shows which.
+- **Only what changes a decision in the next phase.** Everything else read in a source is listed
+  under "Read and skipped" at the end of the file, so a gap is a choice and not an accident.
+- **Quotes are copied exactly, with their location.** A figure or table that could not be read is
+  written down as not read.
+- **Every file has a "What Stage N changes for us" section**, followed by "Read and skipped".
+- **Spot check, once per stage.** One of us picks one quote or location from the file, opens the
+  source and checks it. The date and the result go in the **Checks** line at the top of the file. If
+  it is wrong, fix it and check a second one.
+- **Talk-through, once per stage.** At the next shared session, each of us explains "What Stage N
+  changes for us" without the file open. Anything neither of us can explain gets rewritten.
+- **Stages 4 to 8 are tracked as GitHub issues**, each due before the work it feeds.
+
+---
+
 ## Stage 0 — Before we start
 
 | Source | Exact location | What we need it for |
@@ -120,8 +143,7 @@ closed, and neither of the two left blocks the requirements freeze.**
 1. ~~Annex Part A of 2019/947 — the A1, A2, A3 subcategory conditions.~~ **Closed 2026-08-14.**
    Read from the Official Journal text, CELEX 32019R0947 — see the OJ row above. The answer is
    subcategory A3, carried in `RULES.md` §C and in constraints C18 to C21. **It does not block the
-   requirements freeze.** `STAGE_2_NOTES.md` still says it does; that paragraph now carries a
-   dated correction.
+   requirements freeze.**
 2. ~~The RDW registration page — cost, duration, and where the operator number must be marked.~~
    **Closed 2026-08-04 and 2026-08-14.** All three RDW rows above are marked read. Carried in
    `RULES.md` §B1 and constraint C22.
@@ -159,6 +181,7 @@ this only holds on the day it was read.
 | MIT | Session 5 — "Concept Selection and Tradespace Exploration" (PDF, 2.0 MB), 39 pages. **The OCW page and the PDF give this deck two different titles** — the PDF's own resource title is "Tradespace Exploration and Concept Selection". Same file, one deck. Pages 12 to 17 are images with no readable text | Trade study method for the configuration decision. Page 4 the screening-then-selection pipeline, page 8 the five Pugh steps, page 18 the critique of Pugh, pages 19–22 utility, pages 28–36 dominance and the Pareto front, page 37 the PDR content list, page 38 the summary by phase |
 | NASA | **Section 6.8 "Decision Analysis"** — 6.8.1.1 inputs and the four conditions warranting formal analysis, 6.8.1.2.1 to 6.8.1.2.7, and 6.8.1.3.1 the ten-item decision report. https://www.nasa.gov/reference/6-8-decision-analysis/ | **Section 4.4 sends the reader here twice and it was missing from this table.** It carries the trade study process itself: mandatory versus enhancing criteria (*"An option that does not meet mandatory criteria should be disregarded"*), the differentiation test, the trade tree for pruning, normalisation with *"operational definitions"*, the robustness-of-ranking check, and the ten items a decision report must contain — which is the structure of `02_concept/TRADE_STUDY.md`. 6.8.2 lists the methods, all of them in the Expanded Guidance we do not have |
 | HYDRO | Table 5, enabler 3.3 "Front Load Architectural Design and Implementation" | They never fixed their powertrain architecture early and it cost them. Their fix: define the architecture, check it with calculations and a small experiment, and test anything new in a simple form first |
+| — | Notes taken from all of the above: `00_management/STAGE_3_NOTES.md` | Stage 3 is read and written up, with the ten settled decisions. Start there instead of reading the sources again |
 
 ## Stage 4 — Subsystem and component design → `03_design/`
 
