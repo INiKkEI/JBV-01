@@ -295,16 +295,17 @@ defensible instead of careless. *Areas we would have missed:* **transportation**
 town (C18), so span and whether the airframe comes apart matter; **training** — a licence (C23) is not
 skill; **maintainability** — the planned crash (C4) assumes the aircraft can be rebuilt.
 
-**4. A logged revision has six fields, in three tiers, through a pull request.** *Six fields:* the
+**4. A logged revision has six fields, in three tiers. No pull requests (changed 2026-10-14).** *Six fields:* the
 requirement ID; old and new text; why now — what we learned, not "we changed our minds"; **what else
 moves** — the field that gets skipped and matters most; whether the verification method or criterion
 changes; the date. *Three tiers:* editorial (typo, same meaning) — commit straight to `main`;
-modification — the full six fields and the other person's approval; addition or deletion — the same,
-plus a re-check of decision 3's area walk. *Mechanism:* a branch and a pull request that the other
-person approves, because it is the only option where the tool enforces the rule rather than our
-discipline. *Rejected:* a revision table inside `REQUIREMENTS.md` — git already stores it. *Two
-conditions before we rely on it, neither done:* check the current GitHub docs for requiring a review
-on `main`; agree what happens if one of us is unreachable for several days.
+modification — a GitHub issue with the six fields, the other person agrees in the issue, then the
+commit names the issue; addition or deletion — the same, plus a re-check of decision 3's area walk.
+*Why no pull request:* we work on one branch, `main`, and both push. A branch and an approval step
+add work for two people who meet twice a week. The rule that matters — the other person sees the
+change before it lands — is kept by the issue. *The cost:* git does not enforce it. A commit to a
+frozen file with no issue is a broken rule, and is raised at the next session. *Still to agree:* what
+happens if one of us is unreachable for several days.
 
 **5. "Shall" only.** No "should", no "will" in `REQUIREMENTS.md`. *Why:* Appendix D puts only "shall"
 in the verification matrix, so a "should" is never verified, and it breaks nothing when deleted — it
