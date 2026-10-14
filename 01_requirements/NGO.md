@@ -331,6 +331,6 @@ which were removed on 2026-09-08. IDs are not reused.
 | JLCPCB shipping cost and delivery time | Their table is an image. Needs a browser, or a real quote |
 | **Configuration** — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
 | **Scale** | The configuration trade study |
-| Thrust stand — price it, build it, check it against a known mass, AS2 | Before the propulsion system is sized |
-| **Design wind speed** — the steady wind the aircraft must hold a hover against. `CONOPS.md` §4.0 | Before the propulsion system is sized, with the thrust stand |
+| Thrust stand — price it, build it, check it against a known mass, AS2 | Before the first motor test in P4. Propulsion is sized from published thrust tables before it, decided 2026-10-14 |
+| **Design wind speed** — the steady wind the aircraft must hold a hover against. `CONOPS.md` §4.0 | Before the propulsion system is sized |
 | **Test site**, C14, C18 and AS1 | Before the first flight. 150 m from every residential, commercial, industrial and recreational area, and outside the zones in `RULES.md` NL1 to NL4 — check Aeret Kaartviewer first, GoDrone second |
