@@ -3,7 +3,7 @@
 Every rule we must obey, with its source and how well we have checked it. This file feeds ConOps
 section 2.1 "Applicable Documents" and constraints **C12 to C23** in `NGO.md`.
 
-Rules here are numbered **EU1–EU7**, **B1–B2**, **A3-1–A3-3** and **NL1–NL4**. Note that **A1, A2 and A3 always mean the Open
+Rules here are numbered **EU1–EU7**, **B1–B2**, **A3-1–A3-3**, **NL1–NL4** and **RF1–RF4**. Note that **A1, A2 and A3 always mean the Open
 Category subcategories** in this project, because that is what they mean in the regulation.
 
 **First checked 2026-08-04. Re-checked against the July 2024 consolidated text on 2026-08-14.**
@@ -293,6 +293,9 @@ start from this figure, not end at it.
 | **Every item in NL1 to NL4** — the Dutch geographic layer | Trace each one to the instrument that imposes it, not to the government summary page. Railways and the 80 km/h road rule matter most, because they are what will decide the test site. Until then the rows read **Partly** and no site may be declared legal on the strength of them |
 | **Which Natura 2000 areas near us carry a drone ban**, NL3 | Decided per province and per site manager. Check the province and the specific area, on the Aeret map and with the site manager. Nothing national to read |
 | Whether JBV-01 counts as a **model aircraft** under Article 16 | **Partly closed 2026-08-14.** Article 16 is a route for a **club or association**, not for an individual: the competent authority may issue an authorisation *upon request by a model aircraft club or association*, limited to that Member State. So it is only open to us by joining a Dutch club that already holds one, and flying under its conditions. Whether any Dutch club does, and on what terms, is unchecked. Source: [Regels voor modelvliegen — Rijksoverheid](https://www.rijksoverheid.nl/onderwerpen/drone/regels-voor-modelvliegen). RDW's own licence page links model aircraft here, so this may be a second legal route worth understanding |
+| **Which category a given 2.4 GHz radio falls under**, RF2 | Wideband data transmission equipment may use 100 mW e.i.r.p.; a non-specific short-range device in the same band only 10 mW. The product's EU declaration of conformity should say which it is — **not checked**. Close it when we choose the radio, see #2 |
+| **The model-control category in Bijlage 11** | Artikel 1(c) defines *apparatuur voor modelbesturing*, and Bijlage 11 has a category for it. The fetched page stopped before that table. **Not read.** Open Bijlage 11 on wetten.overheid.nl and read it |
+| **Whether the Besluit radioapparaten 2016 means CE marking under Directive 2014/53/EU**, RF1 | **Not read.** Open the Besluit on wetten.overheid.nl and find the article that takes over the Directive |
 | ~~Re-check the A3 conditions against the current edition~~ | **Closed 2026-08-14.** Read in the [Easy Access Rules, July 2024 edition](https://drones.gov.cy/wp-content/uploads/2025/08/EAR_UAS_Jul24.pdf), which carries all five amendments. UAS.OPEN.040 is unchanged — the 150 m and the privately built route both still read as §C says. The block at the head of §A records this |
 
 ---
@@ -317,8 +320,36 @@ apart. Section E used to hold the consequences in prose; on 2026-09-08 it became
 | §C, NL1 to NL4 — the Dutch geographic layer | **AS1**, the test site. It is the layer that decides which open ground is usable, and it is why AS1 cannot be closed from a map of built-up areas alone |
 | §B1 — operator number, €23, yearly | **C22**, the budget line in `NGO.md` §6, and the airframe surface interface in `CONOPS.md` §3.3. A sticker on foam is enough, but it must survive weather and a crash |
 | §B2 — remote pilot licence, €10 | **C23**, and the budget line |
+| §F, RF1 to RF4 — the radio link | The transmitter and receiver line in `NGO.md` §6. A purchasing rule: buy only a radio whose category and power setting meet RF1 and RF2 or RF3. The check of the actual model is done when we choose it — see #2 |
 
 **One consequence has no home yet: timing.** The online exam and the RDW applications take real
 days. The pilot, who is also the operator, may not legally fly JBV-01 until he holds both the
 licence and the operator number. That belongs on the schedule in `00_management/`, not in the week
 before the first flight.
+
+---
+
+## F. Netherlands — the radio link
+
+Source: **Regeling gebruik van frequentieruimte zonder vergunning en zonder meldingsplicht 2015**,
+BWBR0036378, the version in force from 1 July 2025, read on 2026-10-17:
+[wetten.overheid.nl/BWBR0036378/2025-07-01](https://wetten.overheid.nl/BWBR0036378/2025-07-01).
+It lists the radio uses that need no licence and no registration in the Netherlands. RDI, the Dutch
+telecom inspectorate, names this regulation as the source of the conditions and says *"de meeste
+drones"* work on these frequencies — [Vergunningvrij frequentiegebruik — RDI](https://www.rdi.nl/onderwerpen/consumenten/vergunningvrij-frequentiegebruik),
+read 2026-10-17, page modified 2024-07-23.
+
+Many table remarks in the regulation still cite the old Directive 1999/5/EG. That is how the text
+reads.
+
+| #   | Rule | Where | Status |
+| --- | ---- | ----- | ------ |
+| RF1 | The exemption covers only radio equipment that meets the *Besluit radioapparaten 2016*: *"heeft slechts betrekking op radioapparaten die voldoen aan het bij of krachtens het Besluit radioapparaten 2016 bepaalde"* | Art. 2(3) | **Confirmed** 2026-10-17. That this means CE marking under Directive 2014/53/EU is **Partly** — the Besluit is not read, see §D |
+| RF2 | **2400–2483.5 MHz.** Wideband data transmission equipment: **max 100 mW e.i.r.p.** With frequency-hopping modulation also max 100 mW/100 kHz; with other modulation max 10 mW/MHz. *"Verplicht zijn technieken om toegang te krijgen tot spectrum en om interferentie te onderdrukken"* — techniques for spectrum access and interference mitigation are **mandatory**. A non-specific short-range device in the same band: **max 10 mW e.i.r.p.** | Bijlage 11, subcategorie 2, row A; subcategorie 1, row I | **Confirmed** 2026-10-17 |
+| RF3 | **863–870 MHz**, non-specific short-range devices: 25 mW e.r.p. in most sub-bands, with a duty-cycle limit of < 0.1 % or < 1.0 %; 5 mW e.r.p. with no duty-cycle limit in 869.700–870.000 MHz. **500 mW e.r.p.** in 869.400–869.650 MHz, at < 10 %. Where the table says so, spectrum-access techniques may replace the duty-cycle limit | Bijlage 11, subcategorie 1, rows H1–H7 | **Confirmed** 2026-10-17 |
+| RF4 | Cause no harmful interference to other equipment or other users: *"er worden geen ontoelaatbare storingen of belemmeringen veroorzaakt"* | Art. 3(c) | **Confirmed** 2026-10-17 |
+
+**The limit is on what the antenna radiates, not on the radio's power setting alone.**
+e.i.r.p. [dBm] = transmitter power [dBm] + antenna gain [dBi] − cable loss [dB]. Our power setting
+and our antenna together must stay inside RF2 or RF3. The receiver in the aircraft also transmits
+when it sends telemetry, so the same limits apply to it.
