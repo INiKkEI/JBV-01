@@ -325,6 +325,7 @@ running each simulation tool once (section 7).
 
 Each was decided on 2026-09-08, one at a time, after the options and evidence were laid out. The
 longer argument for each is in the git history of this file, in the version before 2026-10-14.
+**Decisions 2, 5 and 8 were revised on 2026-10-17 in #38**, to fit P2. Each says what it was before.
 
 **1. Functions get their own file, in two passes.** `02_concept/FUNCTIONS.md`. **Pass 1** from the
 ConOps alone, before any layout is named, then frozen. **Pass 2** after concept generation: changes
@@ -335,13 +336,15 @@ low-speed control come from the same devices **is the configuration choice**. *W
 NASA's *"good knowledge of various potential technical means"*, and pass 2 lets us learn without
 hiding it. Pass 1 needs only the ConOps, so it is not blocked by L1.
 
-**2. Rows are the independent decisions. One matrix, one pass.** Rows are the genuinely free decisions
-taken from `FUNCTIONS.md`, not one row per function. Each row names the functions it answers, with its
-reasoning beside it. One table holds every decision. All rows are enumerated together, the coexistence
-rules applied, and the whole set screened at once. *This makes two things necessary:* rule-based
-enumeration, where each rule is a written claim of what is impossible; and **a script**, because the
-count is too large to do by eye. *Rejected:* two matrices by abstraction layer — a family could be
-dropped before the detail that makes it work is seen.
+**2. Rows are the independent decisions. One matrix, one pass, by hand.** *Revised 2026-10-17 in
+#38; was: the paths enumerated by a script.* Rows are the genuinely free decisions taken from
+`FUNCTIONS.md`, not one row per function. Each row names the functions it answers, with its reasoning
+beside it. One table holds every decision. Coexistence rules are written, each as a claim of what is
+impossible, and the paths are listed and screened by hand. If the list is too long to check by hand,
+rows are merged, and each merge is recorded with its reason. *Why the change:* P2 has about a third of
+the hours the full method needs, and the script cost more than it saved. *Accepted loss:* a
+combination we did not think of can be missed. *Rejected:* two matrices by abstraction layer — a family
+could be dropped before the detail that makes it work is seen.
 
 **3. Three filters at three moments.** *Coexistence rule* — "this combination cannot exist" — at
 enumeration. *Gate* — "this candidate is not allowed" — at screening. *Score* — "better or worse" — at
@@ -367,12 +370,14 @@ and decides disagreements in it, named before any weight is set. Only the agreed
 *Sensitivity check:* move each criterion one level up and down in turn, plus one run with all equal,
 and report whether the winner changed.
 
-**5. Screening is gates then dominance, nothing else. Selection runs in rounds.** Enumerate → gates →
-dominance → everything non-dominated enters selection, no cap. **Screening scores are computed by rule
-from the row choices**, written before the paths are looked at. *Accepted:* with many criteria,
-dominance removes little, so the surviving set may be large. *Rounds:* **round 1** scores every
-survivor on what we already know; **round 2** writes the three products of NASA 4.4.1.2.1 only for
-round 1's survivors; **round 3** if needed. Each round records what was dropped and why.
+**5. Screening is gates then dominance. Selection takes 3 to 5 candidates, in two rounds.** *Revised
+2026-10-17 in #38; was: everything non-dominated enters selection, no cap.* Enumerate → gates →
+dominance. If more than five paths survive, we choose three to five, and write one line for every path
+dropped. **Screening scores are computed by rule from the row choices**, written before the paths are
+looked at. **Round 1** scores every candidate on what we already know. **Round 2** writes the three
+products of NASA 4.4.1.2.1 for round 1's **top two** only. Each round records what was dropped and why.
+*Chosen:* three to five, and two. *Accepted loss:* the cap is our judgement, not a rule, so a good path
+can be dropped by us. The written line for each drop makes that visible.
 
 **6. Sealed prediction, and absolute scoring.** Before scoring, each of us writes down which candidate
 he expects to win, and why, and commits it. It is opened after round 1. **It does not prevent bias; it
@@ -389,10 +394,11 @@ nothing ordered. *Knowing departure from HYDRO 3.3:* **transition risk gets no p
 the trade.** G2-O5's tether and bench proof now comes after the choice, and can confirm it but not
 inform it. **Nothing long-lead is ordered before round 1.**
 
-**8. Mass is derived per candidate in round 2.** Each round-1 survivor closes its own mass loop
-approximately, from published motor and propeller data — an estimate. This completes Stage 2 decision
-2. *Why not only the winner:* the loop might not close for the layout we chose, after the trade is
-spent. **Before round 2, we name the derived requirements we expect each candidate to produce** —
+**8. Mass is derived for the two round-2 candidates.** *Revised 2026-10-17 in #38; was: for every
+round-1 survivor.* Each of the two closes its own mass loop approximately, from published motor and
+propeller data — an estimate. This completes Stage 2 decision 2. *Why two and not only the winner:* the
+loop might not close for the layout we chose, after the trade is spent, and the second candidate is the
+fallback. **Before round 2, we name the derived requirements we expect each candidate to produce** —
 items, not values. Anything else that appears is recorded as a finding.
 
 **9. Enabling-product need dates are set after the trade. The test site is checked before it.** The
