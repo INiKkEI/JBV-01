@@ -355,7 +355,7 @@ JBV-01 produces no new science, and we should not pretend otherwise. It is one s
 aircraft, built once, by two people.
 
 What it demonstrates is narrow and worth stating exactly: that a V/STOL aircraft can be designed,
-built and flown through both transitions, under control, inside €295 of parts, with hand tools, a
+built and flown through both transitions, under control, inside €274 of parts, with hand tools, a
 3D printer, a laser cutter and no laboratory. The result is the transition, flown and logged.
 
 **We make no performance claim.** Flight time, cruise speed and distance are measured and reported
