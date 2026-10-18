@@ -304,8 +304,10 @@ commit names the issue; addition or deletion — the same, plus a re-check of de
 *Why no pull request:* we work on one branch, `main`, and both push. A branch and an approval step
 add work for two people who meet twice a week. The rule that matters — the other person sees the
 change before it lands — is kept by the issue. *The cost:* git does not enforce it. A commit to a
-frozen file with no issue is a broken rule, and is raised at the next session. *Still to agree:* what
-happens if one of us is unreachable for several days.
+frozen file with no issue is a broken rule, and is raised at the next session. *If one of us is unreachable (agreed 2026-10-18,
+#39):* no time-out. A modification waits until the other person agrees in its issue, at the latest
+at the next Sunday meeting. Meanwhile each of us goes on with his own part, electrical or mechanical,
+and editorial changes still go straight to `main`.
 
 **5. "Shall" only.** No "should", no "will" in `REQUIREMENTS.md`. *Why:* Appendix D puts only "shall"
 in the verification matrix, so a "should" is never verified, and it breaks nothing when deleted — it
