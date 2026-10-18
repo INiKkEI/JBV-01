@@ -249,13 +249,13 @@ Replaced by real figures in `04_build/BOM.xlsx` as parts are chosen.
 
 | Line | € | Note |
 |---|---|---|
-| Transmitter and receiver | 100 | Bought once. Survives every crash |
+| Transmitter and receiver | 172 | Bought once. Survives every crash |
 | Charger, LiPo safe bag, fire precautions | 80 | Bought once |
 | Thrust stand — load cell, amplifier, microcontroller | 30 | Required by C8 |
 | Registration and pilot licence | 35 | €23 operator number + €10 licence for **one pilot, who is also the operator**, chosen 2026-10-14 — see `RULES.md` §B1. The operator number lasts one year, so registering from now on covers the project to 12 June 2027 with no renewal |
-| Printed circuit boards | 60 | One order plus one re-spin, roughly €20–30 each |
-| Rebuild allowance | 200 | Required by C4. **Not available for the first aircraft** |
-| **First aircraft — airframe, propulsion, avionics, battery** | **295** | The number that matters |
+| Printed circuit boards | 30 | One order, no re-spin (#78) |
+| Rebuild allowance | 179 | Required by C4. **Not available for the first aircraft** |
+| **First aircraft — airframe, propulsion, avionics, battery** | **274** | The number that matters |
 | Total | 800 | |
 
 **Laser cutting costs nothing** — the makerspace is free to us. Sheet material is **not yet priced**
@@ -309,7 +309,7 @@ A1, A2 and A3 already mean the Open Category subcategories.
 | AS4 | A proven open-source flight controller stack supports whichever configuration we choose | **Mostly.** ArduPlane documents QuadPlane, tilt-rotor, tilt-wing and tailsitter frames, and SITL carries physics models for separate lift and thrust, tilt-rotors and tailsitters — checked 2026-09-08 from the docs and the source. **The tilt-wing has firmware support but no SITL physics model.** The source was read from the master branch, so re-check against the firmware version we install. Nothing is verified on hardware by us |
 | AS6 | The makerspace laser cutter stays available to us, free, for the whole academic year | **No.** Free today is not free in March. The only capability that depends on somebody else's opening hours |
 | AS7 | Sheet material for laser cutting is affordable inside the first aircraft line | **No.** Unpriced. Price it before any design decision rests on a cut part |
-| AS8 | One PCB order plus one re-spin is enough for the whole project | **No.** A budget decision, not a measurement |
+| AS8 | One PCB order is enough for the whole project. No re-spin is budgeted (#78); the fallback is stripboard | **No.** A budget decision, not a measurement |
 | AS9 | We can learn the simulation tools well enough to trust their output inside this academic year, alongside building the aircraft | **No.** Free software is not free time |
 
 **AS5 and AS5a are deleted.** They existed to support the multirotor and fixed-wing benchmarks,
