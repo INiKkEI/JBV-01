@@ -328,7 +328,7 @@ which were removed on 2026-09-08. IDs are not reused.
 | **A real quote for a part of ours**, C6 | Before any design depends on an ordered part |
 | **What the makerspace actually holds** — bed size, materials, any measuring instrument | Go and look. It may move C8. AS6 |
 | Sheet material price, AS7 | With the makerspace visit |
-| JLCPCB shipping cost and delivery time | Their table is an image. Needs a browser, or a real quote |
+| ~~JLCPCB shipping cost and delivery time~~ | **Closed 2026-10-20** (#8). Checkout quote to the Netherlands, nothing ordered. Cost per parcel on top of the parts, nothing more at the door (DDP): **EuroPacket €15.21, 4–8 business days; DHL Express €37.46, 2–4 business days** |
 | **Configuration** — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
 | **Scale** | The configuration trade study |
 | Thrust stand — price it, build it, check it against a known mass, AS2 | Before the first motor test in P4. Propulsion is sized from published thrust tables before it, decided 2026-10-14 |
