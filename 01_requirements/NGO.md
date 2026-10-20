@@ -190,7 +190,7 @@ A condition that has to be met and cannot be traded against cost, schedule or pe
 | C3 | **€800 total project spend, hard ceiling.** Every purchase comes out of it, including the rebuild | Fixed. Apportioned below |
 | C4 | At least one crash and rebuild is planned, not a surprise | Fixed |
 | C5 | **What we make ourselves.** FDM printing in PLA and PETG; soldering and basic electronics; hand tools for foam, balsa and depron; laser cutting at the makerspace, free to us as students. No money per part, no lead time beyond our own hands | Fixed |
-| C6 | **What we order as a service.** Circuit boards, CNC parts, sheet metal, resin and powder printing, in single quantities from JLCPCB and its sister services. **€20–30 and 1 to 3 weeks per _parcel_**, not per part — orders across services combine into one parcel | Fixed. Prices below. No part of ours has been quoted |
+| C6 | **What we order as a service.** Circuit boards, CNC parts, sheet metal, resin and powder printing, in single quantities from JLCPCB and its sister services. **Per _parcel_, on top of the parts: €16 and 4–8 business days by EuroPacket. When time is short, €38 and 2–4 business days by DHL Express.** Both DDP, nothing more to pay at the door. Quoted for a parcel of about 0.3 kg; a heavier parcel costs more. Orders across services combine into one parcel | Fixed. Prices below. No part of ours has been quoted |
 | C7 | **Excluded — factory grade only.** Any process needing production tooling, a minimum order quantity, or industrial plant we cannot buy in ones. **This is the only exclusion.** The test: if we can obtain one of the thing, inside C3 and inside the schedule, it is allowed | Fixed |
 | C8 | **No laboratory.** No wind tunnel, no thrust stand, no load cells, no lab instruments. Any measurement we want, we buy or build the rig ourselves, and check it against something known first | Fixed. What the makerspace holds has never been checked, AS6 |
 | C9 | **Simulation and published data are what we have instead.** Every number they produce is an **estimate, never a measurement**, and the first flight test of any decision resting on one is its real verification | Fixed. Tools chosen 2026-09-08, see §8. None has been run yet |
@@ -219,7 +219,7 @@ first flight.
 ### What the ordered services cost
 
 Floor prices and build times from JLC3DP's own service list, read 2026-08-14. **Build time is
-manufacturing only** — shipping and EU customs are the 1 to 3 weeks in C6.
+manufacturing only** — shipping and EU customs are the business days in C6.
 
 | Service | From | Build time |
 |---|---|---|
@@ -233,13 +233,13 @@ manufacturing only** — shipping and EU customs are the 1 to 3 weeks in C6.
 **Every "from" figure is a floor, not our price.** Nothing of ours has been quoted.
 
 **Orders combine into one parcel**, confirmed 2026-08-14 — 3D printing, CNC, PCB, PCBA and stencils
-share one cart, one payment and one parcel. So the €20–30 is paid once, not once per service.
+share one cart, one payment and one parcel. So the parcel cost is paid once, not once per service.
 
 **What this means for the configuration trade.** C7 rules almost nothing out, so manufacturability
 is not a filter. What replaces it:
 
-    cost of a configuration ≈ parts + (number of parcels × €20–30)
-    time of a configuration ≈ longest build time + 1 to 3 weeks per parcel
+    cost of a configuration ≈ parts + (number of parcels × €16, or €38 by DHL)
+    time of a configuration ≈ longest build time + 4–8 business days per parcel (2–4 by DHL)
 
 **The trade counts parcels and weeks, not machines.**
 
