@@ -365,3 +365,15 @@ applies.
 **The Zorro's 100 mW setting is never used** (158 mW e.i.r.p., fails RF2). Source: RadioMaster
 certification page, files `ZORRO.zip` and `RP_Series_Receiver.zip`, read 2026-10-20 and
 2026-10-23. The CE mark on each label is checked on arrival.
+
+**Our radio link, checked against RF1–RF3 on 2026-10-23 (#77).** Both parts use 2.4 GHz, so RF2
+applies.
+
+| Part | DoC and standard | Certificate | Highest allowed setting | e.i.r.p. | RF2 |
+| ---- | ---------------- | ----------- | ----------------------- | -------- | --- |
+| Transmitter: RadioMaster Zorro ELRS LBT | DoC 26 Apr 2022, RED 2014/53/EU, EN 300 328 V2.2.2 | Notified Body SHEA1007-EU, 27 Apr 2022 | **50 mW**, antenna 2 dBi | 79 mW | Pass |
+| Receiver: RadioMaster RP4TD (LBT) | DoC 16 Sep 2025, RED 2014/53/EU, EN 300 328 V2.2.2 | Notified Body SHEA1915-EU, 20 Nov 2024 | any setting | max 83 mW, as assessed | Pass |
+
+**The Zorro's 100 mW setting is never used** (158 mW e.i.r.p., fails RF2). Source: RadioMaster
+certification page, files `ZORRO.zip` and `RP_Series_Receiver.zip`, read 2026-10-20 and
+2026-10-23. The CE mark on each label is checked on arrival.
