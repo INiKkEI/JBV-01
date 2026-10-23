@@ -223,7 +223,7 @@ that has been crashed, swollen or deeply discharged is retired, not used one mor
 whose failure would stop testing for more than a week is worth its cost against a one-year
 schedule.
 
-**Repair and rebuild.** C4 says at least one crash is planned. €200 of the budget is held for it and
+**Repair and rebuild.** C4 says at least one crash is planned. €173 of the budget is held for it and
 is not available for the first aircraft. The airframe should be designed so that the parts most
 likely to break can be remade with our own tools, and so that the electronics can be moved into a
 new airframe rather than being lost with the old one.

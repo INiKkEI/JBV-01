@@ -249,12 +249,12 @@ Replaced by real figures in `04_build/BOM.xlsx` as parts are chosen.
 
 | Line | € | Note |
 |---|---|---|
-| Transmitter and receiver | 172 | Bought once. Survives every crash |
+| Transmitter and receiver | 178 | Bought once. Survives every crash |
 | Charger, LiPo safe bag, fire precautions | 80 | Bought once |
 | Thrust stand — load cell, amplifier, microcontroller | 30 | Required by C8 |
 | Registration and pilot licence | 35 | €23 operator number + €10 licence for **one pilot, who is also the operator**, chosen 2026-10-14 — see `RULES.md` §B1. The operator number lasts one year, so registering from now on covers the project to 12 June 2027 with no renewal |
 | Printed circuit boards | 30 | One order, no re-spin (#78) |
-| Rebuild allowance | 179 | Required by C4. **Not available for the first aircraft** |
+| Rebuild allowance | 173 | Required by C4. **Not available for the first aircraft** |
 | **First aircraft — airframe, propulsion, avionics, battery** | **274** | The number that matters |
 | Total | 800 | |
 
