@@ -272,8 +272,8 @@ and comes out of the first aircraft line.
    decision resting on one is its real verification.
 
 **Simulation is analysis, and analysis verifies a requirement only when the model behind it is
-validated.** Ours will not be. **Whether any requirement may be verified by analysis alone is open,
-and until it is settled the answer is no.**
+validated.** Ours will not be. **So analysis alone verifies a requirement only when it is arithmetic
+on measured or documented inputs, never on simulation output** — §8, decided 2026-10-23.
 
 **SITL simulates every layout we are considering except the tilt-wing**, checked 2026-09-08 against
 ArduPilot's Using SITL page and its own source. It starts with one command, takes a USB transmitter
@@ -322,7 +322,7 @@ which were removed on 2026-09-08. IDs are not reused.
 | **Does the flight log record stick positions?** | Before the requirements freeze. G2-O1's criterion is checked against them, so if the log does not hold them the criterion has to change. Install the flight controller software, fly one throwaway case, and open the log |
 | **What G2-O3 can never prove** | Nothing to close. Recorded so we do not overclaim: a hovering V/STOL aircraft is unstable without its flight controller, in the same way a multirotor is. So the hover pulse test measures **the airframe and the controller together**, and we report it that way. Only a wing-borne pulse test flown in manual pass-through mode would test the airframe alone, and we are not doing that on the first aircraft |
 | **The G2 criteria cannot be tested as written** — G2-O1 and G2-O2 have no threshold for "full stick travel"; G2-O3 has no pulse size, pulse duration or settling limit; G2-O4 has no criterion, and MOE-2's "Fails if" leaves it out; G2-O5 has no verification method and no pass mark. **On a layout where the autopilot flies the transition, G2-O2's criterion passes by default** — `FUNCTIONS.md` F6 note. The fix must work for every candidate configuration | Before the requirements freeze, and before any flight, because a demonstration criterion is never edited after the flight. Decide after the SITL log check shows what the log records |
-| **May a requirement be verified by analysis alone?** | Before `REQUIREMENTS.md`. Until settled the answer is no |
+| ~~**May a requirement be verified by analysis alone?**~~ | **Closed 2026-10-23** (#6). **Yes, only when the analysis is arithmetic with no model inside**, and every input is either a measurement of ours or a figure from a named document with its location. **No simulation output is ever an input.** Examples: mass and CG from weighed parts, e.i.r.p. from datasheets, cost from receipts |
 | **Which simulation tools we use**, C9 | **Chosen 2026-09-08: built-in ArduPilot SITL, XFLR5 and AVL.** All three are free and all three run on Windows, so no Linux or WSL2 install is needed. An external flight simulator — Gazebo or RealFlight — is deferred until after the configuration trade. **Still open until each has been installed and run once**, because a tool we have not run is not a capability. See `00_management/STAGE_3_NOTES.md` §7 |
 | ~~**Whether SITL simulates a tiltrotor or a tailsitter**, C9~~ | **Closed 2026-09-08.** Yes to both, with named frames and their own physics models. The tilt-wing is the exception. See §6 and AS4 |
 | **A real quote for a part of ours**, C6 | Before any design depends on an ordered part |
