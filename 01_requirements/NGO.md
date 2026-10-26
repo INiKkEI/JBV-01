@@ -192,7 +192,7 @@ A condition that has to be met and cannot be traded against cost, schedule or pe
 | C5 | **What we make ourselves.** FDM printing in PLA and PETG; soldering and basic electronics; hand tools for foam, balsa and depron; laser cutting at the makerspace, free to us as students. No money per part, no lead time beyond our own hands | Fixed |
 | C6 | **What we order as a service.** Circuit boards, CNC parts, sheet metal, resin and powder printing, in single quantities from JLCPCB and its sister services. **Per _parcel_, on top of the parts: €16 and 4–8 business days by EuroPacket. When time is short, €38 and 2–4 business days by DHL Express.** Both DDP, nothing more to pay at the door. Quoted for a parcel of about 0.3 kg; a heavier parcel costs more. Orders across services combine into one parcel | Fixed. Prices below. No part of ours has been quoted |
 | C7 | **Excluded — factory grade only.** Any process needing production tooling, a minimum order quantity, or industrial plant we cannot buy in ones. **This is the only exclusion.** The test: if we can obtain one of the thing, inside C3 and inside the schedule, it is allowed | Fixed |
-| C8 | **No laboratory.** No wind tunnel, no thrust stand, no load cells, no lab instruments. Any measurement we want, we buy or build the rig ourselves, and check it against something known first | Fixed. What the makerspace holds has never been checked, AS6 |
+| C8 | **No laboratory.** No wind tunnel, no thrust stand, no load cells, no lab instruments. Any measurement we want, we buy or build the rig ourselves, and check it against something known first | Fixed. **DesignLab eWorkshop checked 2026-10-20 (visit) and 2026-10-26 (website)** (#7): oscilloscope Siglent SDS1202CNL+, multimeter Fluke 8808A, signal generator Siglent SDG1025, power supply 42 V 10 A. A scale with 0.001 g resolution (visit only, not on the website). **In the room only.** Still no wind tunnel, thrust stand or load cell. Whether this changes C8 is open, §8 |
 | C9 | **Simulation and published data are what we have instead.** Every number they produce is an **estimate, never a measurement**, and the first flight test of any decision resting on one is its real verification | Fixed. Tools chosen 2026-09-08, see §8. None has been run yet |
 | C10 | Vertical take-off and landing. The configuration — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan — is open | Follows from the need. Closes with the configuration trade study |
 | C11 | **Battery reserve at landing: 20% of pack capacity.** G1-O2 is measured to this reserve, and the abort rule in [DRM-0800] triggers here | **Set 2026-08-09.** Below roughly 20% a LiPo degrades quickly — rule of thumb from hobby practice, not measured and not sourced |
@@ -258,7 +258,7 @@ Replaced by real figures in `04_build/BOM.xlsx` as parts are chosen.
 | **First aircraft — airframe, propulsion, avionics, battery** | **274** | The number that matters |
 | Total | 800 | |
 
-**Laser cutting costs nothing** — the makerspace is free to us. Sheet material is **not yet priced**
+**Laser cutting costs nothing** — the makerspace is free to us. Sheet material is **priced** (AS7)
 and comes out of the first aircraft line.
 
 ### What C8 costs us
@@ -307,8 +307,8 @@ A1, A2 and A3 already mean the Open Category subcategories.
 | AS2 | We can build a thrust stand accurate enough to size the propulsion system, within budget | **No.** Needs pricing and a build |
 | AS3 | Off-the-shelf hobby parts adequate for our scale are available in the EU within our budget | **No** |
 | AS4 | A proven open-source flight controller stack supports whichever configuration we choose | **Mostly.** ArduPlane documents QuadPlane, tilt-rotor, tilt-wing and tailsitter frames, and SITL carries physics models for separate lift and thrust, tilt-rotors and tailsitters — checked 2026-09-08 from the docs and the source. **The tilt-wing has firmware support but no SITL physics model.** The source was read from the master branch, so re-check against the firmware version we install. Nothing is verified on hardware by us |
-| AS6 | The makerspace laser cutter stays available to us, free, for the whole academic year | **No.** Free today is not free in March. The only capability that depends on somebody else's opening hours |
-| AS7 | Sheet material for laser cutting is affordable inside the first aircraft line | **No.** Unpriced. Price it before any design decision rests on a cut part |
+| AS6 | The makerspace laser cutter stays available to us, free, for the whole academic year | **Partly, 2026-10-26.** UT DesignLab, Hengelosestraat 500. Website: workshops open working days 09:00–17:00 for research or education projects; personal projects at Maker's Night, Tuesday 18:00–21:30; closed in the holidays; a safety badge and a TeachTeam tour are needed before first use. Visit 2026-10-20 (staff): free for students, no booking. Laser: website says Trotec SP500, 1250 × 700 mm; staff said 1500 × 2000 mm. **Open:** whether JBV-01 may use the daytime hours, and the bed size, §8 (#7) |
+| AS7 | Sheet material for laser cutting is affordable inside the first aircraft line | **Priced, not chosen, 2026-10-26.** Example: plywood 3.6 mm, 1220 × 610 mm, €6.85 incl. VAT, Hornbach Lightply art. 12575691. The sheet is chosen in P3 (#7) |
 | AS8 | One PCB order is enough for the whole project. No re-spin is budgeted (#78); the fallback is stripboard | **No.** A budget decision, not a measurement |
 | AS9 | We can learn the simulation tools well enough to trust their output inside this academic year, alongside building the aircraft | **No.** Free software is not free time |
 
@@ -326,8 +326,9 @@ which were removed on 2026-09-08. IDs are not reused.
 | **Which simulation tools we use**, C9 | **Chosen 2026-09-08: built-in ArduPilot SITL, XFLR5 and AVL.** All three are free and all three run on Windows, so no Linux or WSL2 install is needed. An external flight simulator — Gazebo or RealFlight — is deferred until after the configuration trade. **Still open until each has been installed and run once**, because a tool we have not run is not a capability. See `00_management/STAGE_3_NOTES.md` §7 |
 | ~~**Whether SITL simulates a tiltrotor or a tailsitter**, C9~~ | **Closed 2026-09-08.** Yes to both, with named frames and their own physics models. The tilt-wing is the exception. See §6 and AS4 |
 | **A real quote for a part of ours**, C6 | Before any design depends on an ordered part |
-| **What the makerspace actually holds** — bed size, materials, any measuring instrument | Go and look. It may move C8. AS6 |
-| Sheet material price, AS7 | With the makerspace visit |
+| **What the makerspace actually holds** — bed size, materials, any measuring instrument | **Mostly closed 2026-10-26** (#7). Facts in C8 and AS6. **Open:** daytime access for JBV-01, and the bed size — ask the DesignLab before any plan rests on the laser. **Unknown and recorded, not blocking:** largest laser thickness per material; scale range; 3D printers, soldering and other workshop tools |
+| Sheet material price, AS7 | **Priced 2026-10-26** (#7), see AS7. The sheet is chosen in P3 |
+| **Does the makerspace equipment change C8?** An oscilloscope, a bench power supply and a 0.001 g scale exist, in the room only (#7) | Before the thrust stand is designed, AS2. Get the models and limits first |
 | ~~JLCPCB shipping cost and delivery time~~ | **Closed 2026-10-20** (#8). Checkout quote to the Netherlands, nothing ordered. Cost per parcel on top of the parts, nothing more at the door (DDP): **EuroPacket €15.21, 4–8 business days; DHL Express €37.46, 2–4 business days** |
 | **Configuration** — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
 | **Scale** | The configuration trade study |
