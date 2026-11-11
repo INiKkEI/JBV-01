@@ -21,6 +21,8 @@ Rules change. Check again before the requirements freeze, and again before the f
 
 ## A. EU rules — the Open Category
 
+> **Re-checked 2026-11-01** (#12): no amendment of 2019/947 in force after 2024/1110 (EUR-Lex consolidated version 2025-05-01; EASA Easy Access Rules still July 2024). EASA Opinion 06/2026 proposes amendments (registration, remote ID from 100 g, zones); not adopted. Re-check when it is adopted.
+
 Source: **Regulation (EU) 2019/947**, read in the EASA consolidated text *Easy Access Rules for
 Unmanned Aircraft Systems*, **July 2024 edition**, which carries all five amendments. The January
 2021 edition and the Official Journal original (CELEX 32019R0947) were read first and are kept below
