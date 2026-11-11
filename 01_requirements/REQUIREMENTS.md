@@ -56,7 +56,7 @@ records are not yet seen in a log of ours.
 | **Numbers** | **5 min** — chosen 2026-09-08 (G1-O2). If wrong, the battery and the wing are sized wrong. **More than half** — chosen 2026-09-08 (G1-O2). If lower, the wing stops being necessary; if higher, the hover and transition time may not fit |
 | **Rationale** | **Reason:** G1-O2. Flight time alone can be passed by hovering; the wing-borne share is what makes the wing necessary. **Assumptions:** take-off, hover check, both transitions, descent and landing take about 1.5 to 2 min (estimate from ordinary practice, `NGO.md` §3, not measured). If the rest of a 5 min flight is cruise, the wing-borne share is derived as (5 − 2) / 5 = 0.60 to (5 − 1.5) / 5 = 0.70. The margin over 0.5 is 0.10 to 0.20, and rests on that estimate. Wing-borne time includes any VTOL-assist time (§3, known weak spot), so R2 can pass with the lift motors helping. **ConOps:** capability 4; [DRM-0600]; [DRM-0800]. **Design constraint:** C11 — the flight is measured to the battery reserve; C3 — money |
 | **Verification** | Test, [DRM-0600]. All three figures are read from the log |
-| **Pass/fail** | Pass if all three hold: (1) t_flight = t_landing − t_lift-off > 300 s, with lift-off and landing from the flying state (ArduPilot: `STAT.isFlying`); (2) t_wing-borne / t_flight > 0.5, with wing-borne time as defined in §3; (3) the battery is at or above the C11 reserve at landing, judged as in the reserve requirement from #10. Fail if any one does not hold |
+| **Pass/fail** | Pass if all three hold: (1) t_flight = t_landing − t_lift-off > 300 s, with lift-off and landing from the flying state (ArduPilot: `STAT.isFlying`); (2) t_wing-borne / t_flight > 0.5, with wing-borne time as defined in §3; (3) the battery is at or above the C11 reserve at landing, judged as in R12. Fail if any one does not hold |
 | **KDR** | Yes. Flight time and the wing-borne share set the battery and the wing, and so the loop of mass, thrust and battery |
 | **Status** | Draft, 2026-11-11 |
 
@@ -166,8 +166,8 @@ skipped area has its reason. This walk is for G1. G2 and safety get their own wa
 | Personnel | **Skipped.** C1 fixes two people. Who does what on the field is a procedure (#22), not a property of the aircraft |
 | Reliability | **Skipped.** G1-O1 asks for one flight. A reliability figure needs many flights to verify, and C3 cannot pay for them. Damage is covered by R8 and R9 |
 | Maintainability | R8, R9 — money and time are verified at different times, see R9 |
-| Operability | In the safety set, #10: arming and disarming (F21) |
-| Safety | In the safety set, #10: [DRM-0700] to [DRM-0900], propeller clearance, LiPo charging, the tether, arming |
+| Operability | In the G2 and safety walk, §5: R13, arming (F21) |
+| Safety | In the G2 and safety walk, §5: R14 and R16. Rules for people are procedures in #22 |
 
 ---
 
@@ -190,3 +190,129 @@ names come from the ArduPilot source and are not yet seen in a log of ours.
 **Known weak spot.** In a fixed-wing mode, VTOL assist may run the lift motors, and that time still
 counts as wing-borne. `QTUN.Ast` marks assist, so it can be taken out if we ever change to D1
 option (b).
+
+---
+
+## 4. Requirements from G2 and safety
+
+G2 criteria B1 to B4 live in `NGO.md` §3. The requirements below **cite** them and copy no
+number (rule 5). Never edited after a flight.
+
+### R10 — Abort a transition
+
+| | |
+|---|---|
+| **Statement** | JBV-01 shall abandon a transition when the pilot commands it, and return to hover, passing B3. |
+| **Area** | Functional |
+| **Parent** | G2-O4, under G2 |
+| **Numbers** | None of its own. B3 in `NGO.md` §3 holds them |
+| **Rationale** | **Reason:** the first transitions are the most dangerous moment of the project. Without R10, every transition attempt is all or nothing. **Assumptions:** the transition time used to time the abort is measured on the tether (B4, a test gate in #20). **ConOps:** capability 10; [DRM-0400]; F8. **Design constraint:** C10 — the configuration is open, so the abort is judged from the log, not from an attitude |
+| **Verification** | Demonstration, [DRM-0400], from `MODE`, `ATT` and `POS` in the flight log |
+| **Pass/fail** | Pass if the commanded abort passes B3. Fail if B3 fails |
+| **KDR** | Yes. A back-transition from part-way differs a lot between layouts |
+| **Status** | Draft, 2026-11-11 |
+
+### R11 — Control margin
+
+| | |
+|---|---|
+| **Statement** | JBV-01 shall keep the control margin of B1 in hover and through both transitions. |
+| **Area** | Performance |
+| **Parent** | G2-O1 and G2-O2, under G2 |
+| **Numbers** | None of its own. B1 in `NGO.md` §3 holds them |
+| **Rationale** | **Reason:** full stick, or an output at its limit, means nothing is left for the next gust. Without R11, nothing asks for margin, and an aircraft that only just flies would pass. **Assumptions:** the log holds `RCIN` and `RCOU` (R4); the radio is calibrated, so `RCn_MIN`/`RCn_MAX` are real. **ConOps:** capabilities 2 and 3; [DRM-0300], [DRM-0400]; F6, F15. **Design constraint:** C10 |
+| **Verification** | Demonstration, [DRM-0300] and [DRM-0400], from `RCIN` and `RCOU` in the flight log |
+| **Pass/fail** | Pass if B1 holds for the whole G2-O1 hover, and in each transition from the `MODE` change that starts it until the new flight mode is steady (B3's definition). Fail if B1 fails in any of these |
+| **KDR** | Yes. Control margin sizes the motors and servos, and so mass and cost |
+| **Status** | Draft, 2026-11-11 |
+
+### R12 — Battery state on the ground
+
+| | |
+|---|---|
+| **Statement** | JBV-01 shall show the pilot on the ground, during flight, the battery charge used, with a warning when 30 % of the rated capacity is left. |
+| **Area** | Interface — aircraft to the pilot, during flight |
+| **Parent** | C11 (the reserve); G1-O2 (flown to the reserve). Also [DRM-0800] |
+| **Numbers** | **30 % left** (warning) — chosen 2026-11-11 (F). Set above the C11 reserve so that the flight can end and still land with the reserve: a transition and landing take about 1.5 to 2 min (estimate, R2). If too low, landings miss the reserve; if too high, flights are cut short. The reserve itself is **cited, not copied**: C11. **Rated capacity** is the capacity printed on the pack in use |
+| **Rationale** | **Reason:** [DRM-0800]: the battery state must be visible while there is still time to act. Without R12, the flight ends after the reserve is broken, not before. **Reserve reading, used by R2:** the reserve is kept if, at landing, the charge used (`BAT.CurrTot`) is no more than (1 − C11) × the rated capacity. **Assumptions:** the current sensor reads correctly; it is checked against a known charge before it is trusted (C8). **ConOps:** capability 7; [DRM-0800]; F18. **Design constraint:** C11 |
+| **Verification** | Demonstration: on the bench, [DRM-0100], the charge used is shown on the ground; in [DRM-0600], from `BAT` and `MSG` in the flight log |
+| **Pass/fail** | Pass if (1) on the bench the charge used is shown on the ground, and (2) in [DRM-0600] the warning is in the log no later than the first `BAT` sample with charge used at or above 70 % of the rated capacity. Fail otherwise |
+| **KDR** | No. A standard telemetry link and current sensor do this |
+| **Status** | Draft, 2026-11-11 |
+
+### R13 — Arming
+
+| | |
+|---|---|
+| **Statement** | JBV-01 shall arm and disarm only by one dedicated transmitter switch. |
+| **Area** | Operability |
+| **Parent** | F21; capability 9. Safety on every flight |
+| **Rationale** | **Reason:** arming makes the propellers live. Without R13, the aircraft could be armed by a stick movement and nobody would see its state on the transmitter. The same switch stops the motors at once (C, 2026-11-11). **Assumptions:** the switch disarms unconditionally, even in flight (ArduPilot docs, not tested), so the switch is one that is hard to hit by mistake, chosen in #48. **ConOps:** capability 9; [DRM-0100]. **Design constraint:** none |
+| **Verification** | Demonstration on the bench, armed, propellers off, [DRM-0100] |
+| **Pass/fail** | Pass if all hold: (1) the switch arms and disarms; (2) arming by the rudder stick is refused; (3) the aircraft shows its state by light and sound; (4) every arm and disarm is in the log; (5) no motor turns while disarmed. Fail if any one does not hold |
+| **KDR** | No |
+| **Status** | Draft, 2026-11-11 |
+
+### R14 — Loss of the command link
+
+| | |
+|---|---|
+| **Statement** | On loss of the command link, JBV-01 shall start a return to its take-off point within 5 s and land there vertically. |
+| **Area** | Safety |
+| **Parent** | [DRM-0700]; F20 |
+| **Numbers** | **5 s** — chosen 2026-11-11 (D2), the ArduPilot default for the long failsafe (`FS_LONG_TIMEOUT`); in hover the return starts after 1 s (`RC_FS_TIMEOUT`). If shorter, a short link dropout ends a test flight; if longer, the aircraft is out of control for longer. **10 m** — chosen 2026-11-11 (D3). GNSS on a small aircraft is good to about 2 to 5 m (estimate, not sourced). If tighter, GNSS error alone fails it; if looser, a landing in the wrong place passes |
+| **Rationale** | **Reason:** [DRM-0700] asks for one deliberate action, written down. Always come home (D, 2026-11-11): in hover by QRTL, in wing-borne flight by circling and then RTL with a vertical landing. Without R14, the action is whatever the defaults do, and a wing-borne aircraft could circle until the battery is empty. **Assumptions:** a GNSS is on board (R8's avionics); home is set with a good fix; a commanded RTL follows the same autopilot path as a link-loss RTL (ArduPilot source, not tested). **ConOps:** [DRM-0700]; F17, F20. **Design constraint:** C15, C18 |
+| **Verification** | Demonstration: (1) on the bench, armed, propellers off, [DRM-0100], the transmitter is switched off once in a hover mode and once in a fixed-wing mode; (2) in [DRM-0400] or [DRM-0500], after B3 has passed, the pilot commands RTL from wing-borne flight |
+| **Pass/fail** | Pass if both hold: (1) on the bench the log shows QRTL (hover mode) and RTL (fixed-wing mode) within 5 s of the transmitter going off; (2) the commanded RTL ends in a vertical landing within 10 m of the home point, read from `POS`. Fail otherwise |
+| **KDR** | Yes. It needs a GNSS and an automatic back-transition |
+| **Status** | Draft, 2026-11-11 |
+
+### R15 — Stability
+
+| | |
+|---|---|
+| **Statement** | JBV-01 shall return to its trimmed state after a disturbance with no pilot input, passing B2 in hover and in wing-borne flight. |
+| **Area** | Performance. Second requirement in the area: controllability (R11) and stability are kept apart on purpose, so that passing one cannot be mistaken for passing both (`NGO.md` §3; A, 2026-11-11) |
+| **Parent** | G2-O3, under G2 |
+| **Numbers** | None of its own. B2 in `NGO.md` §3 holds them |
+| **Rationale** | **Reason:** G2 asks for stability as well as control. Without R15, an aircraft that needs the pilot's hands all the time would pass. **Assumptions:** the log holds `ATT` (R4). **ConOps:** [DRM-0300], [DRM-0400]; F16. **Design constraint:** C10 |
+| **Verification** | Demonstration, [DRM-0300] (hover, QHOVER) and [DRM-0400] (wing-borne, FBWA), from `ATT` in the flight log |
+| **Pass/fail** | Pass if B2 holds in QHOVER and in FBWA. Fail if either fails |
+| **KDR** | Yes. Stability in both modes shapes the layout, the centre of gravity and the tail |
+| **Status** | Draft, 2026-11-11 |
+
+### R16 — Battery at the reserve
+
+| | |
+|---|---|
+| **Statement** | When the charge used reaches the C11 reserve in flight, JBV-01 shall start a return to its take-off point. |
+| **Area** | Safety. Second requirement in the area: a different trigger and a different "shall" from R14 |
+| **Parent** | C11; [DRM-0800]; F20 |
+| **Numbers** | The reserve is **cited, not copied**: C11. Rated capacity as in R12 |
+| **Rationale** | **Reason:** the backstop if the R12 warning is missed (F, 2026-11-11). Without R16, a missed warning ends in an empty battery in the air. A flight that ends this way lands below the reserve and fails R2: the backstop protects the battery, not the score. **Assumptions:** the return follows the same path as R14, which verifies it. **ConOps:** [DRM-0800]; F20. **Design constraint:** C11 |
+| **Verification** | Inspection of the flight controller settings before every flight day; the return itself is verified by R14 |
+| **Pass/fail** | Pass if the battery failsafe is set to start a return to the take-off point when the charge used reaches (1 − C11) × the rated capacity of the pack in use. Fail otherwise |
+| **KDR** | No |
+| **Status** | Draft, 2026-11-11 |
+
+---
+
+## 5. Area walk for G2 and safety
+
+The twelve areas again, for G2 and safety (D5). At most one requirement per area; a second only
+with its reason; a skipped area has its reason.
+
+| Area | Result |
+|---|---|
+| Functional | R10 |
+| Performance | R11, R15 — controllability and stability kept apart, see R15 |
+| Interface | R12 |
+| Environment | **Skipped.** As in §2: the design wind speed is open and closes with sizing (#17) |
+| Facility | **Skipped.** The tether proof is a test gate (G2-O5, B4), written in #20 (B, 2026-11-11) |
+| Transportation | **Skipped.** R6 covers it |
+| Training | **Skipped.** Practice is a procedure in #22 (D3) |
+| Personnel | **Skipped.** Rules for people — propeller clearance on the bench, LiPo charging and storage, never under a hovering aircraft, the C19 distance — are procedures in #22, each with a pass/fail line (E, 2026-11-11) |
+| Reliability | **Skipped.** As in §2 |
+| Maintainability | **Skipped.** R8 and R9 cover it |
+| Operability | R13 |
+| Safety | R14, R16 — two triggers, two "shall" verbs. A lift unit failing in hover ([DRM-0900]) has no design answer on most layouts (`CONOPS.md` §6.2); the C19 distance is the answer, in #22 |
