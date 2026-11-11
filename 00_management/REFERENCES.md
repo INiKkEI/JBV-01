@@ -33,6 +33,8 @@ checklist.
 | AVL | AVL — Athena Vortex Lattice, Mark Drela, MIT | https://web.mit.edu/drela/Public/web/avl/ | Free, GPL. Windows, Linux, macOS on both architectures |
 | FREQ | *Regeling gebruik van frequentieruimte zonder vergunning en zonder meldingsplicht 2015*, BWBR0036378 — the Dutch list of licence-free radio use | https://wetten.overheid.nl/BWBR0036378/2025-07-01 | Free, in Dutch. Versioned: the link names the version in force from 1 July 2025. Check the "Geldend van" line on the day |
 | RDI | Rijksinspectie Digitale Infrastructuur — the Dutch telecom inspectorate | https://www.rdi.nl | Free, in Dutch |
+| ADS33 | ADS-33E-PRF, *Handling Qualities Requirements for Military Rotorcraft*, US Army, 21 Mar 2000 | https://www.robertheffley.com/docs/HQs/ADS-33E-PRF.pdf | Free PDF. **§3.4.10.3.1, p. 21** (positive effective dihedral limit, forward flight: roll control power used at most 75 % Level 1, 90 % Level 2; an analogy for B1, not a hover rule). **§3.3.2.3, p. 10–11, and §3.3.2.3.2, p. 11** (mid-term damping, ζ ≥ 0.35 Level 1; option (b) for B2, not chosen). Locations checked 2026-11-11 (#5) |
+| AC27 | FAA AC 27-1B, *Certification of Normal Category Rotorcraft*, 17 Sep 2009 | https://www.faa.gov/documentLibrary/media/advisory_circular/AC%2027-1_9-17-09.pdf | Free PDF. **AC 27.143A.a(2)(i), p. 8**: a 10 % control-travel margin as the past minimum, and the warning that control power "has very little to do with any fixed percentage". Source of B1's 0.90 (#5). Location checked 2026-11-11 |
 
 ---
 

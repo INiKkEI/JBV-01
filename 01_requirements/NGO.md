@@ -100,11 +100,34 @@ agreed before the flight**. We are both the pilot and the judge, so nothing else
 
 | ID | Objective | Verification | Status |
 |---|---|---|---|
-| G2-O1 | In hover, the pilot can hold the aircraft where he wants it, **with control margin left**. Criterion: *the pilot holds a hover for 60 s and never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0300] | **Set 2026-09-08.** Rests on the log recording stick positions, which is **unconfirmed** — see §8 |
-| G2-O2 | The aircraft passes through both transitions with **control margin left**. Criterion: *from the start of each transition until the new flight mode is steady, the pilot never needs full stick travel on any axis* | Demonstration, checked against the recorded stick positions in the flight log. [DRM-0400] | **Set 2026-09-08.** Same measure and same log source as G2-O1 |
-| G2-O3 | After a disturbance, the aircraft returns to its trimmed state **with no pilot input** — in hover and in wing-borne flight. Criterion: *after a short stick input is released, the oscillation gets smaller on each cycle and the aircraft settles back to trim* | Demonstration, read off the attitude trace in the flight log. [DRM-0300] and [DRM-0400] | **Set 2026-09-08** |
-| G2-O4 | The aircraft can abandon a transition and return to hover under control | Demonstration. [DRM-0400] | Fixed. Being able to stop trying is a capability, not an accident |
-| G2-O5 | Both transitions are proved on a tether or on the bench before any free-flight attempt | [DRM-0200] | Fixed. **The gate, not the pass mark** |
+| G2-O1 | In hover, the pilot can hold the aircraft where he wants it, **with control margin left**. Criterion: *the pilot holds a hover for 60 s and passes B1 for the whole 60 s* | Demonstration, from `RCIN` and `RCOU` in the flight log. [DRM-0300] | **Set 2026-09-08. Numbers 2026-11-09** (#5), see B1 below |
+| G2-O2 | The aircraft passes through both transitions with **control margin left**. Criterion: *from the MODE change that starts each transition until the new flight mode is steady (B3's definition), B1 holds* | Demonstration, from `RCIN` and `RCOU` in the flight log. [DRM-0400] | **Set 2026-09-08. Numbers 2026-11-09** (#5). B1's aircraft measure is what makes this fail-able when the autopilot flies the transition (`FUNCTIONS.md` F6 note) |
+| G2-O3 | After a disturbance, the aircraft returns to its trimmed state **with no pilot input** — in hover and in wing-borne flight. Criterion: *B2, in QHOVER and in FBWA* | Demonstration, read off `ATT` in the flight log. [DRM-0300] and [DRM-0400] | **Set 2026-09-08. Numbers 2026-11-09** (#5), see B2 |
+| G2-O4 | The aircraft can abandon a transition and return to hover under control. Criterion: *B3* | Demonstration, from `MODE`, `ATT` and `POS` in the flight log. [DRM-0400] | Fixed. **Criterion 2026-11-09** (#5), see B3 |
+| G2-O5 | Both transitions are proved on a tether or on the bench before any free-flight attempt. Criterion: *B4* | Demonstration on the rig, from the flight log. [DRM-0200] | Fixed. **The gate, not the pass mark. Criterion 2026-11-09** (#5), see B4 |
+
+**How the G2 criteria are measured — B1 to B4.** Set 2026-11-09 (#5), before any hardware. Each
+can fail on every layout still in C10. Never edited after a flight.
+
+| ID | For | Measure | Fails if |
+|---|---|---|---|
+| **B1** Control margin | G2-O1, G2-O2 | **Pilot:** stick fraction d = (RCIN − RCn_TRIM) / (RCn_MAX − RCn_TRIM), and the same with RCn_MIN on the other side; roll, pitch and yaw; throttle left out. **Aircraft:** every output whose `SERVOn_FUNCTION` makes a roll, pitch or yaw moment (a pure forward motor is left out). A lift motor's limit is its `Q_M_SPIN_MIN`/`Q_M_SPIN_MAX` PWM, a servo's is `SERVOn_MIN`/`SERVOn_MAX`. Flown within the wind limits in that flight's test plan, with the wind recorded (`CONOPS.md` §4) | **Any single log sample with d > 0.90**, or any counted output at its limit for **longer than 1 s** |
+| **B2** Pulse test | G2-O3 | Roll and pitch; yaw left out (in hover the yaw stick commands a turn rate, so there is no heading to return to). Flown in **QHOVER** (hover) and **FBWA** (wing-borne). Trim = mean of `ATT` over the 2 s before the pulse. Pulse = **50 % of half travel for 0.5 s**, then released | Not back inside **±5°** of trim, and staying there 2 s, within **5 s** of the release; or any overshoot **not smaller than the one before** |
+| **B3** Abort a transition | G2-O4 | Abort commanded at **0.5 × the transition time measured in the B4 tether test** (our measurement, so a valid input, #6). "Steady" = VTOL state, attitude inside B2's ±5° band for 2 s. Height loss = `POS.RelHomeAlt` at the abort − the lowest value after it. B1 holds throughout | Not steady within **10 s** of the MODE change, or height loss **more than 10 m** |
+| **B4** Tether proof | G2-O5 | Before the first free transition: **3 good runs in a row in each direction**. Only a tether or a rig that lets the aircraft rotate freely counts; a clamped bench passes by default, so it does not. A good run = the transition completes and B1 holds | Fewer than 3 good runs in a row in either direction, or any run on a clamped rig |
+
+**Where the numbers come from.** B1's 0.90: AC 27-1B §27.143A.a(2)(i), p. 8 — a 10 % control-travel
+margin was the past minimum standard, and the same paragraph warns that a fixed percentage says
+little about real control power. ADS-33E-PRF §3.4.10.3.1, p. 21, limits roll control power used to
+75 % (Level 1) and 90 % (Level 2), but in steady sideslips in forward flight, not in hover: an
+analogy only. See `REFERENCES.md`. B1's 1 s, and all of B2 to B4, are chosen numbers with no
+standard behind them. **B2 and B3 are deliberately lenient first limits** (chosen over ±3°/(b) and
+5 s/5 m). SITL was a sanity check only, never the source (#6, C9): the default quadplane
+(ArduPlane 4.8.0-dev, log `00000003.BIN`, 9 Nov) settled inside ±2° within 0.5 s with no overshoot,
+and two aborts at 5.1 s lost 0 m. So every option was achievable, and SITL could not choose between
+them. Log rates in SITL: `RCIN`/`RCOU` 25 Hz, `ATT` 10 Hz (`00000002.BIN`). Whether a forward
+transition can finish on a tether without airspeed is a question for each layout, and belongs to
+#16.
 
 **G2-O1 and G2-O2 are controllability. G2-O3 is stability.** The two halves of G2, kept as separate
 objectives so that passing one cannot be mistaken for passing both.
@@ -131,7 +154,7 @@ stakeholder, so we are the ones who would have to say it.
 | ID | Measure | Verifies | Verification | Fails if |
 |---|---|---|---|---|
 | **MOE-1** | The aircraft flies **one complete flight** containing, in sequence: vertical take-off, hover, transition to wing-borne cruise, sustained cruise, transition back to hover, vertical landing | G1-O1, so G1 | The flight log for that flight | No such flight is ever flown |
-| **MOE-2** | That flight was flown **under control and stable** — the three criteria in §3 all passed | G2-O1 to G2-O4, so G2 | Demonstration, judged against the flight log | The pilot needed full stick travel in hover or in either transition, or the aircraft did not settle back to trim after a disturbance |
+| **MOE-2** | That flight was flown **under control and stable** — the three criteria in §3 all passed | G2-O1 to G2-O4, so G2 | Demonstration, judged against the flight log | B1 failed in hover or in either transition, B2 failed in hover or wing-borne flight, or B3 failed |
 
 **MOE-2 is the weaker of the two, and we should say so.** We wrote the criteria, we fly against
 them, and we judge them. There is no outside check. Two things reduce the problem: all three were
@@ -321,7 +344,7 @@ which were removed on 2026-09-08. IDs are not reused.
 |---|---|
 | ~~**Does the flight log record stick positions?**~~ | **Closed 2026-10-29** (#4). **Yes.** The DataFlash log records the pilot's sticks in RCIN.C1 to C4 (roll, pitch, throttle, yaw), in µs, with default logging. **Full stick is the calibrated end point of that channel, RCn_MIN or RCn_MAX**, not a fixed value: the autopilot treats any input beyond it as full deflection. SITL quadplane, ArduPlane 4.8.0-dev, log 00000002.BIN: RCIN recorded 1000 and 2000, while the end points were 1087 to 1886 (roll) and 1100 to 1900 (pitch, yaw). The real values come from the radio calibration after the Zorro is bound (#1). For G2-O1 and G2-O2 the threshold is therefore set against RCn_MIN and RCn_MAX (#5) |
 | **What G2-O3 can never prove** | Nothing to close. Recorded so we do not overclaim: a hovering V/STOL aircraft is unstable without its flight controller, in the same way a multirotor is. So the hover pulse test measures **the airframe and the controller together**, and we report it that way. Only a wing-borne pulse test flown in manual pass-through mode would test the airframe alone, and we are not doing that on the first aircraft |
-| **The G2 criteria cannot be tested as written** — G2-O1 and G2-O2 have no threshold for "full stick travel"; G2-O3 has no pulse size, pulse duration or settling limit; G2-O4 has no criterion, and MOE-2's "Fails if" leaves it out; G2-O5 has no verification method and no pass mark. **On a layout where the autopilot flies the transition, G2-O2's criterion passes by default** — `FUNCTIONS.md` F6 note. The fix must work for every candidate configuration | Before the requirements freeze, and before any flight, because a demonstration criterion is never edited after the flight. Decide after the SITL log check shows what the log records |
+| ~~**The G2 criteria cannot be tested as written**~~ | **Closed 2026-11-09** (#5). Numbers and log measures set as B1 to B4 in §3. G2-O2 no longer passes by default when the autopilot flies the transition: B1's aircraft measure counts the outputs, not only the sticks. G2-O4 and G2-O5 now have criteria, and MOE-2's "Fails if" includes them. **Thrust-to-weight is not part of #5**: B1 checks margin in flight. The design margin is sized with the propulsion (#47), from the design wind speed below |
 | ~~**May a requirement be verified by analysis alone?**~~ | **Closed 2026-10-23** (#6). **Yes, only when the analysis is arithmetic with no model inside**, and every input is either a measurement of ours or a figure from a named document with its location. **No simulation output is ever an input.** Examples: mass and CG from weighed parts, e.i.r.p. from datasheets, cost from receipts |
 | **Which simulation tools we use**, C9 | **Chosen 2026-09-08: built-in ArduPilot SITL, XFLR5 and AVL.** All three are free. XFLR5 and AVL run on Windows directly; SITL runs on Windows through WSL2 (Ubuntu), as installed in #3. An external flight simulator — Gazebo or RealFlight — is deferred until after the configuration trade. **Still open until each has been installed and run once**, because a tool we have not run is not a capability. See `00_management/STAGE_3_NOTES.md` §7 |
 | ~~**Whether SITL simulates a tiltrotor or a tailsitter**, C9~~ | **Closed 2026-09-08.** Yes to both, with named frames and their own physics models. The tilt-wing is the exception. See §6 and AS4 |
@@ -333,5 +356,5 @@ which were removed on 2026-09-08. IDs are not reused.
 | **Configuration** — tiltrotor, tailsitter, lift+cruise, tilt-wing, ducted fan | The configuration trade study |
 | **Scale** | The configuration trade study |
 | Thrust stand — price it, build it, check it against a known mass, AS2 | Before the first motor test in P4. Propulsion is sized from published thrust tables before it, decided 2026-10-14 |
-| **Design wind speed** — the steady wind the aircraft must hold a hover against. `CONOPS.md` §4.0 | Before the propulsion system is sized |
+| **Design wind speed** — the steady wind the aircraft must hold a hover against. `CONOPS.md` §4.0 | Before the propulsion system is sized. Source to use: measured KNMI station data, Twenthe (290), mean wind and gusts. Method in #47 |
 | **Test site**, C14, C18 and AS1 | Before the first flight. 150 m from every residential, commercial, industrial and recreational area, and outside the zones in `RULES.md` NL1 to NL4 — check Aeret Kaartviewer first, GoDrone second |
