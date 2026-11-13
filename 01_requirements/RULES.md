@@ -21,7 +21,7 @@ Rules change. Check again before the requirements freeze, and again before the f
 
 ## A. EU rules — the Open Category
 
-> **Re-checked 2026-11-01** (#12): no amendment of 2019/947 in force after 2024/1110 (EUR-Lex consolidated version 2025-05-01; EASA Easy Access Rules still July 2024). EASA Opinion 06/2026 proposes amendments (registration, remote ID from 100 g, zones); not adopted. Re-check when it is adopted.
+> **Re-checked 2026-11-13** (#12): no amendment of 2019/947 in force after 2024/1110 (EUR-Lex: latest consolidated version 2025-05-01). The EASA Easy Access Rules now have a **June 2026 revision**; it adds only the AMC and GM of ED Decision 2025/018/R (SORA 2.5, specific category). The regulation text we use (Article 4, UAS.OPEN.040) is therefore unchanged, and §A–§C stand. The open-category AMC/GM in the June 2026 revision were not re-read. EASA Opinion 06/2026 (18 Sep 2026) proposes amendments (registration and remote ID from 100 g, zones); it is advice to the Commission, not law. Re-check when the Commission adopts it, and before the first flight.
 
 Source: **Regulation (EU) 2019/947**, read in the EASA consolidated text *Easy Access Rules for
 Unmanned Aircraft Systems*, **July 2024 edition**, which carries all five amendments. The January
