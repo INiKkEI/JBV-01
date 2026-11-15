@@ -4,7 +4,7 @@ The Stage 3 sources in `REFERENCES.md`, cut down to what changes how we run JBV-
 instead of the sources, and before opening `02_concept/`. The rules for these notes are in
 `REFERENCES.md`, "How the stage notes are written".
 
-**Checks.** Spot check: 2026-11-15, passed. "at least one, but preferably multiple" matches NASA SEH 4.3, nasa.gov web version. Talk-through: not done yet.
+**Checks.** Spot check: 2026-11-15, passed. "at least one, but preferably multiple" matches NASA SEH 4.3, nasa.gov web version. Talk-through: 2026-11-15, done by both, nothing left unexplained.
 
 **Stage 3 has two halves.** NASA 4.3 is about **functions** — what the aircraft must do, written before
 any hardware is named. NASA 4.4 is about **the design solution** — generating layouts, trading them,

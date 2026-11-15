@@ -44,7 +44,7 @@ records are not yet seen in a log of ours.
 | **Verification** | Demonstration, [DRM-0500] |
 | **Pass/fail** | Pass if the log of one flight shows the six phases in the order of the statement, each phase read as defined in §3. Fail otherwise |
 | **KDR** | Yes. The transition decides the configuration, most of the cost and most of the schedule |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R2 — Flight time, more than half of it wing-borne
 
@@ -58,7 +58,7 @@ records are not yet seen in a log of ours.
 | **Verification** | Test, [DRM-0600]. All three figures are read from the log |
 | **Pass/fail** | Pass if all three hold: (1) t_flight = t_landing − t_lift-off > 300 s, with lift-off and landing from the flying state (ArduPilot: `STAT.isFlying`); (2) t_wing-borne / t_flight > 0.5, with wing-borne time as defined in §3; (3) the battery is at or above the C11 reserve at landing, judged as in R12. Fail if any one does not hold |
 | **KDR** | Yes. Flight time and the wing-borne share set the battery and the wing, and so the loop of mass, thrust and battery |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R3 — Unprepared ground
 
@@ -71,7 +71,7 @@ records are not yet seen in a log of ours.
 | **Verification** | Demonstration, [DRM-0300], and again in [DRM-0500] |
 | **Pass/fail** | Pass if JBV-01 takes off from and lands on the natural surface of the test site, with nothing laid on the ground and no launch aid; comes to rest in its normal ground attitude; and flies again with no repair. Fail otherwise |
 | **KDR** | Yes. Landing gear, propeller clearance above the ground and tipping over on soft ground differ a lot between layouts |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R4 — Flight record
 
@@ -84,7 +84,7 @@ records are not yet seen in a log of ours.
 | **Verification** | Inspection of the log of [DRM-0100], and of every flight log used to verify another requirement |
 | **Pass/fail** | Pass if the log holds every listed quantity for the whole time from arming to disarming. With ArduPilot: `MODE`; `MSG` and `QTUN.Trn` (transition); `STAT.isFlying`; `ATT`; `POS.RelHomeAlt`; `RCOU`; `BAT` Volt, Curr and CurrTot; `RCIN` C1 to C4. Fail if any one is missing |
 | **KDR** | No. The flight controller records this with default settings |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R5 — Operator number on the outside
 
@@ -98,7 +98,7 @@ records are not yet seen in a log of ours.
 | **Verification** | Inspection of the built aircraft, and again after every rebuild |
 | **Pass/fail** | Pass if the part of the operator number before the dash is on the outside surface of JBV-01, can be read by a person standing next to it, and can still be read after a flight. Fail otherwise |
 | **KDR** | No |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R6 — Transport to the site
 
@@ -112,7 +112,7 @@ records are not yet seen in a log of ours.
 | **Verification** | Demonstration: pack JBV-01, measure each package with a tape, travel by public transport, unpack |
 | **Pass/fail** | Pass if the packed JBV-01 is in no more than 2 packages, each measured at no more than 85 cm in height, width and depth, and after a trip by public transport it passes the bench check [DRM-0100] with no repair. Fail otherwise |
 | **KDR** | Yes. Every part longer than 85 cm — in practice the wing — must come apart |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R7 — Retired 2026-11-01 (D3)
 
@@ -131,7 +131,7 @@ reused.
 | **Verification** | Analysis — arithmetic only (#6). Sum of the dated prices of the rebuild set in `BOM.xlsx`, plus the parcel costs from C6 for the parts that are ordered |
 | **Pass/fail** | Pass if the cost is at or below the allowance at the design review (#54), and again after the parts order (#55). Fail otherwise |
 | **KDR** | Yes. It forces an airframe that comes apart, and a cheap airframe, propellers and servos |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R9 — Rebuild time after a crash
 
@@ -145,7 +145,7 @@ reused.
 | **Verification** | Analysis — arithmetic only (#6). t = H_build / h_week + t_delivery. H_build: person-hours to build the first airframe, measured in P4. t_delivery: the longest delivery time of any part of the rebuild set, from the dated quotes in `BOM.xlsx` and C6 |
 | **Pass/fail** | Pass if t is at most 2 weeks at the design review (#54) with quoted delivery times and estimated build hours, and again in P4 with the measured H_build. Fail otherwise |
 | **KDR** | Yes. With no spare parts, delivery alone can use most of the 2 weeks. It forces parts with short delivery and an airframe that is quick to build |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ---
 
@@ -210,7 +210,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Demonstration, [DRM-0400], two commanded aborts, one in each direction, from `MODE`, `ATT` and `POS` in the flight log |
 | **Pass/fail** | Pass if both commanded aborts, one in each direction, pass B3. Fail if either fails B3 |
 | **KDR** | Yes. A back-transition from part-way differs a lot between layouts |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R11 — Control margin
 
@@ -224,7 +224,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Demonstration, [DRM-0300] and [DRM-0400], from `RCIN` and `RCOU` in the flight log |
 | **Pass/fail** | Pass if B1 holds for the whole G2-O1 hover, and in each transition from the `MODE` change that starts it until the new flight mode is steady (B3's definition). Fail if B1 fails in any of these |
 | **KDR** | Yes. Control margin sizes the motors and servos, and so mass and cost |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R12 — Battery state on the ground
 
@@ -238,7 +238,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Demonstration: on the bench, [DRM-0100], the charge used is shown on the ground; in [DRM-0600], from `BAT` and `MSG` in the flight log |
 | **Pass/fail** | Pass if (1) on the bench the charge used is shown on the ground, and (2) in [DRM-0600] the warning is in the log no later than the first `BAT` sample with charge used at or above 70 % of the rated capacity. Fail otherwise |
 | **KDR** | No. A standard telemetry link and current sensor do this |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R13 — Arming
 
@@ -251,7 +251,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Demonstration on the bench, armed, propellers off, [DRM-0100] |
 | **Pass/fail** | Pass if all hold: (1) the switch arms and disarms; (2) arming by the rudder stick is refused; (3) the aircraft shows its state by light and sound; (4) every arm and disarm is in the log; (5) no motor turns while disarmed. Fail if any one does not hold |
 | **KDR** | No |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R14 — Loss of the command link
 
@@ -265,7 +265,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Demonstration: (1) on the bench, armed, propellers off, [DRM-0100], the transmitter is switched off once in a hover mode and once in a fixed-wing mode; (2) in [DRM-0400] or [DRM-0500], after B3 has passed, the pilot commands RTL from wing-borne flight |
 | **Pass/fail** | Pass if both hold: (1) on the bench the log shows QRTL (hover mode) and RTL (fixed-wing mode) within 5 s of the transmitter going off; (2) the commanded RTL ends in a vertical landing within 10 m of the home point, read from `POS`. Fail otherwise |
 | **KDR** | Yes. It needs a GNSS and an automatic back-transition |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R15 — Stability
 
@@ -279,7 +279,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Demonstration, [DRM-0300] (hover, QHOVER) and [DRM-0400] (wing-borne, FBWA), from `ATT` in the flight log |
 | **Pass/fail** | Pass if B2 holds in QHOVER and in FBWA. Fail if either fails |
 | **KDR** | Yes. Stability in both modes shapes the layout, the centre of gravity and the tail |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ### R16 — Battery at the reserve
 
@@ -293,7 +293,7 @@ number (rule 5). Never edited after a flight.
 | **Verification** | Inspection of the flight controller settings before every flight day; the return itself is verified by R14 |
 | **Pass/fail** | Pass if the battery failsafe is set to start a return to the take-off point when the charge used reaches (1 − C11) × the rated capacity of the pack in use. Fail otherwise |
 | **KDR** | No |
-| **Status** | Draft, 2026-11-11 |
+| **Status** | Frozen in `req-v1`, 2026-11-15 |
 
 ---
 

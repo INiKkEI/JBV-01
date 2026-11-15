@@ -5,7 +5,7 @@ instead of the sources, and before writing the system V&V plan (#19), the flight
 line of `06_flight/FLIGHT_LOG.md`. The rules for these notes are in `REFERENCES.md`, "How the stage
 notes are written". Read `STAGE_6_NOTES.md` first: Stage 8 uses the same loop one level up.
 
-**Checks.** Spot check: 2026-11-15, passed. "Analysis includes the use of modeling and simulation as analytical tools." matches NASA SEH 5.4, box "Methods of Validation", nasa.gov web version. Talk-through: not done yet.
+**Checks.** Spot check: 2026-11-15, passed. "Analysis includes the use of modeling and simulation as analytical tools." matches NASA SEH 5.4, box "Methods of Validation", nasa.gov web version. Talk-through: 2026-11-15, done by both, nothing left unexplained.
 
 **Read on 2026-11-11.** NASA 5.4, 5.5, Appendix E and Appendix T from the nasa.gov web version of
 the handbook (Rev 2). MIT Session 10 from the OCW PDF, slide numbers as printed in the footer.

@@ -4,7 +4,7 @@ The Stage 1 sources in `REFERENCES.md`, cut down to what changes how we run JBV-
 instead of the sources. The rules for these notes are in `REFERENCES.md`, "How the stage notes are
 written".
 
-**Checks.** Spot check: 2026-11-15, passed. "Objectives 'To Be Determined' (TBD) may be included until trade studies occur" matches NASA SEH 4.1.1.2.3, nasa.gov web version. Talk-through: not done yet.
+**Checks.** Spot check: 2026-11-15, passed. "Objectives 'To Be Determined' (TBD) may be included until trade studies occur" matches NASA SEH 4.1.1.2.3, nasa.gov web version. Talk-through: 2026-11-15, done by both, nothing left unexplained.
 
 **Stage 1 is complete.** Its four outputs exist: stakeholder expectations in `NGO.md`, the ConOps in
 `CONOPS.md`, support strategies in ConOps §5.0, and the measures of effectiveness in `NGO.md` §4.

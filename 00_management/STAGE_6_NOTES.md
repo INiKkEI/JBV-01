@@ -5,7 +5,7 @@ instead of the sources, and before writing a test plan (#19, #20, #52, #53) or a
 `05_verification/TEST_LOG.md`. The rules for these notes are in `REFERENCES.md`, "How the stage
 notes are written".
 
-**Checks.** Spot check: 2026-11-15, passed. "Was the end product realized right?" matches NASA SEH 5.3 introduction, nasa.gov web version. Talk-through: not done yet.
+**Checks.** Spot check: 2026-11-15, passed. "Was the end product realized right?" matches NASA SEH 5.3 introduction, nasa.gov web version. Talk-through: 2026-11-15, done by both, nothing left unexplained.
 
 **Read on 2026-11-11.** NASA 5.3 and Appendix I from the nasa.gov web version of the handbook (Rev 2).
 MIT Session 9 from the OCW PDF, slide numbers as printed in the footer. HYDRO Figures 13 to 16 read

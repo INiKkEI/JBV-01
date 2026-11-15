@@ -4,7 +4,7 @@ The Stage 2 sources in `REFERENCES.md`, cut down to what changes how we run JBV-
 instead of the sources, and before writing a line of `01_requirements/REQUIREMENTS.md`. The rules for
 these notes are in `REFERENCES.md`, "How the stage notes are written".
 
-**Checks.** Spot check: 2026-11-15, passed. "The requirement is stated positively (as opposed to negatively, i.e., 'shall not')." matches NASA SEH Appendix C, C.3 General Goodness Checklist, nasa.gov web version. Talk-through: not done yet.
+**Checks.** Spot check: 2026-11-15, passed. "The requirement is stated positively (as opposed to negatively, i.e., 'shall not')." matches NASA SEH Appendix C, C.3 General Goodness Checklist, nasa.gov web version. Talk-through: 2026-11-15, done by both, nothing left unexplained.
 
 ---
 
