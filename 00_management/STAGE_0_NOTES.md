@@ -4,7 +4,7 @@ The Stage 0 sources in `REFERENCES.md`, cut down to what changes how we run JBV-
 instead of the sources. The rules for these notes are in `REFERENCES.md`, "How the stage notes are
 written".
 
-**Checks.** Spot check: not done yet. Talk-through: not done yet.
+**Checks.** Spot check: 2026-11-15, passed. The worked example "The aircraft shall stop within 1,500 metres" matches REQI, section "The Two Arms of the V: Every Definition Paired With Its Test". Talk-through: not done yet.
 
 ---
 
