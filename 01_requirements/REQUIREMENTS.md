@@ -37,7 +37,7 @@ records are not yet seen in a log of ours.
 
 | | |
 |---|---|
-| **Statement** | JBV-01 shall fly one flight that contains, in this order: vertical take-off, hover, transition to wing-borne flight, wing-borne cruise, transition to hover, and vertical landing. |
+| **Statement** | JBV-01 shall fly one flight that contains, in the following order: vertical take-off, hover, transition to wing-borne flight, wing-borne cruise, transition to hover, and vertical landing. |
 | **Area** | Functional |
 | **Parent** | G1-O1, under G1. Verifies MOE-1 |
 | **Rationale** | **Reason:** G1-O1 is the pass mark of the project (MOE-1). Without R1, nothing asks for the whole profile in one flight: each phase could be shown on a different day. **Assumptions:** the log holds flight mode, transition state and flying state (R4). **ConOps:** capabilities 1, 3 and 5; [DRM-0500]. **Design constraint:** C10 — vertical take-off and landing, configuration open |
@@ -244,7 +244,7 @@ number (rule 5). Never edited after a flight.
 
 | | |
 |---|---|
-| **Statement** | JBV-01 shall arm and disarm only by one dedicated transmitter switch. |
+| **Statement** | JBV-01 shall arm and disarm by one dedicated transmitter switch, and by no other input. |
 | **Area** | Operability |
 | **Parent** | F21; capability 9. Safety on every flight |
 | **Rationale** | **Reason:** arming makes the propellers live. Without R13, the aircraft could be armed by a stick movement and nobody would see its state on the transmitter. The same switch stops the motors at once (C, 2026-11-11). **Assumptions:** the switch disarms unconditionally, even in flight (ArduPilot docs, not tested), so the switch is one that is hard to hit by mistake, chosen in #48. **ConOps:** capability 9; [DRM-0100]. **Design constraint:** none |
@@ -257,7 +257,7 @@ number (rule 5). Never edited after a flight.
 
 | | |
 |---|---|
-| **Statement** | On loss of the command link, JBV-01 shall start a return to its take-off point within 5 s and land there vertically. |
+| **Statement** | On loss of the command link, JBV-01 shall start a return to its take-off point within 5 s and make a vertical landing there. |
 | **Area** | Safety |
 | **Parent** | [DRM-0700]; F20 |
 | **Numbers** | **5 s** — chosen 2026-11-11 (D2), the ArduPilot default for the long failsafe (`FS_LONG_TIMEOUT`); in hover the return starts after 1 s (`RC_FS_TIMEOUT`). If shorter, a short link dropout ends a test flight; if longer, the aircraft is out of control for longer. **10 m** — chosen 2026-11-11 (D3). GNSS on a small aircraft is good to about 2 to 5 m (estimate, not sourced). If tighter, GNSS error alone fails it; if looser, a landing in the wrong place passes |
