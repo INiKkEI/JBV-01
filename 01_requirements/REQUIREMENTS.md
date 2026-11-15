@@ -123,14 +123,14 @@ reused.
 
 | | |
 |---|---|
-| **Statement** | A complete rebuild of JBV-01 after a crash shall cost no more than the rebuild allowance in `NGO.md` §6. |
+| **Statement** | The rebuild allowance in `NGO.md` §6 shall cover one full rebuild set: the parts of JBV-01 that do not survive a crash. |
 | **Area** | Maintainability |
 | **Parent** | C4 (a crash and rebuild is planned); C3 (money) |
 | **Numbers** | The allowance is **cited, not copied**: it is a chosen line of the C3 apportionment, and lives in `NGO.md` §6 only |
-| **Rationale** | **Reason:** C4 plans at least one crash, and part of C3 is held for it. Without R8, an airframe could be designed whose rebuild costs more than the allowance, and the project ends at the first crash. The time to rebuild is R9 (D4). **The rebuild set** is every part except the avionics that move to the new airframe (flight controller, receiver, telemetry radio, GNSS), and it includes one battery, because a crashed pack is retired (`CONOPS.md` §5.0). **Assumptions:** the avionics survive the crash. **ConOps:** capability 11; §5.0 repair and rebuild. **Design constraint:** C3, C4, C5, C6 |
+| **Rationale** | **Reason:** C4 plans at least one crash, and part of C3 is held for it. Without R8, an airframe could be designed whose rebuild costs more than the allowance, and the project ends at the first crash. The time to rebuild is R9 (D4). **The rebuild set** is the airframe (foam, printed and balsa parts, landing gear), all propellers, the servos, and one battery, because a crashed pack is retired (`CONOPS.md` §5.0). The list is fixed until `req-v2` (#21) and reviewed once there. **Assumptions:** the avionics (flight controller, receiver, telemetry radio, GNSS), the motors and the ESCs survive the crash and move to the new airframe. If a crash breaks a motor or an ESC, its cost is not covered by the allowance. **ConOps:** capability 11; §5.0 repair and rebuild. **Design constraint:** C3, C4, C5, C6 |
 | **Verification** | Analysis — arithmetic only (#6). Sum of the dated prices of the rebuild set in `BOM.xlsx`, plus the parcel costs from C6 for the parts that are ordered |
 | **Pass/fail** | Pass if the cost is at or below the allowance at the design review (#54), and again after the parts order (#55). Fail otherwise |
-| **KDR** | Yes. It forces an airframe that comes apart, and cheap parts where crashes happen |
+| **KDR** | Yes. It forces an airframe that comes apart, and a cheap airframe, propellers and servos |
 | **Status** | Draft, 2026-11-11 |
 
 ### R9 — Rebuild time after a crash
@@ -202,13 +202,13 @@ number (rule 5). Never edited after a flight.
 
 | | |
 |---|---|
-| **Statement** | JBV-01 shall abandon a transition when the pilot commands it, and return to hover, passing B3. |
+| **Statement** | JBV-01 shall abandon a transition when the pilot commands it, and return to the flight state in which the transition started, passing B3. |
 | **Area** | Functional |
-| **Parent** | G2-O4, under G2 |
+| **Parent** | G2-O4, under G2; F8 |
 | **Numbers** | None of its own. B3 in `NGO.md` §3 holds them |
-| **Rationale** | **Reason:** the first transitions are the most dangerous moment of the project. Without R10, every transition attempt is all or nothing. **Assumptions:** the transition time used to time the abort is measured on the tether (B4, a test gate in #20). **ConOps:** capability 10; [DRM-0400]; F8. **Design constraint:** C10 — the configuration is open, so the abort is judged from the log, not from an attitude |
-| **Verification** | Demonstration, [DRM-0400], from `MODE`, `ATT` and `POS` in the flight log |
-| **Pass/fail** | Pass if the commanded abort passes B3. Fail if B3 fails |
+| **Rationale** | **Reason:** the first transitions are the most dangerous moment of the project. Without R10, every transition attempt is all or nothing. The back-transition is where height loss and stall risk are highest, so it needs an abort too (F8: return to the previous flight state). **Assumptions:** the transition time used to time each abort is measured on the tether, for the same direction (B4, a test gate in #20); returning to wing-borne flight from halfway through a back-transition is possible on the chosen layout, checked in the configuration trade. **ConOps:** capability 10; [DRM-0400]; F8. **Design constraint:** C10 — the configuration is open, so the abort is judged from the log, not from an attitude |
+| **Verification** | Demonstration, [DRM-0400], two commanded aborts, one in each direction, from `MODE`, `ATT` and `POS` in the flight log |
+| **Pass/fail** | Pass if both commanded aborts, one in each direction, pass B3. Fail if either fails B3 |
 | **KDR** | Yes. A back-transition from part-way differs a lot between layouts |
 | **Status** | Draft, 2026-11-11 |
 

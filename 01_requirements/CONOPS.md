@@ -165,7 +165,7 @@ something breaks if it is removed**, and the thing it would break is named.
 | 7 | **Send its state to the ground while flying** — at least battery and position | [DRM-0800]. Without it the flight ends after the reserve is broken, not before |
 | 8 | Accept a physical tether for restrained testing | G2-O5 |
 | 9 | Be armed and disarmed deliberately, with no ambiguity about which state it is in | Safety on every flight |
-| 10 | Abandon a transition and return to hover under control | G2-O4 |
+| 10 | Abandon a transition and return to the flight state it started from, under control | G2-O4 |
 | 11 | Be repaired or rebuilt after a crash, using parts we can obtain | C4 |
 | 12 | Carry the operator number visibly on its outside surface | C22, and it is law |
 
@@ -326,7 +326,7 @@ document that can injure a person.
 **A failed or stalled transition is deliberately not a scenario here.** It is handled in the flight
 test plan for [DRM-0400] instead. Recorded openly, because it is the failure most likely to happen
 to us: **if the [DRM-0400] test plan is thin, nothing else in this document catches it.** The
-capability it drives — abandoning a transition and returning to hover, G2-O4 — stands regardless.
+capability it drives — abandoning a transition and returning to the flight state it started from, G2-O4 — stands regardless.
 
 ---
 
